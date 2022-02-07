@@ -1,0 +1,19 @@
+.ProjectTextHard {
+  margin: 0;
+  font-size: 40px;
+  line-height: 56px;
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectTextHard {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectTextHard {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}

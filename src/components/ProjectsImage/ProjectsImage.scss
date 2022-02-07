@@ -1,0 +1,50 @@
+.ProjectsImage {
+  &-1 img,
+  &-5 img {
+    width: 515px;
+    height: 515px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectsImage {
+    &-1 img,
+    &-5 img {
+      width: 232px;
+      height: 232px;
+    }
+
+    &-2 img,
+    &-4 img {
+      width: 408px;
+      height: 408px;
+    }
+
+    &-3 img {
+      width: 672px;
+      height: 418px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectsImage {
+    &-1 img,
+    &-2 img,
+    &-4 img,
+    &-5 img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-3 img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

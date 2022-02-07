@@ -1,0 +1,275 @@
+.Menu {
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 29px 0 0;
+  color: #424d5e;
+
+  &-logo {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    visibility: hidden;
+
+    a {
+      color: #424d5e;
+      text-decoration: none;
+    }
+
+    &_color {
+      color: #3ece5d;
+    }
+  }
+
+  &-burger-logo {
+    display: none;
+  }
+
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 333px;
+  }
+
+  &-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &-link {
+    list-style: none;
+
+    a {
+      font-size: 16px;
+      line-height: 26px;
+      color: #424d5e;
+      text-decoration: none;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 0%;
+        border-bottom: 1px solid #424d5e;
+        transition: width 0.3s ease-out;
+      }
+
+      &:hover:after {
+        width: 50%;
+      }
+
+      &:focus:after {
+        width: 100%;
+      }
+    }
+  }
+
+  &-call {
+    flex-direction: column;
+    align-items: flex-end;
+    width: 132px;
+
+    &_phone,
+    &_time {
+      max-width: 150px;
+      max-height: 20px;
+      overflow: hidden;
+
+      a {
+        color: #424d5e;
+        text-decoration: none;
+      }
+    }
+
+    &_phone {
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &_time {
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    &_time_none {
+      display: none;
+    }
+  }
+
+  &-display-none,
+  &-burger-button {
+    display: none;
+  }
+
+  &-display-block {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Menu {
+    max-width: 672px;
+    &-logo {
+      visibility: visible;
+    }
+
+    &-wrapper {
+      width: 246px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    &-display-block {
+      align-items: stretch;
+    }
+    
+    &-logo,
+    &-wrapper {
+      display: none;
+    }
+
+    &-call {
+      width: 150px;
+      padding: 16px 0 0 16px;
+
+      &_phone {
+        font-weight: 700;
+        a {
+          color: #1e2837;
+        }
+      }
+    }
+
+    &-link {
+      font-size: 20px;
+      line-height: 28px;
+      margin-bottom: 24px;
+
+      &-button {
+        width: 100%;
+        max-width: 480px;
+        max-height: 30px;
+        overflow: hidden;
+        font-size: 16px;
+        line-height: 26px;
+        background-color: #1e2837;
+        border: none;
+
+        a {
+          max-width: 320px;
+          max-height: 20px;
+          overflow: hidden;
+        }
+      }
+
+      &-img {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+    }
+
+    &-burger-logo {
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 10%;
+    }
+
+    &-burger-connect {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 22px;
+
+      &_phone {
+        margin-top: 35px;
+      }
+    }
+
+    &-burger-wrapper {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 110%;
+      max-width: 480px;
+      left: -16px;
+      padding: 82px 0 22px 0;
+      background-color: #1e2837;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    }
+
+    &-burger-button {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0%;
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+
+      &_closed::after {
+        content: '';
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 24px;
+        height: 1.5px;
+        background-color: #1e2837;
+        box-shadow: 0 8px 0 0 #1e2837, 0 16px 0 0 #1e2837;
+      }
+    }
+
+    &-burger-button_opened {
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 16px;
+        width: 24px;
+        height: 2px;
+        background-color: #ffffff;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+        box-shadow: none;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        box-shadow: none;
+      }
+    }
+  }
+  .Menu > .Menu-burger-wrapper {
+    order: 2;
+  }
+  .Menu > .Menu-call {
+    order: 1;
+  }
+}

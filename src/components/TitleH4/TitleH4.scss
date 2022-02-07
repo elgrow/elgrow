@@ -1,0 +1,22 @@
+.TitleH4 {
+  max-width: 1320px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 84px;
+  color: #1E2837;
+}
+
+@media screen and (max-width: 768px) {
+  .TitleH4 {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .TitleH4 {
+    font-size: 25px;
+    line-height: 35px;
+  }
+}

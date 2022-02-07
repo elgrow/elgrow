@@ -1,0 +1,21 @@
+.ProjectTextMedium {
+  margin: 0;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectTextMedium {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectTextMedium {
+     p {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}

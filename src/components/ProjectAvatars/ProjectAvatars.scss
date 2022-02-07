@@ -1,0 +1,84 @@
+.ProjectAvatars {
+  position: relative;
+  height: 80px;
+
+  &-avatar {
+    position: absolute;
+  }
+
+  &-avatar-1 {
+    left: 11%;
+  }
+
+  &-avatar-2 {
+    left: 22%;
+  }
+
+  &-avatar-3 {
+    left: 33%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectAvatars {
+    height: 64px;
+
+    &-avatar-1 {
+      left: 13%;
+    }
+  
+    &-avatar-2 {
+      left: 26%;
+    }
+  
+    &-avatar-3 {
+      left: 39%;
+    }
+
+    &-avatar {
+      width: 64px;
+      height: 64px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectAvatars {
+    height: 56px;
+
+    &-avatar-1 {
+      left: 12%;
+    }
+  
+    &-avatar-2 {
+      left: 24%;
+    }
+  
+    &-avatar-3 {
+      left: 36%;
+    }
+
+    &-avatar {
+      width: 56px;
+      height: 56px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .ProjectAvatars {
+    height: 56px;
+
+    &-avatar-1 {
+      left: 16%;
+    }
+  
+    &-avatar-2 {
+      left: 32%;
+    }
+  
+    &-avatar-3 {
+      left: 48%;
+    }
+  }
+}

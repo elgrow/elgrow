@@ -1,0 +1,95 @@
+.ProjectTask {
+  &-1,
+  &-2,
+  &-4,
+  &-5 {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  &-button {
+    padding: 0;
+    border: none;
+    background-color: #fff;
+    text-align: start;
+
+    &-1 {
+      max-width: 145px;
+    }
+
+    &-3 {
+      max-width: 190px;
+    }
+
+    &-4 {
+      max-width: 175px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #424d5e;
+      transition: width 0.3s ease-out;
+    }
+
+    &:hover:after {
+      width: 50%;
+    }
+  }
+
+  &-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 26px;
+    text-decoration: none;
+    color: #424d5e;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectTask {
+    &-text {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &-button {
+      &-1 {
+        max-width: 200px;
+      }
+
+      &-3 {
+        max-width: 160px;
+      }
+
+      &-4 {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectTask {
+    &-5 {
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    &-text {
+      font-size: 14px;
+      line-height: 22px;
+      line-height: 22px;
+    }
+
+    &-button {
+      &-1,
+      &-3,
+      &-4 {
+        max-width: 320px;
+      }
+    }
+  }
+}

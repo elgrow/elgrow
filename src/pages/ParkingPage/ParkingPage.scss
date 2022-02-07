@@ -1,0 +1,693 @@
+.Parking {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  color: #424d5e;
+
+  &-menu-back {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+  }
+
+  &-white {
+    background-color: #eef0f2;
+    width: 100%;
+  }
+
+  &-black {
+    background-color: #1e2837;
+    width: 100%;
+  }
+
+  &-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-title-768display {
+    display: none;
+  }
+
+  &-title-display {
+    margin-bottom: 80px;
+  }
+
+  &-320phone-screens {
+    display: none;
+  }
+
+  &-text-hard-wrapper {
+    margin-bottom: 20px;
+  }
+
+  &-section {
+    width: 100%;
+
+    &-2 {
+      margin-bottom: 0px;
+    }
+
+    &-flex {
+      display: grid;
+      max-width: 1320px;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 60px;
+      padding-bottom: 150px;
+      margin: 80px 0 150px;
+      border-bottom: 4px solid #424d5e;
+
+      &-1 {
+        grid-template-columns: 1fr;
+        margin-top: 150px;
+        padding-bottom: 300px;
+      }
+
+      &-2 {
+        margin: 0 0 80px;
+      }
+
+      &-3 {
+        grid-template-columns: 1fr;
+      }
+
+      &-4 {
+        margin-top: 0px;
+      }
+
+      &-5 {
+        margin-top: 80px;
+        border-bottom: none;
+      }
+    }
+
+    &-block {
+      display: grid;
+      row-gap: 40px;
+      width: 100%;
+
+      &-left {
+        position: relative;
+        width: 100%;
+      }
+
+      &-list {
+        margin: 0;
+        margin: 0 0 40px;
+        padding: 0;
+        list-style: none;
+
+        li {
+          display: flex;
+          align-items: baseline;
+        }
+
+        li:before {
+          content: '—';
+          position: relative;
+          left: -5px;
+        }
+      }
+    }
+  }
+
+  &-background-white {
+    position: relative;
+    margin: 0 auto;
+    width: 1440px;
+    height: 900px;
+    padding: 133px 175px;
+
+    &-booking {
+      position: relative;
+      img {
+        width: 100%;
+      }
+    }
+
+    &-bookPlace {
+      position: absolute;
+      top: -553px;
+      left: -100px;
+    }
+
+    &-shuttle {
+      position: absolute;
+      top: -71px;
+      left: 950px;
+    }
+
+    &-parkings {
+      position: absolute;
+      top: 350px;
+    }
+
+    &-time {
+      position: absolute;
+      top: 450px;
+      left: -60px;
+    }
+
+    &-bigBookPlace {
+      position: absolute;
+      left: 273px;
+
+      img {
+        width: 392px;
+      }
+    }
+  }
+  &-phone-screens,
+  &-phone-text {
+    display: flex;
+    column-gap: 190px;
+    padding-left: 115px;
+
+    &-block {
+      width: 285px;
+    }
+  }
+
+  &-phone-screens {
+    width: 1320px;
+    padding: 60px 0 55px 115px;
+    background-color: #eef0f2;
+  }
+
+  &-phone-text {
+    column-gap: 175px;
+    margin-top: 80px;
+
+    &-hard {
+      margin: 0;
+      margin-bottom: 32px;
+      font-size: 30px;
+      line-height: 42px;
+    }
+
+    &-small {
+      margin: 0;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  &-approval {
+    position: relative;
+    height: 790px;
+
+    &-authorization {
+      margin-top: 138px;
+    }
+
+    &-confirmation {
+      position: absolute;
+      top: 40px;
+      left: -300px;
+    }
+
+    &-go {
+      position: absolute;
+      top: 560px;
+      left: -480px;
+    }
+
+    &-order {
+      position: absolute;
+      left: 102px;
+    }
+  }
+
+  &-background-black {
+    position: relative;
+    margin: 0 auto;
+    width: 1440px;
+    height: 640px;
+    padding: 60px 303px;
+
+    &-blocking {
+      position: absolute;
+      top: -254px;
+      left: 675px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Parking {
+    &-menu-back {
+      height: 76px;
+    }
+
+    &-title-768display {
+      display: block;
+      margin-left: 48px;
+
+      &-5 {
+        margin-top: 40px;
+      }
+    }
+
+    &-title-display {
+      display: none;
+    }
+
+    &-section {
+      width: 100%;
+
+      &-2 {
+        margin-bottom: 0px;
+        border-bottom: none;
+      }
+
+      &-flex {
+        display: grid;
+        grid-template-columns: 1fr 60%;
+        column-gap: 0;
+        margin: 40px 48px 80px;
+        padding-bottom: 80px;
+        border-bottom: 2px solid #424d5e;
+
+        &-1 {
+          grid-template-columns: 1fr;
+          margin-top: 80px;
+          padding-bottom: 150px;
+        }
+
+        &-2 {
+          margin-bottom: 0;
+          padding: 0;
+          border-bottom: none;
+        }
+
+        &-5 {
+          margin-top: 40px;
+          border-bottom: none;
+        }
+      }
+
+      &-block {
+        row-gap: 32px;
+
+        &-list {
+          margin: 0 0 8px;
+        }
+      }
+    }
+
+    &-background-white {
+      width: 768px;
+      height: 480px;
+      padding: 78px 106px;
+
+      &-bookPlace {
+        top: -220px;
+        left: -68px;
+
+        img {
+          width: 164px;
+          height: 313px;
+        }
+      }
+
+      &-shuttle {
+        top: -37px;
+        left: 485px;
+
+        img {
+          width: 144px;
+          height: 313px;
+        }
+      }
+
+      &-parkings {
+        top: 286px;
+        left: -20px;
+
+        img {
+          width: 232px;
+          height: 502px;
+        }
+      }
+
+      &-time {
+        top: 350px;
+        left: -32px;
+
+        img {
+          width: 212px;
+        }
+      }
+
+      &-bigBookPlace {
+        position: absolute;
+        left: -70px;
+
+        img {
+          width: 232px;
+          height: 502px;
+        }
+      }
+
+      &-bigShuttle {
+        position: absolute;
+        top: -60px;
+      }
+
+      &-profile {
+        position: absolute;
+        top: 143px;
+        left: 88px;
+      }
+
+      &-feedback {
+        position: absolute;
+        top: 267px;
+      }
+    }
+
+    &-phone-screens,
+    &-phone-text {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0px;
+
+      &-block {
+        width: 100%;
+      }
+    }
+
+    &-phone-screens {
+      position: relative;
+      width: 100%;
+      padding: 0;
+      background-color: #fff;
+
+      img {
+        width: 144px;
+      }
+    }
+    &-phone-text {
+      margin-top: 0;
+
+      &-hard {
+        font-size: 22px;
+        line-height: 32px;
+      }
+
+      &-small {
+        margin-bottom: 40px;
+        line-height: 25px;
+      }
+    }
+
+    &-approval {
+      position: relative;
+      height: 550px;
+
+      img {
+        width: 232px;
+        height: 502px;
+      }
+
+      &-authorization {
+        margin-top: 108px;
+
+        img {
+          width: 232px;
+          height: 502px;
+        }
+      }
+
+      &-confirmation {
+        left: -90px;
+      }
+
+      &-go {
+        position: absolute;
+        top: 406px;
+        left: -165px;
+
+        img {
+          width: 216px;
+          height: 116px;
+        }
+      }
+
+      &-order {
+        position: absolute;
+        left: 180px;
+      }
+    }
+
+    &-background-black {
+      width: 768px;
+      height: 341px;
+      padding: 31px 161px;
+
+      &-user {
+        img {
+          width: 100%;
+        }
+      }
+
+      &-blocking {
+        position: absolute;
+        top: -123px;
+        left: 350px;
+
+        img {
+          width: 216px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Parking {
+    &-menu-back {
+      height: 54px;
+    }
+
+    &-title-768display {
+      display: block;
+      margin-left: 16px;
+
+      &-5 {
+        margin-top: 40px;
+      }
+    }
+
+    &-title-display {
+      display: none;
+    }
+
+    &-section {
+      &-2 {
+        margin-bottom: 0px;
+        border-bottom: none;
+      }
+
+      &-flex {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        margin: 32px 16px 48px;
+        padding-bottom: 48px;
+
+        &-1 {
+          margin-top: 48px;
+          padding-bottom: 96px;
+        }
+
+        &-2 {
+          margin-bottom: 0;
+        }
+
+        &-3 {
+          margin-top: 0px;
+          padding-bottom: 16px;
+        }
+      }
+
+      &-block {
+        row-gap: 24px;
+
+        &-list {
+          margin: 0 0 8px;
+        }
+      }
+    }
+
+    &-background-white {
+      width: 320px;
+      height: 212px;
+      padding: 18px 16px 32px 44px;
+
+      &-bookPlace {
+        top: -126px;
+        left: -36px;
+
+        img {
+          width: 68px;
+          height: 147px;
+        }
+      }
+
+      &-shuttle,
+      &-parkings,
+      &-time,
+      &-bigBookPlace,
+      &-bigShuttle,
+      &-profile,
+      &-feedback {
+        display: none;
+      }
+    }
+
+    &-phone-text {
+      &-hard {
+        margin-bottom: 24px;
+        font-size: 18px;
+        line-height: 26px;
+      }
+
+      &-small {
+        margin-bottom: 32px;
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+
+    &-approval {
+      display: none;
+
+      &-authorization {
+        display: none;
+      }
+    }
+
+    &-background-black {
+      width: 320px;
+      height: 320px;
+      padding: 30px 0;
+
+      &-user {
+        position: absolute;
+        left: -60px;
+        width: 419px;
+        height: 262px;
+      }
+
+      &-blocking {
+        position: absolute;
+        top: 61px;
+        left: 88px;
+      }
+    }
+
+    &-320phone-screens {
+      display: block;
+      position: relative;
+      height: 380px;
+      margin-left: 16px;
+
+      &-3 {
+        height: 668px;
+      }
+
+      img {
+        width: 144px;
+        height: 311px;
+      }
+
+      &-bigBookPlace {
+        position: absolute;
+
+        img {
+          width: 148px;
+          height: 309px;
+        }
+      }
+
+      &-parkings {
+        position: absolute;
+        top: 60px;
+        left: 145px;
+
+        img {
+          width: 148px;
+          height: 309px;
+        }
+      }
+
+      &-time {
+        position: absolute;
+        top: 102px;
+        left: 140px;
+
+        img {
+          width: 129px;
+          height: 83px;
+        }
+      }
+
+      &-bigShuttle {
+        position: absolute;
+      }
+
+      &-profile {
+        position: absolute;
+        top: 200px;
+        left: 152px;
+      }
+
+      &-feedback {
+        position: absolute;
+        top: 327px;
+      }
+
+      &-authorization {
+        display: none;
+      }
+
+      &-confirmation {
+        position: absolute;
+        top: 30px;
+
+        img {
+          width: 136px;
+          height: 294px;
+        }
+      }
+
+      &-go {
+        position: absolute;
+        top: 221px;
+        left: 8px;
+
+        img {
+          width: 150px;
+          height: 83px;
+        }
+      }
+
+      &-order {
+        position: absolute;
+        left: 154px;
+
+        img {
+          width: 136px;
+          height: 294px;
+        }
+      }
+    }
+  }
+}

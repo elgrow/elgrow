@@ -1,0 +1,152 @@
+.ProjectFooter {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  background-color: #1e2837;
+  color: #fff;
+
+  &-wrapper {
+    margin: 0 auto;
+    max-width: 1320px;
+    padding: 0 43px;
+  }
+
+  &-text {
+    margin: 0;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    font-size: 30px;
+    line-height: 42px;
+  }
+
+  &-title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 90px;
+    line-height: 110px;
+    text-align: start;
+  }
+
+  &-link {
+    max-width: 1120px;
+    padding: 0;
+    color: #fff;
+    background-color: #1e2837;
+    text-decoration: none;
+
+    &-wrapper {
+      height: 409px;
+    }
+
+    &-arrow {
+      margin-left: 60px;
+      width: 60px;
+      height: 35px;
+      display: inline-block;
+      background-image: url('../../assets/images/arrow_white.png');
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-image: url('../../assets/images/arrow_white_big.png');
+      }
+    }
+  }
+
+  &-link:hover {
+    cursor: pointer;
+  }
+
+  &-copyright {
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectFooter {
+    height: 480px;
+
+    &-wrapper {
+      max-width: 768px;
+      padding: 0 32px;
+    }
+
+    &-text {
+      margin-top: 32px;
+      margin-bottom: 14px;
+      font-size: 22px;
+      line-height: 32px;
+    }
+
+    &-title {
+      font-size: 50px;
+      line-height: 64px;
+    }
+
+    &-link {
+      max-width: 590px;
+
+      &-wrapper {
+        height: 355px;
+      }
+
+      &-arrow {
+        width: 30px;
+        height: 25px;
+        margin-left: 32px;
+        background-image: url('../../assets/images/arrow_white_small.png');
+
+        &:hover {
+          background-image: url('../../assets/images/arrow_white.png');
+        }
+      }
+    }
+
+    &-copyright {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectFooter {
+    &-wrapper {
+      max-width: 480px;
+      padding: 0 16px;
+    }
+
+    &-text {
+      margin-bottom: 14px;
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    &-title {
+      max-width: 80%;
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    &-link {
+      max-width: 260px;
+
+      &-wrapper {
+        height: 370px;
+      }
+
+      &-arrow {
+        height: 20px;
+        margin-left: 16px;
+      }
+    }
+
+    &-copyright {
+      font-size: 10px;
+      line-height: 16px;
+      padding-bottom: 16px;
+    }
+  }
+}

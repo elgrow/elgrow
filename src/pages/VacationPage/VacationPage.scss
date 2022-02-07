@@ -1,0 +1,662 @@
+.VacationPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  color: #424d5e;
+
+  &-menu-back {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+  }
+
+  &-white {
+    background-color: #eef0f2;
+    width: 100%;
+  }
+
+  &-black {
+    background-color: #1e2837;
+    width: 100%;
+  }
+
+  &-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-title-wrapper {
+    margin: 0 auto;
+    max-width: 1320px;
+    margin-top: 80px;
+  }
+
+  &-section {
+    width: 100%;
+
+    &-flex {
+      display: grid;
+      max-width: 1320px;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 60px;
+      row-gap: 60px;
+      padding-bottom: 150px;
+      margin: 80px 0 150px;
+      border-bottom: 4px solid #424d5e;
+
+      &-1 {
+        grid-template-columns: 1fr;
+        margin-top: 150px;
+        padding-bottom: 300px;
+      }
+
+      &-2 {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      &-6 {
+        border-bottom: none;
+      }
+    }
+
+    &-block {
+      display: grid;
+      row-gap: 40px;
+      width: 100%;
+
+      &-left {
+        width: 100%;
+      }
+    }
+  }
+
+  &-background-white {
+    position: relative;
+    margin: 0 auto;
+    width: 1320px;
+
+    &-applications {
+      padding: 68px 208px;
+      background-color: #eef0f2;
+    }
+  }
+
+  &-image-320wrapper {
+    display: none;
+  }
+
+  &-image-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 1320px;
+
+    &-next-year {
+      position: absolute;
+      left: 23px;
+      bottom: -150px;
+    }
+  }
+
+  &-background-black {
+    position: relative;
+    margin: 0 auto;
+    width: 1320px;
+    height: 638px;
+    max-width: 1320px;
+
+    &-userVacation,
+    &-unscheduled,
+    &-september,
+    &-nextYear,
+    &-plan,
+    &-plan-check,
+    &-plan-go-over,
+    &-applications-blackout,
+    &-planning,
+    &-hr,
+    &-prohibition,
+    &-print,
+    &-reminder {
+      position: absolute;
+
+      img {
+        // height: auto;
+        // width: 100%;
+      }
+    }
+
+    &-userVacation {
+      top: 28px;
+      right: 38px;
+    }
+
+    &-unscheduled {
+      top: -71px;
+      left: 58px;
+    }
+
+    &-september {
+      top: 93px;
+      left: 76px;
+    }
+
+    &-nextYear {
+      top: 200px;
+      right: 83px;
+    }
+
+    &-plan,
+    &-hr {
+      top: 30px;
+      right: 175px;
+    }
+
+    &-hr {
+      top: 34px;
+      img {
+        opacity: 0.8;
+      }
+    }
+
+    &-plan-check {
+      top: 455px;
+      right: 60px;
+    }
+
+    &-plan-go-over {
+      top: 545px;
+      right: 60px;
+    }
+
+    &-planning {
+      top: 200px;
+      left: 35%;
+    }
+
+    &-prohibition {
+      right: 271px;
+      top: 450px;
+    }
+
+    &-print {
+      top: -550px;
+      left: 36px;
+    }
+
+    &-reminder {
+      top: 400px;
+      left: 400px;
+    }
+
+    &-320reminder {
+      display: none;
+    }
+  }
+}
+
+.element-animation {
+  display: none;
+}
+
+.Menu-logo {
+  visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+  .VacationPage {
+    &-menu-back {
+      height: 76px;
+    }
+
+    &-title-wrapper {
+      max-width: 672px;
+      margin-top: 40px;
+    }
+
+    &-center {
+      align-items: flex-end;
+
+      &-4,
+      &-5 {
+        margin: 0 48px 80px;
+        border-bottom: 2px solid #424d5e;
+      }
+    }
+
+    &-section {
+      &-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        row-gap: 0px;
+        margin: 40px 48px 80px;
+        padding-bottom: 80px;
+        border-bottom: 2px solid #424d5e;
+
+        &-1 {
+          margin-top: 80px;
+          padding-bottom: 150px;
+        }
+
+        &-3 {
+          display: grid;
+          align-items: flex-start;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 60px;
+          row-gap: 40px;
+        }
+
+        &-2,
+        &-4,
+        &-5 {
+          margin-bottom: 0;
+          border-bottom: none;
+        }
+        &-4,
+        &-5 {
+          margin-right: 0;
+        }
+        &-6 {
+          border-bottom: none;
+        }
+      }
+
+      &-block {
+        display: grid;
+        row-gap: 32px;
+        max-width: 408px;
+        padding-left: 0px;
+
+        &-left {
+          margin-bottom: 32px;
+          padding-right: 0px;
+          max-width: 408px;
+        }
+      }
+    }
+
+    &-image-wrapper {
+      width: 672px;
+      &-next-year {
+        left: -23px;
+        bottom: -113px;
+
+        img {
+          width: 260px;
+          height: 215px;
+        }
+      }
+    }
+
+    &-background-white {
+      width: 672px;
+
+      &-applications {
+        padding: 16px 48px;
+
+        img {
+          width: 574px;
+          height: 358px;
+        }
+      }
+    }
+
+    &-background-black {
+      width: 672px;
+      height: 341px;
+      max-width: 672px;
+
+      &-userVacation {
+        top: 14px;
+        right: 20px;
+
+        img {
+          width: 497px;
+          height: 310px;
+        }
+      }
+
+      &-unscheduled {
+        top: -38px;
+        left: 31px;
+
+        img {
+          width: 231px;
+          height: 198px;
+        }
+      }
+
+      &-september {
+        top: 49px;
+        left: 40px;
+
+        img {
+          width: 154px;
+          height: 144px;
+        }
+      }
+
+      &-nextYear {
+        top: 82px;
+        right: 44px;
+
+        img {
+          width: 247px;
+          height: 286px;
+        }
+      }
+
+      &-plan,
+      &-hr {
+        padding: 0;
+        top: 22px;
+        left: 40px;
+
+        img {
+          width: 572px;
+          height: 319px;
+        }
+      }
+
+      &-plan-check {
+        top: 132px;
+        right: -65px;
+
+        img {
+          width: 264px;
+          height: 70px;
+        }
+      }
+
+      &-plan-go-over {
+        top: 210px;
+        right: -65px;
+
+        img {
+          width: 264px;
+          height: 45px;
+        }
+      }
+
+      &-applications-blackout {
+        top: 0;
+        left: 0;
+
+        img {
+          width: 786px;
+          height: 341px;
+        }
+      }
+
+      &-planning {
+        top: 19px;
+        left: 120px;
+
+        img {
+          width: 451px;
+          height: 191px;
+        }
+      }
+
+      &-prohibition {
+        right: 48px;
+        top: 120px;
+
+        img {
+          width: 341px;
+          height: 182px;
+        }
+      }
+
+      &-print {
+        top: -300px;
+        left: 26px;
+
+        img {
+          width: 264px;
+          height: 273px;
+        }
+      }
+
+      &-reminder {
+        left: 480px;
+        top: 300px;
+
+        img {
+          width: 483px;
+          height: 127px;
+        }
+      }
+    }
+  }
+  .element-animation {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .VacationPage {
+    &-menu-back {
+      height: 54px;
+    }
+
+    &-title-wrapper {
+      max-width: 288px;
+      margin-left: 16px;
+      margin-top: 40px;
+    }
+
+    &-center {
+      align-items: flex-start;
+
+      &-4 {
+        margin: 0 16px 48px;
+        border-bottom: 2px solid #424d5e;
+      }
+
+      &-5 {
+        margin: 0;
+      }
+    }
+
+    &-section {
+      &-flex {
+        display: flex;
+        max-width: 288px;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 24px;
+        margin: 32px 16px 48px;
+        padding-bottom: 48px;
+
+        &-1 {
+          margin-top: 48px;
+          padding-bottom: 96px;
+        }
+
+        &-4 {
+          padding-bottom: 0px;
+        }
+
+        &-6 {
+          margin-top: 0px;
+          padding-bottom: 0px;
+          margin-bottom: 96px;
+        }
+      }
+
+      &-block {
+        display: grid;
+        row-gap: 24px;
+        max-width: 320px;
+        padding-left: 0px;
+
+        &-left {
+          margin: 0;
+        }
+      }
+    }
+
+    &-background-white {
+      width: 320px;
+
+      &-applications {
+        padding: 23px 20px;
+
+        img {
+          width: 100%;
+          height: 155px;
+        }
+      }
+    }
+
+    &-image-wrapper {
+      max-width: 320px;
+    }
+
+    &-image-320wrapper {
+      display: block;
+    }
+
+    &-image-wrapper-4 {
+      display: none;
+    }
+
+    &-background-black {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+      width: 320px;
+      height: 320px;
+      max-width: 320px;
+      padding: 48px 16px;
+
+      &-userVacation {
+        top: 22px;
+        right: 8px;
+
+        img {
+          width: 207px;
+          height: 129px;
+        }
+      }
+
+      &-unscheduled {
+        top: -73px;
+        left: 16px;
+
+        img {
+          width: 165px;
+          height: 141px;
+        }
+      }
+
+      &-september {
+        top: -80px;
+        left: 22px;
+
+        img {
+          width: 110px;
+          height: 102px;
+        }
+      }
+
+      &-nextYear {
+        top: 125px;
+        right: 15px;
+
+        img {
+          width: 153px;
+          height: 177px;
+        }
+      }
+
+      &-plan {
+        top: 30px;
+        left: -80px;
+
+        img {
+          width: 365px;
+          height: 228px;
+        }
+      }
+
+      &-plan-check {
+        top: 63px;
+        right: -56px;
+      }
+
+      &-plan-go-over {
+        top: 140px;
+        right: -56px;
+      }
+
+      &-applications-blackout {
+        left: -450px;
+
+        img {
+          width: 786px;
+          height: 320px;
+        }
+      }
+
+      &-planning {
+        top: 29px;
+        left: 10px;
+
+        img {
+          width: 288px;
+          height: 121px;
+        }
+      }
+
+      &-hr {
+        top: 29px;
+        left: -80px;
+        img {
+          width: 419px;
+          height: 261px;
+        }
+      }
+
+      &-prohibition {
+        right: -103px;
+        top: 65px;
+
+        img {
+          width: 295px;
+          height: 157px;
+        }
+      }
+
+      &-print {
+        top: -142px;
+        left: 147px;
+
+        img {
+          width: 165px;
+          height: 172px;
+        }
+      }
+
+      &-reminder {
+        display: none;
+      }
+
+      &-320reminder {
+        display: block;
+
+        img {
+          width: 483px;
+          height: 127px;
+        }
+      }
+    }
+  }
+}

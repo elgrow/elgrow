@@ -1,0 +1,24 @@
+.TitleH3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 90px;
+  line-height: 110px;
+  text-align: start;
+  color: #1e2837;
+}
+
+@media screen and (max-width: 768px) {
+  .TitleH3 {
+    font-size: 50px;
+    line-height: 64px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .TitleH3 {
+    line-height: 50px;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
+}

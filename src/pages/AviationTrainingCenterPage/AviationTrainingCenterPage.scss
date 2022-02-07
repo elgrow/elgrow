@@ -1,0 +1,702 @@
+.AviationTrainingCenterPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-menu-back {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+  }
+
+  &-image-back {
+    background-color: #eef0f2;
+
+    img {
+      width: 100%;
+    }
+
+    &-5 {
+      padding: 80px 55px;
+    }
+  }
+
+  &-title-wrapper {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  &-title-wrapper-border {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    margin-top: 150px;
+    padding-top: 150px;
+    border-top: 4px solid #424d5e;
+  }
+
+  &-white {
+    background-color: #eef0f2;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+
+    &-history,
+    &-job-profile,
+    &-edit-course,
+    &-candidate-log,
+    &-directory,
+    &-history-list,
+    &-applications-list,
+    &-edit-course-reference {
+      margin: 0 auto;
+      max-width: 1320px;
+      background-color: #eef0f2;
+    }
+
+    &-history {
+      padding: 109px 175px;
+    }
+
+    &-job-profile {
+      margin-top: 150px;
+    }
+
+    &-job-profile,
+    &-edit-course,
+    &-applications-list {
+      padding: 68px 230px;
+    }
+
+    &-edit-course {
+      position: relative;
+    }
+
+    &-edit-course-reference {
+      position: relative;
+      padding: 68px 113px;
+    }
+
+    &-320course,
+    &-320candidate {
+      display: none;
+    }
+
+    &-candidate-log {
+      position: relative;
+      padding: 68px 115px;
+    }
+
+    &-directory {
+      padding: 85px 55px;
+    }
+
+    &-history-list {
+      padding: 90px 102px;
+    }
+  }
+
+  &-black {
+    background-color: #1e2837;
+    width: 100%;
+  }
+
+  &-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-button-left,
+  &-button-right {
+    position: absolute;
+    min-width: 60px;
+    min-height: 20px;
+    top: 50%;
+    background-color: #eef0f2;
+    border: none;
+    background-repeat: no-repeat;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-button-left {
+    left: 0;
+    background-image: url('../../assets/images/arrow_left.png');
+
+    &:hover {
+      cursor: pointer;
+      background-image: url('../../assets/images/arrow_big_left.png');
+    }
+  }
+
+  &-button-right {
+    right: 0;
+    background-image: url('../../assets/images/arrow_right.png');
+
+    &:hover {
+      cursor: pointer;
+      background-image: url('../../assets/images/arrow_big_right.png');
+    }
+  }
+
+  &-button-none {
+    display: none;
+  }
+
+  &-green-points {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    bottom: 3%;
+    left: 49%;
+
+    &-button {
+      width: 14px;
+      height: 14px;
+      border: none;
+      border-radius: 10px;
+      background-color: #3ece5d;
+    }
+
+    &-button-none {
+      width: 10px;
+      height: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #bdc6d5;
+    }
+  }
+
+  &-section {
+    width: 100%;
+
+    &-flex {
+      display: flex;
+      column-gap: 60px;
+      max-width: 1320px;
+      padding-bottom: 150px;
+      margin: 80px 0 150px;
+      border-bottom: 4px solid #424d5e;
+
+      &-1 {
+        margin-top: 150px;
+        padding-bottom: 300px;
+      }
+
+      &-4,
+      &-6,
+      &-7 {
+        padding-bottom: 0px;
+        border-bottom: none;
+      }
+    }
+
+    &-block {
+      display: grid;
+      row-gap: 60px;
+      width: 100%;
+
+      &-text {
+        margin: 0;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 42px;
+      }
+
+      &-left {
+        width: 100%;
+      }
+
+      &-icon {
+        padding-top: 60px;
+        border-top: 1px solid #424d5e;
+      }
+    }
+  }
+
+  &-icon {
+    padding-bottom: 30px;
+  }
+
+  &-entity {
+    height: 130px;
+  }
+
+  &-background-white {
+    position: relative;
+    width: 1440px;
+  }
+
+  &-background-black {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    row-gap: 60px;
+    column-gap: 60px;
+    max-width: 1320px;
+    margin: 150px 0;
+    color: #fff;
+  }
+}
+
+.Menu-logo {
+  visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+  .AviationTrainingCenterPage {
+    &-menu-back {
+      height: 76px;
+    }
+
+    &-image-back {
+      &-5 {
+        padding: 43px 44px;
+      }
+    }
+
+    &-title-wrapper {
+      max-width: 672px;
+    }
+
+    &-title-wrapper-border {
+      width: 100%;
+      max-width: 672px;
+      margin-top: 80px;
+      padding-top: 80px;
+      border-top: 2px solid #424d5e;
+    }
+
+    &-white {
+      &-history,
+      &-job-profile,
+      &-edit-course,
+      &-candidate-log,
+      &-directory,
+      &-history-list,
+      &-applications-list,
+      &-edit-course-reference {
+        max-width: 672px;
+      }
+
+      &-history {
+        padding: 58px 45px;
+
+        img {
+          width: 581px;
+          height: 363px;
+        }
+      }
+
+      &-job-profile {
+        margin-top: 80px;
+      }
+
+      &-job-profile,
+      &-edit-course,
+      &-applications-list {
+        padding: 32px 88px;
+
+        img {
+          width: 496px;
+          height: 326px;
+        }
+      }
+
+      &-edit-course {
+        &-button {
+          img {
+            width: 24px;
+            height: 12px;
+          }
+        }
+      }
+
+      &-edit-course-reference {
+        padding: 44px 44px;
+
+        img {
+          width: 584px;
+          height: 303px;
+        }
+
+        &-button {
+          img {
+            width: 24px;
+            height: 12px;
+          }
+        }
+      }
+
+      &-candidate-log,
+      &-directory {
+        padding: 44px;
+
+        img {
+          width: 584px;
+          height: 303px;
+        }
+
+        &-button {
+          right: 1%;
+          img {
+            width: 24px;
+            height: 12px;
+          }
+        }
+      }
+
+      &-history-list {
+        padding: 59px 44px;
+
+        img {
+          width: 584px;
+          height: 372px;
+        }
+      }
+    }
+
+    &-button-left {
+      min-width: 30px;
+      background-image: url('../../assets/images/arrow_small_left.png');
+
+    &:hover {
+      cursor: pointer;
+      background-image: url('../../assets/images/arrow_left.png');
+    }
+    }
+
+    &-button-right {
+      min-width: 30px;
+      background-image: url('../../assets/images/arrow_small_right.png');
+
+      &:hover {
+        cursor: pointer;
+        background-image: url('../../assets/images/arrow_right.png');
+      }
+    }
+
+    &-green-points {
+      &-button {
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+      }
+
+      &-button-none {
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+      }
+    }
+
+    &-section {
+      &-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 672px;
+        margin: 40px 48px 80px;
+        padding-bottom: 80px;
+        border-bottom: 2px solid #424d5e;
+
+        &-1 {
+          margin-top: 80px;
+          padding-bottom: 150px;
+        }
+
+        &-4,
+        &-6,
+        &-7 {
+          padding-bottom: 0px;
+          border-bottom: none;
+        }
+      }
+
+      &-block {
+        display: grid;
+        row-gap: 32px;
+        max-width: 408px;
+        margin-top: 32px;
+        padding-left: 0px;
+
+        &-left {
+          padding-right: 0px;
+        }
+
+        &-icon {
+          padding-top: 32px;
+        }
+      }
+
+      &-7 {
+        border-bottom: none;
+      }
+    }
+
+    &-icon {
+      width: 48px;
+      height: 64px;
+      padding-bottom: 16px;
+    }
+
+    &-wrapper-image {
+      margin-top: 80px;
+    }
+
+    &-background-white {
+      left: -48px;
+      width: 768px;
+    }
+
+    &-background-black {
+      display: grid;
+      grid-template-columns: 60% 1fr;
+      align-items: start;
+      row-gap: 40px;
+      column-gap: 40px;
+      width: 768px;
+      max-width: 768px;
+      margin: 0;
+      padding: 80px 48px;
+
+      &-image {
+        width: 100%;
+      }
+
+      &-font-size {
+        p {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .AviationTrainingCenterPage {
+    &-menu-back {
+      height: 54px;
+    }
+
+    &-image-back {
+      &-5 {
+        padding: 33px 16px;
+      }
+    }
+
+    &-title-wrapper {
+      padding-left: 16px;
+    }
+
+    &-title-wrapper-border {
+      margin-top: 48px;
+      padding-top: 48px;
+      padding-left: 16px;
+    }
+
+    &-button-left,
+    &-button-right,
+    &-green-points {
+      display: none;
+    }
+
+    &-white {
+      &-history,
+      &-job-profile,
+      &-edit-course,
+      &-candidate-log,
+      &-directory,
+      &-history-list,
+      &-applications-list,
+      &-edit-course-reference {
+        max-width: 288px;
+      }
+
+      &-history {
+        padding: 16px 0 6px;
+
+        img {
+          width: 288px;
+          height: 180px;
+        }
+      }
+
+      &-job-profile {
+        margin-top: 48px;
+      }
+
+      &-job-profile {
+        padding: 16px;
+
+        img {
+          width: 256px;
+          height: 168px;
+        }
+      }
+
+      &-edit-course {
+        display: none;
+      }
+
+      &-edit-course-reference {
+        display: none;
+      }
+
+      &-320course {
+        display: flex;
+        overflow: scroll;
+        background-color: #eef0f2;
+        margin: 0 16px;
+        &-edit {
+          padding: 22px 16px;
+
+          img {
+            width: 238px;
+            height: 156px;
+          }
+        }
+
+        &-reference {
+          padding: 38px 16px 38px 0;
+
+          img {
+            width: 238px;
+            height: 124px;
+          }
+        }
+      }
+
+      &-320candidate {
+        display: flex;
+        overflow: scroll;
+        background-color: #eef0f2;
+        margin: 0 16px;
+        column-gap: 16px;
+        padding: 38px 16px;
+
+        &-log {
+          img {
+            width: 238px;
+            height: 124px;
+          }
+        }
+      }
+
+      &-candidate-log {
+        display: none;
+      }
+
+      &-directory {
+        padding: 33px 16px;
+
+        img {
+          width: 256px;
+          height: 134px;
+        }
+      }
+
+      &-history-list {
+        padding: 44px 16px;
+
+        img {
+          width: 256px;
+          height: 119px;
+        }
+      }
+
+      &-applications-list {
+        padding: 16px;
+
+        img {
+          width: 256px;
+          height: 168px;
+        }
+      }
+    }
+
+    &-section {
+      &-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 480px;
+        margin: 40px 16px 48px;
+        padding: 0 16px 48px;
+
+        &-1 {
+          margin-top: 48px;
+          padding-bottom: 96px;
+        }
+
+        &-4,
+        &-6 {
+          padding-bottom: 0px;
+          border-bottom: none;
+        }
+
+        &-7 {
+          padding-bottom: 0px;
+        }
+      }
+
+      &-block {
+        display: grid;
+        row-gap: 24px;
+        max-width: 408px;
+        margin-top: 32px;
+        padding-left: 0px;
+
+        &-left {
+          padding-right: 0px;
+        }
+
+        &-icon {
+          padding-top: 24px;
+          margin-left: 72px;
+        }
+
+        &-text {
+          font-size: 18px;
+          line-height: 26px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+
+    &-icon {
+      width: 24px;
+      height: 40px;
+    }
+
+    &-wrapper-image {
+      margin-top: 80px;
+    }
+
+    &-background-white {
+      width: 320px;
+    }
+
+    &-background-black {
+      display: grid;
+      grid-template-columns: 100%;
+      row-gap: 24px;
+      width: 320px;
+      max-width: 320px;
+      padding: 48px 16px;
+    }
+  }
+}

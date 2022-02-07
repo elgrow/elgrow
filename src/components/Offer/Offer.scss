@@ -1,0 +1,116 @@
+.Offer {
+  display: flex;
+  z-index: 10;
+  color: #424d5e;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 60px;
+
+  &-link {
+    width: 50%;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration: none;
+
+    &-text {
+      display: inline-block;
+      color: #424d5e;
+
+      a {
+        text-decoration: none;
+        color: #424d5e;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #424d5e;
+      }
+
+      &:hover:after {
+        width: 50%;
+        transition: width 0.3s linear;
+      }
+    }
+
+    &-img {
+      width: 36px;
+      height: 36px;
+      margin-right: 20px;
+      vertical-align: middle;
+    }
+  }
+
+  &-text {
+    width: 50%;
+    margin: 0;
+    font-size: 40px;
+    line-height: 56px;
+  }
+}
+
+@media screen and (max-width: 1224px) {
+  .Offer {
+    &-text {
+      width: 60%;
+      font-size: 33px;
+      line-height: 42px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Offer {
+    padding: 0 48px;
+
+    &-link {
+      width: 40%;
+      font-size: 16px;
+      line-height: 20px;
+
+      & img {
+        margin-right: 16px;
+      }
+    }
+
+    &-text {
+      width: 60%;
+      font-size: 33px;
+      line-height: 42px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Offer {
+    flex-direction: column;
+    padding: 0 16px;
+
+    &-link {
+      width: 100%;
+      font-size: 12px;
+      line-height: 16px;
+
+      & img {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+      }
+    }
+
+    &-text {
+      width: 78%;
+      padding-bottom: 15px;
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  .Offer > .Offer-link {
+    order: 2;
+  }
+  .Offer > .Offer-text {
+    order: 1;
+  }
+}

@@ -1,0 +1,89 @@
+.Clients {
+  width: 1320px;
+  padding: 300px 0 0;
+  position: relative;
+
+  &-container320 {
+    display: none;
+  }
+
+  &-title {
+    font-size: 160px;
+    line-height: 160px;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 150px;
+    color: #1e2837;
+  }
+
+  &-container {
+    // position: relative;
+    padding-left: 10px;
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 285px;
+      height: 285px;
+
+      img {
+        width: 100%;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        height: max-content;
+    
+        transition: transform 0.2s;
+        &:hover {
+          filter: none;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Clients {
+    width: 672px;
+    padding: 160px 0 0;
+
+    &-title {
+      margin-bottom: 80px;
+      font-size: 80px;
+      line-height: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Clients {
+    width: 100%;
+    max-width: 480px;
+    padding: 96px 0 16px 0;
+    overflow: scroll;
+
+    &-title {
+      margin-bottom: 48px;
+      font-size: 50px;
+      line-height: 50px;
+    }
+
+    &-container {
+      display: none;
+      &-card {
+        width: 136px;
+        height: 136px;
+      }
+    }
+
+    &-container320 {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(3, 136px);
+      gap: 8px;
+      overflow: auto;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.ProjectTextSmall {
+  margin: 0;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectTextSmall {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectTextSmall {
+    font-size: 10px;
+    line-height: 16px;
+  }
+}

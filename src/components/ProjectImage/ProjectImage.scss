@@ -1,0 +1,25 @@
+.ProjectImage {
+  max-width: 1440px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 68px 100px;
+  background-color: #eef0f2;
+
+  img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ProjectImage {
+    padding: 32px 88px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProjectImage {
+    padding: 16px;
+  }
+}

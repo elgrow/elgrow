@@ -1,0 +1,247 @@
+.Footer {
+  margin-top: 300px;
+  padding: 0 60px;
+  background-image: linear-gradient(to top, rgba(30, 40, 55, 0.9), rgba(30, 40, 55, 0.9)),
+    url(../../assets/images/map.png);
+
+  color: #fff;
+
+  &-title {
+    margin: 0 auto;
+    max-width: 1440px;
+    margin-bottom: 140px;
+    padding-top: 100px;
+    font-size: 160px;
+    line-height: 160px;
+    font-weight: 400;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  &-list {
+    margin: 0 80px 0 0;
+    padding: 0;
+    list-style: none;
+
+    &-mail,
+    &-telegram {
+      &-button {
+        padding: 0;
+        font-size: 30px;
+        line-height: 36px;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+
+        span {
+          display: inline-block;
+
+          &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #bdc6d5;
+          }
+
+          &:hover:after {
+            width: 50%;
+          }
+        }
+
+        img {
+          width: 36px;
+          height: 36px;
+          margin-right: 20px;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &-phone button {
+      padding: 0;
+      font-size: 20px;
+      line-height: 32px;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+
+    &-mail,
+    &-phone,
+    &-telegram {
+      & button {
+        background-color: Transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        color: #fff;
+      }
+    }
+
+    &-time {
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &-phone {
+      margin-top: 27px;
+    }
+
+    // &-whatsApp {
+    //   margin: 19px 0 0 56px;
+    // }
+
+    // &-viber {
+    //   margin: 8px 0 0 56px;
+    // }
+  }
+
+  &-copyright {
+    max-width: 1440px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 282px;
+    padding-bottom: 60px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Footer {
+    margin-top: 150px;
+    padding: 0 39px;
+
+    &-title {
+      margin-bottom: 65px;
+      padding-top: 65px;
+      font-size: 80px;
+      line-height: 80px;
+    }
+
+    &-list {
+      margin-bottom: 48px;
+
+      &-mail button,
+      &-telegram button {
+        font-size: 20px;
+        line-height: 24px;
+
+        & span {
+          padding-bottom: 11px;
+        }
+
+        & img {
+          margin-right: 12px;
+        }
+      }
+
+      &-phone button {
+        font-size: 16px;
+        line-height: 25px;
+      }
+
+      &-time {
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      &-phone {
+        margin-top: 12px;
+      }
+
+      // &-whatsApp,
+      // &-viber {
+      //   margin: 8px 0 0 48px;
+      // }
+    }
+
+    &-copyright {
+      margin-top: 125px;
+      padding-bottom: 29px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Footer {
+    padding: 0 16px;
+
+    &-title {
+      margin-bottom: 56px;
+      font-size: 50px;
+      line-height: 50px;
+    }
+
+    &-container {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    &-list {
+      margin: 0 0 16px 0;
+
+      &-mail button,
+      &-telegram button {
+        font-size: 18px;
+
+        & span {
+          padding-bottom: 4px;
+        }
+
+        & img {
+          width: 30px;
+          height: 30px;
+          margin-right: 16px;
+        }
+      }
+
+      &-phone button {
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      &-time {
+        margin-top: 4px;
+        font-size: 10px;
+        line-height: 16px;
+      }
+
+      &-phone {
+        margin-top: 9px;
+      }
+
+      // &-whatsApp {
+      //   margin: 11px 0 0 46px;
+      // }
+
+      // &-viber {
+      //   margin: 8px 0 0 46px;
+      // }
+    }
+
+    &-copyright {
+      margin-top: 59px;
+      padding-bottom: 13px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}

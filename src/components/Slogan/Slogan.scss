@@ -1,0 +1,73 @@
+.Slogan {
+  font-size: 90px;
+  line-height: 110px;
+  padding: 300px 0 0;
+  color: #1e2837;
+
+  & p {
+    margin: 0;
+  }
+
+  &-line2 {
+    text-align: right;
+  }
+
+  &-line4 {
+    text-align: right;
+    padding-right: 70px;
+  }
+
+  &-line5 {
+    text-align: center;
+    padding-right: 120px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Slogan {
+    font-size: 50px;
+    line-height: 64px;
+    padding: 300px 0 0;
+
+    &-line4 {
+      padding-right: 0px;
+    }
+
+    &-line5 {
+      text-align: right;
+      padding-right: 84px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Slogan {
+    font-size: 25px;
+    line-height: 35px;
+    padding: 200px 0 0;
+
+    &-line2 {
+      text-align: center;
+
+      & span {
+        display: block;
+        text-align: right;
+      }
+    }
+
+    &-line4 {
+      padding-right: 0px;
+    }
+
+    &-line5 {
+      text-align: right;
+      padding-right: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Slogan {
+    padding: 300px 0 0;
+  }
+}
