@@ -1,8 +1,12 @@
 .ProjectsImage {
-  &-1 img,
-  &-5 img {
-    width: 515px;
-    height: 515px;
+  img {
+    pointer-events: none;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 280px;
+    opacity: 0;
+    transition: opacity 0.2s;
   }
 
   &:hover {
@@ -12,39 +16,29 @@
 
 @media screen and (max-width: 768px) {
   .ProjectsImage {
-    &-1 img,
-    &-5 img {
-      width: 232px;
-      height: 232px;
-    }
-
-    &-2 img,
-    &-4 img {
-      width: 408px;
-      height: 408px;
-    }
-
-    &-3 img {
-      width: 672px;
-      height: 418px;
+    img {
+      // position: absolute;
+      opacity: 1;
+      width: 220px;
+      height: 220px;
     }
   }
 }
 
 @media screen and (max-width: 480px) {
   .ProjectsImage {
-    &-1 img,
-    &-2 img,
-    &-4 img,
-    &-5 img {
-      width: 100%;
-      height: 100%;
+    img {
+      width: 448px;
+      height: 448px;
     }
+  }
+}
 
-    &-3 img {
-      position: relative;
-      width: 100%;
-      height: 100%;
+@media screen and (max-width: 320px) {
+  .ProjectsImage {
+    img {
+      width: 288px;
+      height: 288px;
     }
   }
 }

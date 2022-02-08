@@ -10,10 +10,8 @@ const cnProjectsImage = cn('ProjectsImage');
 
 export const ProjectsImage: FC<ProjectsData> = ({ _id, img, url }) => {
   return (
-    <div className={`${cnProjectsImage()} ${cnProjectsImage(`${_id}`)}`}>
-      <Link to={url}>
-        <img src={img} alt="project" />
-      </Link>
+    <div className={`${cnProjectsImage()}`}>
+      <img src={img} alt="project" />
     </div>
   );
 };

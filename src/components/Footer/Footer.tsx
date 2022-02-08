@@ -4,9 +4,8 @@ import telegram from '../../assets/images/telegram.png';
 
 import './Footer.scss';
 
-const cnFooter = cn('Footer');
-
 export const Footer = () => {
+  const cnFooter = cn('Footer');
   return (
     <footer id="contacts" className={cnFooter()}>
       <h2 className={cnFooter('title')}>Контакты</h2>
@@ -28,7 +27,11 @@ export const Footer = () => {
         <ul className={cnFooter('list')}>
           <li className={`${cnFooter('list-telegram')}`}>
             <button className={`${cnFooter('list-telegram-button')}`}>
-              <img className={`${cnFooter('list-telegram-img')}`} src={telegram} alt="telegram" />
+              <img
+                className={`${cnFooter('list-telegram-img')}`}
+                src={telegram}
+                alt="telegram"
+              />
               <span className={`${cnFooter('list-telegram-text')}`}>
                 <a href="https://t.me/@DC6200">Связаться в Telegram</a>
               </span>

@@ -9,12 +9,18 @@ import './ProjectTask.scss';
 const cnProjectTask = cn('ProjectTask');
 
 export const ProjectTask: FC<ProjectsData> = ({ _id, task, url }) => {
-
   return (
-    <div className={`${cnProjectTask()} ${cnProjectTask(`${_id}`)}`} >
-      <button className={`${cnProjectTask('button')} ${cnProjectTask(`button-${_id}`)}`} >
+    <div className={`${cnProjectTask()}`}>
+      <button
+        className={`${cnProjectTask('button')} ${cnProjectTask(`button`)}`}
+      >
         {/* <a className={`${cnProjectTask('text')} ${cnProjectTask(`text-${_id}`)}`} target={'_blank'} href={url}>{task}</a> */}
-        <Link to={url} className={`${cnProjectTask('text')} ${cnProjectTask(`text-${_id}`)}`}>{task}</Link>
+        <div
+          // to={url}
+          className={`${cnProjectTask('text')} ${cnProjectTask(`text-${_id}`)}`}
+        >
+          {task}
+        </div>
       </button>
     </div>
   );

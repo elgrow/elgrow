@@ -1,7 +1,11 @@
 .Footer {
   margin-top: 300px;
   padding: 0 60px;
-  background-image: linear-gradient(to top, rgba(30, 40, 55, 0.9), rgba(30, 40, 55, 0.9)),
+  background-image: linear-gradient(
+      to top,
+      rgba(30, 40, 55, 0.9),
+      rgba(30, 40, 55, 0.9)
+    ),
     url(../../assets/images/map.png);
 
   color: #fff;

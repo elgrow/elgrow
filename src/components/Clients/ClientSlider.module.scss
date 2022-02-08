@@ -1,22 +1,27 @@
 .client {
+  width: 285px;
 }
 
 .block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 285px;
-  padding: 12px;
-  background-color: #f9fafa;
+  height: 285px;
 
-  img {
-    width: 260px;
+  background-color: #f2f5f6;
+
+  &:hover {
+    background-color: #f9fafa;
+    svg {
+      filter: none;
+      transform: scale(1.2);
+    }
+  }
+  svg {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    height: max-content;
-
     transition: transform 0.2s;
-    &:hover {
-      filter: none;
-      transform: scale(1.1);
-    }
   }
 }
 
@@ -30,11 +35,13 @@
   right: 100%;
   display: block;
   transform: translate(0, -50%);
+  transition: width 0.1s linear;
+  transition-delay: 0.1s;
   &:hover {
     cursor: pointer;
     width: 65px;
     background-image: url('../../assets/images/arrow_big_left.png');
-    transition: width 0.3s ease-out;
+    transition: width 0.1s linear;
   }
 }
 
@@ -48,12 +55,13 @@
   left: 98%;
   display: block;
   transform: translate(0, -50%);
-
+  transition: width 0.1s linear;
+  transition-delay: 0.1s;
   &:hover {
     cursor: pointer;
     width: 65px;
     background-image: url('../../assets/images/arrow_big_right.png');
-    transition: width 0.3s linear;
+    transition: width 0.1s linear;
   }
 }
 

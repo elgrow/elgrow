@@ -4,19 +4,19 @@ import { cn } from '@bem-react/classname';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import asosColor from '../../assets/images/asos_color.png';
-import vtbColor from '../../assets/images/vtb_color.png';
-import kfcColor from '../../assets/images/kfc_color.png';
-import openColor from '../../assets/images/open_color.png';
-import megafonColor from '../../assets/images/megafon_color.png';
-import telecomColor from '../../assets/images/telecom_color.png';
+import { ReactComponent as ASOS } from '../../assets/images/ClientIcons/ASOS.svg';
+import { ReactComponent as VTB } from '../../assets/images/ClientIcons/VTB.svg';
+import { ReactComponent as OPENBANK } from '../../assets/images/ClientIcons/OPENBANK.svg';
+import { ReactComponent as KFC } from '../../assets/images/ClientIcons/KFC.svg';
+import { ReactComponent as MEGAFON } from '../../assets/images/ClientIcons/MEGAFON.svg';
+import { ReactComponent as TATTELECOM } from '../../assets/images/ClientIcons/TELECOM.svg';
 
 import styles from './ClientSlider.module.scss';
 
 const ClientSlider = () => {
   const cnClientSlider = cn('ClientsSlider');
 
-  const clients = [asosColor, vtbColor, kfcColor, openColor, megafonColor, telecomColor];
+  const clients = [ASOS, VTB, KFC, OPENBANK, MEGAFON, TATTELECOM];
 
   function SampleNextArrow(props: { onClick: any }) {
     const { onClick } = props;
@@ -27,6 +27,10 @@ const ClientSlider = () => {
     const { onClick } = props;
     return <div className={styles.prev} onClick={onClick} />;
   }
+
+  const svgComponent = (Svg: any) => {
+    return <Svg />;
+  };
 
   const settings = {
     dots: false,
@@ -41,11 +45,9 @@ const ClientSlider = () => {
   return (
     <section id="clients" className={cnClientSlider()}>
       <Slider {...settings}>
-        {clients.map((client, key) => (
-          <div className={styles.client} key={key}>
-            <div className={styles.block}>
-              <img alt="client" src={client} />
-            </div>
+        {clients.map((client, index) => (
+          <div className={styles.client} key={index}>
+            <div className={styles.block}>{svgComponent(client)}</div>
           </div>
         ))}
       </Slider>
