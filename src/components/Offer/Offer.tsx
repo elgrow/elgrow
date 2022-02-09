@@ -8,6 +8,10 @@ export const Offer = () => {
   const cnOffer = cn('Offer');
   return (
     <section className={cnOffer()}>
+      <p className={cnOffer('text')}>
+        Разработка и интеграция <br />
+        IT-решений
+      </p>
       <div className={cnOffer('link')}>
         <a href="/">
           <img className={cnOffer('link-img')} src={telegram} alt="telegram" />
@@ -16,10 +20,6 @@ export const Offer = () => {
           </span>
         </a>
       </div>
-      <p className={cnOffer('text')}>
-        Разработка и интеграция <br />
-        ИТ-решений
-      </p>
     </section>
   );
 };
