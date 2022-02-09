@@ -29,6 +29,11 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
     image.style.opacity = 1;
   };
 
+  const dontHiddenImage = (e: any) => {
+    let y = e.clientY;
+    y++;
+  };
+
   const imageOut = (e: any) => {
     const width = window.innerWidth;
     let parent = e.currentTarget;
@@ -56,31 +61,34 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
         className={cnProjects(`container`)}
         onMouseOut={e => imageOut(e)}
         onMouseMove={e => imageMove(e)}
+        onWheel={e => dontHiddenImage(e)}
       >
-        <div className={cnProjects(`content`)}>
-          <ProjectTask
-            _id={card._id}
-            task={card.task}
-            url={card.url}
-            img={''}
-            development={''}
-            text={''}
-          />
-        </div>
+        <div className={cnProjects(`wrapperForMobile`)}>
+          <div className={cnProjects(`content`)}>
+            <ProjectTask
+              _id={card._id}
+              task={card.task}
+              url={card.url}
+              img={''}
+              development={''}
+              text={''}
+            />
+          </div>
 
-        <div className={cnProjects(`image_${card._id}`)}>
-          <ProjectsImage
-            _id={card._id}
-            task={''}
-            url={card.url}
-            img={card.img}
-            development={''}
-            text={''}
-          />
-        </div>
+          <div className={cnProjects(`image_${card._id}`)}>
+            <ProjectsImage
+              _id={card._id}
+              task={''}
+              url={card.url}
+              img={card.img}
+              development={''}
+              text={''}
+            />
+          </div>
 
-        <p className={`${cnProjects('text')}`}>{card.text}</p>
-        <p className={`${cnProjects('development')}`}>{card.development}</p>
+          <p className={`${cnProjects('text')}`}>{card.text}</p>
+          <p className={`${cnProjects('development')}`}>{card.development}</p>
+        </div>
       </div>
     </Link>
   );

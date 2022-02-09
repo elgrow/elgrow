@@ -4,35 +4,35 @@
       "_id": 1,
       "img": "phoneBarcode",
       "text": "Система помогает при возникновении сбойных ситуаций в аэропортах, упрощая работу по предоставлению пассажирам напитков и питания при задержке самолета",
-      "development": "ux/ui design, Frontend, backend",
+      "development": "ux/ui design, frontend, backend",
       "task": "Сбойные ситуации и задержки рейсов"
     },
     {
       "_id": 2,
       "img": "../../assets/images/project/creating_an_application.png",
       "text": "Система для подачи и выполнения заявок по обслуживанию воздушных судов. Мобильное приложение для исполнителей и веб-интерфейс для клиентов и диспетчеров",
-      "development": "ux/ui design, Frontend, backend",
+      "development": "ux/ui design, frontend, backend",
       "task": "Наземное обслуживание и ТКО"
     },
     {
       "_id": 3,
       "img": "/assets/images/project/web_interface.png",
       "text": "Мобильное приложение и веб-интерфейс. Обеспечивает взаимодействие клиента с автоматизированными парковочными зонами",
-      "development": "ux/ui design, Frontend, backend",
+      "development": "ux/ui design, frontend, backend",
       "task": "Управление парковкамиа эропорта"
     },
     {
       "_id": 4,
       "img": "/assets/images/project/tutorial.png",
       "text": "Полноценная и удобная система, помогающая обучать сотрудников холдинга",
-      "development": "ux/ui design, Frontend, backend",
+      "development": "ux/ui design, frontend, backend",
       "task": "Авиационный учебный центр"
     },
     {
       "_id": 5,
       "img": "/assets/images/project/vacation.png",
       "text": "Система для автоматизации планирования отпусков и работы по ним. Веб-интерфейс для рядовых сотрудников, руководителей подразделения, ведущего кадровика и кадровиков",
-      "development": "ux/ui design, Frontend, backend",
+      "development": "ux/ui design, frontend, backend",
       "task": "Отпуска"
     }
   ]

@@ -70,10 +70,23 @@
 }
 
 @media screen and (max-width: 768px) {
+  .next {
+    left: 103%;
+  }
   .client {
+    margin-left: 30px;
     img {
       width: 144px;
       height: 144px;
+    }
+  }
+  .block {
+    width: 160px;
+
+    height: 285px;
+    svg {
+      width: 140px;
+      height: 140px;
     }
   }
 

@@ -17,9 +17,11 @@
 @media screen and (max-width: 768px) {
   .ProjectsImage {
     img {
-      // position: absolute;
+      position: absolute;
+      top: 215px;
+      left: 20%;
       opacity: 1;
-      width: 220px;
+      width: 45%;
       height: 220px;
     }
   }
@@ -28,7 +30,11 @@
 @media screen and (max-width: 480px) {
   .ProjectsImage {
     img {
-      width: 448px;
+      position: absolute;
+      top: 215px;
+      left: 50%;
+      opacity: 1;
+      width: 100%;
       height: 448px;
     }
   }
@@ -37,7 +43,11 @@
 @media screen and (max-width: 320px) {
   .ProjectsImage {
     img {
-      width: 288px;
+      position: absolute;
+      top: 215px;
+      left: 50%;
+      opacity: 1;
+      width: 100%;
       height: 288px;
     }
   }

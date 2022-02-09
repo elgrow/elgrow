@@ -27,7 +27,6 @@ export const Product = () => {
         <ul className={cnProduct('container-list')}>
           <li>React</li>
           <li>Vue</li>
-          <li>.Next</li>
           <li>.Python</li>
         </ul>
       </div>
