@@ -128,3 +128,41 @@
     order: 1;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .Offer {
+    flex-direction: column;
+    padding: 0 16px;
+
+    &-link {
+      width: 60%;
+      font-size: 12px;
+      line-height: 16px;
+      height: 150px;
+      display: flex;
+      & img {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+      }
+      &-text {
+        width: 100%;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    &-text {
+      width: 100%;
+      padding-bottom: 15px;
+      font-size: 25px;
+      line-height: 35px;
+    }
+  }
+  .Offer > .Offer-link {
+    order: 2;
+  }
+  .Offer > .Offer-text {
+    order: 1;
+  }
+}

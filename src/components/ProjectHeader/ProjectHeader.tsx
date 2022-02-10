@@ -16,15 +16,15 @@ export const ProjectHeader: FC<DataProject> = ({ heading }) => {
         <TitleH3 title={heading} />
       </div>
       <div className={cnProjectHeader('container')}>
-        <div className={cnProjectHeader('block-left')}>
+        {/* <div className={cnProjectHeader('block-left')}>
           <p className={cnProjectHeader('title')}>Клиент:</p>
           <div className={cnProjectHeader('utg-group')}>
             <p className={cnProjectHeader('text')}>UTG Group</p>
             <img className={cnProjectHeader('points')} src={points} alt="icon"></img>
           </div>
-        </div>
+        </div> */}
         <div className={cnProjectHeader('block')}>
-          <p className={cnProjectHeader('title')}>Сделано:</p>
+          {/* <p className={cnProjectHeader('title')}>Сделано:</p> */}
           <p className={cnProjectHeader('text', {length: 'small'})}>UX/UI design, frontend, backend</p>
         </div>
       </div>
