@@ -1,5 +1,6 @@
 import { cn } from '@bem-react/classname';
 import { useEffect, useState } from 'react';
+import { Parallax } from 'react-scroll-parallax';
 
 import { Menu } from '../Menu/Menu';
 import { Offer } from '../Offer/Offer';
@@ -32,10 +33,14 @@ export const Header = () => {
       <div className={`${cnHeader('fixed')} `}>
         <Menu />
       </div>
-      <div className={cnHeader('container')}> 
+
+      <div className={cnHeader('container')}>
         <h1 className={cnHeader('title')}>
-          e<span className={cnHeader('title_color')}>l</span>grow.
+          <Parallax speed={-20} translateY={[-165, 60]}>
+            e<span className={cnHeader('title_color')}>l</span>grow.
+          </Parallax>
         </h1>
+
         <div className={cnHeader('offer')}>
           <Offer />
         </div>
