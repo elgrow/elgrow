@@ -17,13 +17,17 @@ export const Menu = () => {
 
   const menuToggle = buttonState.toggle ? '_opened' : '_closed';
   const menuWrapper = buttonState.wrapper ? 'burger-wrapper' : 'wrapper';
-  const displayNone = buttonState.displayNone ? 'display-block' : 'display-none';
-  const displayBlock = buttonState.displayBlock ? 'display-none' : 'display-block';
+  const displayNone = buttonState.displayNone
+    ? 'display-block'
+    : 'display-none';
+  const displayBlock = buttonState.displayBlock
+    ? 'display-none'
+    : 'display-block';
 
   const handleBurgerClick = (e: React.MouseEvent) => {
     e.preventDefault();
 
-    setButtonState((prev) => ({
+    setButtonState(prev => ({
       ...prev,
       toggle: !prev.toggle,
       wrapper: !prev.wrapper,
@@ -33,7 +37,7 @@ export const Menu = () => {
   };
 
   const closeBurger = () => {
-    setButtonState((prev) => ({
+    setButtonState(prev => ({
       ...prev,
       toggle: false,
       wrapper: false,
@@ -72,7 +76,11 @@ export const Menu = () => {
           </a>
         </div>
         <li className={`${cnMenu(`${displayNone}`)} ${cnMenu('link')}`}>
-          <a className={cnMenu('link-button')} href="/#main" onClick={closeBurger}>
+          <a
+            className={cnMenu('link-button')}
+            href="/#main"
+            onClick={closeBurger}
+          >
             Главная
           </a>
           {/* </button> */}
@@ -105,10 +113,14 @@ export const Menu = () => {
         >
           <a href="tel:+79221521563">+ 7 343 938 99 49</a>
         </li>
-        <li className={`${cnMenu(`${displayNone}`)} ${cnMenu('burger-connect')}`}>
+        <li
+          className={`${cnMenu(`${displayNone}`)} ${cnMenu('burger-connect')}`}
+        >
           <a href="mailto:dmitry@elgrow.ru">dmitry@elgrow.ru</a>
         </li>
-        <li className={`${cnMenu(`${displayNone}`)} ${cnMenu('burger-connect')}`}>
+        <li
+          className={`${cnMenu(`${displayNone}`)} ${cnMenu('burger-connect')}`}
+        >
           <img className={cnMenu('link-img')} src={telegram} alt="telegram" />
           <button className={cnMenu('link-button')}>
             <a href="https://t.me/@DC6200">Связаться в Telegram</a>
@@ -122,7 +134,9 @@ export const Menu = () => {
       </div>
       <button
         type="button"
-        className={`${cnMenu('burger-button')} ${cnMenu('burger-button')}${menuToggle}`}
+        className={`${cnMenu('burger-button')} ${cnMenu(
+          'burger-button'
+        )}${menuToggle}`}
         onClick={handleBurgerClick}
       ></button>
     </menu>

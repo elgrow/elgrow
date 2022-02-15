@@ -16,10 +16,21 @@
     text-decoration: none;
 
     &-text {
+      position: relative;
       display: inline-block;
       color: #424d5e;
 
       a {
+        animation: mount 1s;
+        @keyframes mount {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
         text-decoration: none;
         color: #424d5e;
       }
@@ -43,14 +54,37 @@
       height: 36px;
       margin-right: 20px;
       vertical-align: middle;
+      animation: mount 1s;
+      @keyframes mount {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
     }
   }
 
   &-text {
+    position: relative;
     width: 100%;
+    height: max-content;
     margin: 0;
     font-size: 64px;
     line-height: 84px;
+
+    div {
+      animation: mount 1.8s;
+      @keyframes mount {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
   }
 }
 
