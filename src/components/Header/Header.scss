@@ -42,6 +42,8 @@
   }
 
   &-title {
+    transform: translate(-120%, 0px);
+    transition: all 0.5s ease 0s;
     width: 1440px;
     max-width: 1440px;
     margin: 0 auto;
@@ -49,23 +51,15 @@
     font-weight: 500;
     font-size: 320px;
     line-height: 320px;
+    color: #dde0e4;
     color: #1e2837;
-
-    div {
-      animation: mount 1.8s;
-      @keyframes mount {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-    }
 
     &_color {
       color: #3ece5d;
     }
+  }
+  &-title._active {
+    transform: translate(0, 0px);
   }
 
   &-wing {

@@ -3,13 +3,14 @@
   color: #424d5e;
 
   &-container {
+    transform: translate(-120%, 0px);
+    transition: all 0.5s ease 0s;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-top: 4px solid #424d5e;
 
     &_last {
-    
       border-bottom: 4px solid #424d5e;
     }
 
@@ -33,6 +34,10 @@
         margin-right: 40px;
       }
     }
+  }
+
+  &-container._active {
+    transform: translate(0, 0px);
   }
 }
 

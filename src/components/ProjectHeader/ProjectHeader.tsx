@@ -25,7 +25,7 @@ export const ProjectHeader: FC<DataProject> = ({ heading }) => {
         </div> */}
         <div className={cnProjectHeader('block')}>
           {/* <p className={cnProjectHeader('title')}>Сделано:</p> */}
-          <p className={cnProjectHeader('text', {length: 'small'})}>UX/UI design, frontend, backend</p>
+          {/* <p className={cnProjectHeader('text', {length: 'small'})}>UX/UI design, frontend, backend</p> */}
         </div>
       </div>
     </div>

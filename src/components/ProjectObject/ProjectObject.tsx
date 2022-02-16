@@ -1,5 +1,5 @@
 import { cn } from '@bem-react/classname';
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ProjectsImage } from '../ProjectsImage/ProjectsImage';
@@ -15,7 +15,49 @@ interface Project {
 }
 
 const ProjectObject: React.FC<Project & any> = ({ card }) => {
+  const ref = useRef(null);
   const cnProjects = cn('Projects');
+
+  const animOnScroll = (animItems: any) => {
+    for (let index = 0; index < animItems.length; index++) {
+      const animItem: any = animItems[index];
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+      if (
+        window.scrollY > animItemOffset - animItemPoint &&
+        window.scrollY < animItemOffset + animItemHeight
+      ) {
+        animItem.classList.add('_active');
+      } else {
+        if (!animItem.classList.contains('_anim_no_hide')) {
+          animItem.classList.remove('_active');
+        }
+      }
+    }
+    function offset(el: any) {
+      const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  };
+
+  useEffect(() => {
+    if (ref.current) {
+      const animItems = document.querySelectorAll('._anim-items');
+      if (animItems.length > 0) {
+        console.log(animItems);
+        window.addEventListener('scroll', () => animOnScroll(animItems));
+        animOnScroll(animItems);
+      }
+    }
+  }, [ref]);
 
   const imageMove = (e: any) => {
     let elem = e.currentTarget;
@@ -58,7 +100,7 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
     <Link to={card.url} style={{ textDecoration: 'none', color: '#424D5E' }}>
       <div
         key={card._id}
-        className={cnProjects(`container`)}
+        className={cnProjects(`container _anim-items _anim_no_hide`)}
         onMouseOut={e => imageOut(e)}
         onMouseMove={e => imageMove(e)}
         onWheel={e => dontHiddenImage(e)}

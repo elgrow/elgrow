@@ -12,6 +12,8 @@
     height: 430px;
   }
   &-title {
+    transform: translate(-120%, 0px);
+    transition: all 0.5s ease 0s;
     font-weight: 400;
     font-size: 160px;
     line-height: 160px;
@@ -19,8 +21,13 @@
     margin-bottom: 30px;
     color: #1e2837;
   }
+  &-title._active {
+    transform: translate(0, 0px);
+  }
 
   &-container {
+    transform: translate(-120%, 0px);
+    transition: all 0.8s ease 0s;
     position: relative;
     width: 1440px;
     height: 430px;
@@ -40,6 +47,9 @@
         }
       }
     }
+  }
+  &-container._active {
+    transform: translate(0, 0px);
   }
 
   &-content {

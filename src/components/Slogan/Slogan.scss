@@ -7,19 +7,58 @@
   & p {
     margin: 0;
   }
-
+  &-line1 {
+    transform: translate(-120%, 0px);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+  }
+  &-line1._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
   &-line2 {
+    transform: translate(-120%, 0px);
+    transition: all 1s ease 0s;
+    opacity: 0;
     text-align: right;
+  }
+  &-line2._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  &-line3 {
+    transform: translate(-120%, 0px);
+    transition: all 1.2s ease 0s;
+    opacity: 0;
+  }
+  &-line3._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
   }
 
   &-line4 {
+    transform: translate(-120%, 0px);
+    transition: all 1.4s ease 0s;
+    opacity: 0;
     text-align: right;
     padding-right: 70px;
   }
+  &-line4._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
 
   &-line5 {
+    transform: translate(-120%, 0px);
+    transition: all 1.6s ease 0s;
+    opacity: 0;
     text-align: center;
     padding-right: 120px;
+  }
+  &-line5._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
   }
 }
 

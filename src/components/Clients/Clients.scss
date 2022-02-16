@@ -8,12 +8,19 @@
   }
 
   &-title {
+    transform: translate(-120%, 0px);
+    opacity: 0;
+    transition: all 0.5s ease 0s;
     font-size: 160px;
     line-height: 160px;
     font-weight: 400;
     margin: 0;
     margin-bottom: 150px;
     color: #1e2837;
+  }
+  &-title._active {
+    transform: translate(0, 0px);
+    opacity: 1;
   }
 
   &-container {
