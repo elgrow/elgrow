@@ -76,7 +76,7 @@ export const Header = () => {
       </div>
 
       <div className={cnHeader('container')}>
-        <h1 className={cnHeader('title _anim-items _anim_no_hide')}>
+        <h1 className={cnHeader('title _anim-items')}>
           <Parallax speed={-20} translateY={[-165, 60]}>
             e<span className={cnHeader('title_color')}>l</span>grow.
           </Parallax>

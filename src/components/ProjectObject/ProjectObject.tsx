@@ -67,7 +67,7 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
 
     if (width < 768) {
       return;
-    } else image.style.top = `${y}px`;
+    } else image.style.top = `${y - 200}px`;
     image.style.opacity = 1;
   };
 
@@ -85,22 +85,11 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
     } else image.style.opacity = 0;
   };
 
-  // const showImage = (e: any, opacity: number, pos: string) => {
-  //   const elem = e.target;
-  //   elem.style.opacity = opacity;
-  //   elem.style.position = pos;
-  // };
-  // const hiddenImage = (e: any) => {
-  //   const image = e.target;
-  //   image.style.opacity = 0;
-  //   image.style.top = null;
-  // };
-
   return (
     <Link to={card.url} style={{ textDecoration: 'none', color: '#424D5E' }}>
       <div
         key={card._id}
-        className={cnProjects(`container _anim-items _anim_no_hide`)}
+        className={cnProjects(`container _anim-items`)}
         onMouseOut={e => imageOut(e)}
         onMouseMove={e => imageMove(e)}
         onWheel={e => dontHiddenImage(e)}

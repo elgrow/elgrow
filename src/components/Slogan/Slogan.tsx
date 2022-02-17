@@ -49,21 +49,13 @@ export const Slogan = () => {
 
   return (
     <section className={cnSlogan()} ref={ref}>
-      <p className={cnSlogan('line1 _anim-items _anim_no_hide')}>
-        Ведем от UX до UI,
-      </p>
-      <p className={cnSlogan('line2 _anim-items _anim_no_hide')}>
+      <p className={cnSlogan('line1 _anim-items')}>Ведем от UX до UI,</p>
+      <p className={cnSlogan('line2 _anim-items')}>
         рубим front<span> не топором,</span>
       </p>
-      <p className={cnSlogan('line3 _anim-items _anim_no_hide')}>
-        копаем back до золота
-      </p>
-      <p className={cnSlogan('line4 _anim-items _anim_no_hide')}>
-        и тестируем,
-      </p>
-      <p className={cnSlogan('line5 _anim-items _anim_no_hide')}>
-        как космонавтов
-      </p>
+      <p className={cnSlogan('line3 _anim-items')}>копаем back до золота</p>
+      <p className={cnSlogan('line4 _anim-items')}>и тестируем,</p>
+      <p className={cnSlogan('line5 _anim-items')}>как космонавтов</p>
     </section>
   );
 };

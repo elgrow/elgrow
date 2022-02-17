@@ -57,6 +57,7 @@
   &-link {
     position: relative;
     list-style: none;
+    cursor: pointer;
 
     a {
       position: absolute;
@@ -128,27 +129,6 @@
   &-display-none,
   &-burger-button {
     display: none;
-  }
-
-  &-display-block {
-    position: relative;
-    display: flex;
-    a {
-      position: absolute;
-      left: 0;
-      color: #424d5e;
-      text-decoration: none;
-
-      animation: move 1s;
-      @keyframes move {
-        0% {
-          top: 120px;
-        }
-        100% {
-          top: 0px;
-        }
-      }
-    }
   }
 }
 

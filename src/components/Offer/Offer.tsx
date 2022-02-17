@@ -64,14 +64,14 @@ export const Offer = () => {
 
   return (
     <section className={cnOffer()} ref={ref}>
-      <p className={cnOffer('text _anim-items _anim_no_hide')}>
+      <p className={cnOffer('text _anim-items')}>
         <Parallax speed={40} translateY={[range, -120]}>
           Разработка и интеграция <br />
           IT-решений
         </Parallax>
       </p>
 
-      <div className={cnOffer('link _anim-items _anim_no_hide')}>
+      <div className={cnOffer('link _anim-items')}>
         <Parallax speed={40} translateY={[30, -120]}>
           <a href="/">
             <img

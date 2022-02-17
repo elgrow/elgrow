@@ -60,7 +60,7 @@ export const Clients = () => {
 
   return (
     <section id="clients" className={cnClients()}>
-      <h2 className={cnClients('title _anim-items _anim_no_hide')}>Клиенты</h2>
+      <h2 className={cnClients('title _anim-items')}>Клиенты</h2>
       <div className={cnClients('container')}>
         <ClientSlider />
       </div>

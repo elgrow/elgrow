@@ -88,7 +88,7 @@ const ClientSlider = () => {
     <section id="clients" className={cnClientSlider()}>
       <Slider {...settings}>
         {clients.map((client, index) => (
-          <div className="client _anim-items _anim_no_hide" key={index}>
+          <div className="client _anim-items" key={index}>
             <div className="block">{svgComponent(client)}</div>
           </div>
         ))}

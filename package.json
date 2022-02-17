@@ -21,6 +21,7 @@
     "react-redux": "7.2.6",
     "react-router-dom": "6.2.1",
     "react-scripts": "5.0.0",
+    "react-scroll": "^1.8.4",
     "react-scroll-parallax": "^3.0.3",
     "react-slick": "^0.28.1",
     "react-smooth-list": "^1.0.2",
@@ -54,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-scroll": "^1.8.3",
     "@types/react-slick": "^0.23.8",
     "mini-css-extract-plugin": "2.4.5"
   }

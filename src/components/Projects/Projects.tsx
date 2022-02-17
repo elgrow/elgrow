@@ -74,9 +74,7 @@ export const Projects: FC<ProjectsProps> = ({ data }) => {
 
   return (
     <section id="projects" className={cnProjects()} onClick={onAddressClick}>
-      <h2 className={cnProjects('title _anim-items _anim_no_hide')}>
-        Продукты
-      </h2>
+      <h2 className={cnProjects('title _anim-items')}>Продукты</h2>
       {data.map(card => (
         <ProjectObject card={card} />
       ))}

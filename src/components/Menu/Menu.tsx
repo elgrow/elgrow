@@ -1,19 +1,23 @@
 import { cn } from '@bem-react/classname';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
 
 import telegram from '../../assets/images/telegram.png';
 
 import './Menu.scss';
 
-const cnMenu = cn('Menu');
-
 export const Menu = () => {
+  const cnMenu = cn('Menu');
   const [buttonState, setButtonState] = useState({
     toggle: false,
     wrapper: false,
     displayNone: false,
     displayBlock: false,
   });
+
+  const clientsBlock = document.getElementById('clients');
+  const projectsBlock = document.getElementById('projects');
+  const contactsBlock = document.getElementById('contacts');
 
   const menuToggle = buttonState.toggle ? '_opened' : '_closed';
   const menuWrapper = buttonState.wrapper ? 'burger-wrapper' : 'wrapper';
@@ -27,40 +31,44 @@ export const Menu = () => {
   const handleBurgerClick = (e: React.MouseEvent) => {
     e.preventDefault();
 
-    setButtonState(prev => ({
-      ...prev,
-      toggle: !prev.toggle,
-      wrapper: !prev.wrapper,
-      displayNone: !prev.displayNone,
-      displayBlock: !prev.displayBlock,
-    }));
+    // setButtonState(prev => ({
+    //   ...prev,
+    //   toggle: !prev.toggle,
+    //   wrapper: !prev.wrapper,
+    //   displayNone: !prev.displayNone,
+    //   displayBlock: !prev.displayBlock,
+    // }));
   };
 
-  const closeBurger = () => {
-    setButtonState(prev => ({
-      ...prev,
-      toggle: false,
-      wrapper: false,
-      displayNone: false,
-      displayBlock: false,
-    }));
+  const closeBurger = (block: any) => {
+    window.scrollTo({
+      top: block.offsetTop,
+      behavior: 'smooth',
+    });
+    // setButtonState(prev => ({
+    //   ...prev,
+    //   toggle: false,
+    //   wrapper: false,
+    //   displayNone: false,
+    //   displayBlock: false,
+    // }));
   };
 
   const [fixedTime, setFixedTime] = useState('call_time');
 
-  const listenScrollEvent = (event: any) => {
-    if (window.scrollY < 1) {
-      return setFixedTime('call_time');
-    } else if (window.scrollY > 1) {
-      return setFixedTime('call_time_none');
-    }
-  };
+  // const listenScrollEvent = (event: any) => {
+  //   if (window.scrollY < 1) {
+  //     return setFixedTime('call_time');
+  //   } else if (window.scrollY > 1) {
+  //     return setFixedTime('call_time_none');
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
+  // useEffect(() => {
+  //   window.addEventListener('scroll', listenScrollEvent);
 
-    return () => window.removeEventListener('scroll', listenScrollEvent);
-  }, []);
+  //   return () => window.removeEventListener('scroll', listenScrollEvent);
+  // }, []);
 
   return (
     <menu className={cnMenu()}>
@@ -83,28 +91,39 @@ export const Menu = () => {
           >
             Главная
           </a>
-          {/* </button> */}
         </li>
         <li className={`${cnMenu('link')}`}>
-          {/* <button className={cnMenu('link-button')}> */}
-          <a href="/#clients" onClick={closeBurger}>
+          <Link
+            to="clients"
+            spy={true}
+            smooth={true}
+            offset={170}
+            duration={500}
+          >
             Клиенты
-          </a>
-          {/* </button> */}
+          </Link>
         </li>
         <li className={`${cnMenu('link')}`}>
-          {/* <button className={cnMenu('link-button')}> */}
-          <a href="/#projects" onClick={closeBurger}>
+          <Link
+            to="projects"
+            spy={true}
+            smooth={true}
+            offset={140}
+            duration={500}
+          >
             Продукты
-          </a>
-          {/* </button> */}
+          </Link>
         </li>
         <li className={`${cnMenu('link')}`}>
-          {/* <button className={cnMenu('link-button')}> */}
-          <a href="/#contacts" onClick={closeBurger}>
+          <Link
+            to="contacts"
+            spy={true}
+            smooth={true}
+            offset={170}
+            duration={500}
+          >
             Контакты
-          </a>
-          {/* </button> */}
+          </Link>
         </li>
         <li
           className={`${cnMenu(`${displayNone}`)} ${cnMenu('burger-connect', {

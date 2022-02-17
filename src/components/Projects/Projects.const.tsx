@@ -3,6 +3,8 @@ import tko from '../../assets/images/project/tko.png';
 import parking from '../../assets/images/project/parking.png';
 import auz from '../../assets/images/project/auz.png';
 import vacations from '../../assets/images/project/vacations.png';
+import food from '../../assets/images/project/food.png';
+import MRO from '../../assets/images/project/MRO.png';
 
 export const pickProjects = [
   {
@@ -44,5 +46,21 @@ export const pickProjects = [
     development: 'ux/ui design, frontend, backend',
     task: 'Отпуска',
     url: '/vacation',
+  },
+  {
+    _id: 6,
+    img: food,
+    text: 'Сервис для заказа еды на рабочее место',
+    development: 'ux/ui design, frontend, backend',
+    task: 'Доставка питания сотрудникам',
+    url: '/food',
+  },
+  {
+    _id: 7,
+    img: MRO,
+    text: 'Веб-приложение для работы со всей информацией и документами по персоналу',
+    development: 'ux/ui design, frontend, backend',
+    task: 'Учет персонала',
+    url: '/MRO',
   },
 ];

@@ -11,6 +11,8 @@
   color: #fff;
 
   &-title {
+    transform: translate(-120%, 0px);
+    transition: all 0.5s ease 0s;
     margin: 0 auto;
     max-width: 1440px;
     margin-bottom: 140px;
@@ -19,10 +21,13 @@
     line-height: 160px;
     font-weight: 400;
   }
+  &-title._active {
+    transform: translate(0, 0px);
+  }
 
   &-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: baseline;
     max-width: 1440px;
     margin: 0 auto;
@@ -32,6 +37,29 @@
     margin: 0 80px 0 0;
     padding: 0;
     list-style: none;
+
+    &-mail {
+      transform: translate(-500%, 0px);
+      transition: all 0.5s ease 0s;
+    }
+    &-mail._active {
+      transform: translate(0, 0px);
+    }
+    &-phone {
+      transform: translate(-500%, 0px);
+      transition: all 0.8s ease 0s;
+    }
+    &-phone._active {
+      transform: translate(0, 0px);
+    }
+
+    &-telegram {
+      transform: translate(500%, 0px);
+      transition: all 0.5s ease 0s;
+    }
+    &-telegram._active {
+      transform: translate(0, 0px);
+    }
 
     &-mail,
     &-telegram {
@@ -54,6 +82,7 @@
             width: 100%;
             padding-bottom: 6px;
             border-bottom: 1px solid #bdc6d5;
+            transition: width 0.3s ease-out;
           }
 
           &:hover:after {

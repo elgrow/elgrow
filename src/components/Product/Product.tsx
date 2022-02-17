@@ -50,7 +50,7 @@ export const Product = () => {
 
   return (
     <section className={cnProduct()}>
-      <div className={cnProduct('container _anim-items _anim_no_hide')}>
+      <div className={cnProduct('container _anim-items')}>
         <h3 className={cnProduct('container-title')}>Custom dev</h3>
         <ul className={cnProduct('container-list')}>
           <li>.Net</li>
@@ -58,7 +58,7 @@ export const Product = () => {
           <li>React Native</li>
         </ul>
       </div>
-      <div className={cnProduct('container _anim-items _anim_no_hide')}>
+      <div className={cnProduct('container _anim-items')}>
         <h3 className={cnProduct('container-title')}>Mobile</h3>
         <ul className={cnProduct('container-list')}>
           <li>React Native</li>
@@ -66,7 +66,7 @@ export const Product = () => {
         </ul>
       </div>
       <div
-        className={cnProduct('container _anim-items _anim_no_hide', {
+        className={cnProduct('container _anim-items', {
           last: true,
         })}
       >
