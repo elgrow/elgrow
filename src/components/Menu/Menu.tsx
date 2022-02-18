@@ -15,10 +15,6 @@ export const Menu = () => {
     displayBlock: false,
   });
 
-  const clientsBlock = document.getElementById('clients');
-  const projectsBlock = document.getElementById('projects');
-  const contactsBlock = document.getElementById('contacts');
-
   const menuToggle = buttonState.toggle ? '_opened' : '_closed';
   const menuWrapper = buttonState.wrapper ? 'burger-wrapper' : 'wrapper';
   const displayNone = buttonState.displayNone
@@ -31,44 +27,40 @@ export const Menu = () => {
   const handleBurgerClick = (e: React.MouseEvent) => {
     e.preventDefault();
 
-    // setButtonState(prev => ({
-    //   ...prev,
-    //   toggle: !prev.toggle,
-    //   wrapper: !prev.wrapper,
-    //   displayNone: !prev.displayNone,
-    //   displayBlock: !prev.displayBlock,
-    // }));
+    setButtonState(prev => ({
+      ...prev,
+      toggle: !prev.toggle,
+      wrapper: !prev.wrapper,
+      displayNone: !prev.displayNone,
+      displayBlock: !prev.displayBlock,
+    }));
   };
 
   const closeBurger = (block: any) => {
-    window.scrollTo({
-      top: block.offsetTop,
-      behavior: 'smooth',
-    });
-    // setButtonState(prev => ({
-    //   ...prev,
-    //   toggle: false,
-    //   wrapper: false,
-    //   displayNone: false,
-    //   displayBlock: false,
-    // }));
+    setButtonState(prev => ({
+      ...prev,
+      toggle: false,
+      wrapper: false,
+      displayNone: false,
+      displayBlock: false,
+    }));
   };
 
   const [fixedTime, setFixedTime] = useState('call_time');
 
-  // const listenScrollEvent = (event: any) => {
-  //   if (window.scrollY < 1) {
-  //     return setFixedTime('call_time');
-  //   } else if (window.scrollY > 1) {
-  //     return setFixedTime('call_time_none');
-  //   }
-  // };
+  const listenScrollEvent = (event: any) => {
+    if (window.scrollY < 1) {
+      return setFixedTime('call_time');
+    } else if (window.scrollY > 1) {
+      return setFixedTime('call_time_none');
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', listenScrollEvent);
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
 
-  //   return () => window.removeEventListener('scroll', listenScrollEvent);
-  // }, []);
+    return () => window.removeEventListener('scroll', listenScrollEvent);
+  }, []);
 
   return (
     <menu className={cnMenu()}>
@@ -98,7 +90,7 @@ export const Menu = () => {
             spy={true}
             smooth={true}
             offset={170}
-            duration={200}
+            duration={100}
           >
             Клиенты
           </Link>
@@ -109,7 +101,7 @@ export const Menu = () => {
             spy={true}
             smooth={true}
             offset={140}
-            duration={200}
+            duration={100}
           >
             Продукты
           </Link>
@@ -120,7 +112,7 @@ export const Menu = () => {
             spy={true}
             smooth={true}
             offset={170}
-            duration={200}
+            duration={100}
           >
             Контакты
           </Link>
