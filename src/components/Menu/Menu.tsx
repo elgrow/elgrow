@@ -98,7 +98,7 @@ export const Menu = () => {
             spy={true}
             smooth={true}
             offset={170}
-            duration={500}
+            duration={200}
           >
             Клиенты
           </Link>
@@ -109,7 +109,7 @@ export const Menu = () => {
             spy={true}
             smooth={true}
             offset={140}
-            duration={500}
+            duration={200}
           >
             Продукты
           </Link>
@@ -120,7 +120,7 @@ export const Menu = () => {
             spy={true}
             smooth={true}
             offset={170}
-            duration={500}
+            duration={200}
           >
             Контакты
           </Link>

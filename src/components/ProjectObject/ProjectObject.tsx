@@ -60,23 +60,38 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
   }, [ref]);
 
   const imageMove = (e: any) => {
+    const rect = e.target.getBoundingClientRect();
+    const y = e.clientY - rect.top;
     let elem = e.currentTarget;
     let image = elem.querySelector('img');
     const width = window.innerWidth;
-    const y = e.clientY;
 
     if (width < 768) {
       return;
-    } else image.style.top = `${y - 200}px`;
+    } else image.style.top = `${y}px`;
     image.style.opacity = 1;
   };
 
   const dontHiddenImage = (e: any) => {
-    let y = e.clientY;
-    y++;
+    const rect = e.target.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+
+    const width = window.innerWidth;
+    let parent = e.currentTarget;
+    let image = parent.querySelector('img');
+    if (width < 768) {
+      return;
+    } else {
+      image.style.opacity = 1;
+      // if (y > 230) {
+      //   image.style.bot = '1px';
+      // } else image.style.top = '1px';
+    }
   };
 
   const imageOut = (e: any) => {
+    const rect = e.target.getBoundingClientRect();
+    const y = e.clientY - rect.top;
     const width = window.innerWidth;
     let parent = e.currentTarget;
     let image = parent.querySelector('img');
@@ -92,7 +107,7 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
         className={cnProjects(`container _anim-items`)}
         onMouseOut={e => imageOut(e)}
         onMouseMove={e => imageMove(e)}
-        onWheel={e => dontHiddenImage(e)}
+        // onMouseOver={e => dontHiddenImage(e)}
       >
         <div className={cnProjects(`wrapperForMobile`)}>
           <div className={cnProjects(`content`)}>
