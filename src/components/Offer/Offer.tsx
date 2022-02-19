@@ -47,7 +47,6 @@ export const Offer = () => {
     if (ref.current) {
       const animItems = document.querySelectorAll('._anim-items');
       if (animItems.length > 0) {
-        console.log(animItems);
         window.addEventListener('scroll', () => animOnScroll(animItems));
         animOnScroll(animItems);
       }
