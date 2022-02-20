@@ -145,8 +145,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 100vh;
     padding: 0px;
+    height: max-content;
 
     a {
       text-decoration: none;
@@ -177,7 +177,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      margin-top: 70%;
+      margin-bottom: 30%;
       height: 250px;
       li {
         text-align: center;
@@ -247,11 +247,12 @@
       position: relative;
       z-index: 2;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       flex-direction: column;
       align-items: center;
       width: 110%;
-      height: 100vh;
+      height: 844px;
+      flex-grow: 3;
       max-width: 480px;
       left: -16px;
       // padding: 244px 0 147px 0;
