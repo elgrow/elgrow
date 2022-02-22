@@ -1,8 +1,10 @@
 import { cn } from '@bem-react/classname';
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-scroll';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import telegram from '../../assets/images/telegram.png';
+import LinkRedirectScroll from '../LinkRedirectScroll/LinkRedirectScroll';
 
 import './Menu.scss';
 
@@ -15,6 +17,8 @@ export const Menu = () => {
     displayNone: false,
     displayBlock: false,
   });
+
+  const { pathname } = useLocation();
 
   const getOffsetAfterLink = (offset: number) => {
     if (window.innerWidth < 480) {
@@ -108,12 +112,18 @@ export const Menu = () => {
     }
   }, [ref]);
 
+  const scrollWithOffsetAfterRedirect = (el: any, offset: number) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+
+    window.scrollTo({ top: yCoordinate + offset, behavior: 'smooth' });
+  };
+
   return (
     <menu className={cnMenu()}>
       <div className={`${cnMenu('logo _anim-items')} `}>
-        <a href="/#main">
-          e<span className={cnMenu('logo_color')}>l</span>grow.
-        </a>
+        <Link to="/#main">
+          e<span className={cnMenu('logo_color')}>l</span>grow.{' '}
+        </Link>
       </div>
       <ul className={`${cnMenu(`${menuWrapper}`)} ${cnMenu('list')}`}>
         <div className={`${cnMenu('burger-logo')} `}>
@@ -123,52 +133,43 @@ export const Menu = () => {
         </div>
         <div className={`${cnMenu('menuContainer')}`}>
           <li className={`${cnMenu('link _anim-items')}`}>
-            <Link
-              to="main"
-              spy={true}
-              smooth={true}
-              onSetActive={closeBurger}
+            <LinkRedirectScroll
+              title="Главная"
+              path={pathname}
+              closeBurger={closeBurger}
+              linkTo="main"
               offset={0}
-              duration={100}
-            >
-              Главная
-            </Link>
+            />
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
-            <Link
-              to="clients"
-              spy={true}
-              smooth={true}
-              onSetActive={closeBurger}
+            <LinkRedirectScroll
+              title="Клиенты"
+              path={pathname}
+              closeBurger={closeBurger}
+              linkTo="clients"
               offset={getOffsetAfterLink(170)}
-              duration={100}
-            >
-              Клиенты
-            </Link>
+              scrollWithOffsetAfterRedirect={scrollWithOffsetAfterRedirect}
+            />
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
-            <Link
-              to="projects"
-              spy={true}
-              onSetActive={closeBurger}
-              smooth={true}
+            <LinkRedirectScroll
+              title="Продукты"
+              path={pathname}
+              closeBurger={closeBurger}
+              linkTo="projects"
               offset={getOffsetAfterLink(140)}
-              duration={100}
-            >
-              Продукты
-            </Link>
+              scrollWithOffsetAfterRedirect={scrollWithOffsetAfterRedirect}
+            />
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
-            <Link
-              to="contacts"
-              spy={true}
-              onSetActive={closeBurger}
-              smooth={true}
+            <LinkRedirectScroll
+              title="Контакты"
+              path={pathname}
+              closeBurger={closeBurger}
+              linkTo="contacts"
               offset={getOffsetAfterLink(170)}
-              duration={100}
-            >
-              Контакты
-            </Link>
+              scrollWithOffsetAfterRedirect={scrollWithOffsetAfterRedirect}
+            />
           </li>
         </div>
 

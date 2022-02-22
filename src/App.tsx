@@ -17,6 +17,8 @@ import { pickDataParking } from './pages/ParkingPage/Parking.const';
 
 import './App.scss';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import { FoodPage } from './pages/FoodPage/FoodPage';
+import { foodData } from './pages/FoodPage/FoodPage.const';
 
 const cnApp = cn('App');
 
@@ -24,29 +26,33 @@ export const App = () => {
   return (
     <div className={cnApp()}>
       <ParallaxProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route
-            path="/aviationTrainingCenter"
-            element={<AviationTrainingCenterPage data={pickDataAviation} />}
-          />
-          <Route path="/vacation" element={<VacationPage data={pickDataVacation} />} />
-          <Route
-            path="/disruptiveSituations"
-            element={<DisruptiveSituationsPage data={pickDataSituations} />}
-          />
-          <Route
-            path="/groundHandling"
-            element={<GroundHandlingPage data={pickDataGroundHandling} />}
-          />
-          <Route
-            path="/parking"
-            element={<ParkingPage data={pickDataParking} />}
-          />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route
+              path="/aviationTrainingCenter"
+              element={<AviationTrainingCenterPage data={pickDataAviation} />}
+            />
+            <Route
+              path="/vacation"
+              element={<VacationPage data={pickDataVacation} />}
+            />
+            <Route
+              path="/disruptiveSituations"
+              element={<DisruptiveSituationsPage data={pickDataSituations} />}
+            />
+            <Route
+              path="/groundHandling"
+              element={<GroundHandlingPage data={pickDataGroundHandling} />}
+            />
+            <Route
+              path="/parking"
+              element={<ParkingPage data={pickDataParking} />}
+            />
+            <Route path="/food" element={<FoodPage data={foodData} />} />
+          </Routes>
+        </BrowserRouter>
       </ParallaxProvider>
     </div>
   );
