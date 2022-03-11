@@ -7,6 +7,10 @@ import './ProjectTextSmall.scss';
 
 const cnProjectTextSmall = cn('ProjectTextSmall');
 
-export const ProjectTextSmall: FC<DataProject> = ({ text, id }) => {
-  return <p className={`${cnProjectTextSmall()} ${cnProjectTextSmall(`${id}`)}`}>{text}</p>;
+export const ProjectTextSmall: FC<DataProject> = ({ text, id, prefix }) => {
+  return (
+    <p className={`${cnProjectTextSmall()} ${cnProjectTextSmall(`${id}`)}`}>
+      {prefix} {text}
+    </p>
+  );
 };

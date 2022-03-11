@@ -10,10 +10,15 @@ import { DisruptiveSituationsPage } from './pages/DisruptiveSituationsPage/Disru
 import { GroundHandlingPage } from './pages/GroundHandlingPage/GroundHandlingPage';
 import { ParkingPage } from './pages/ParkingPage/ParkingPage';
 import { pickDataAviation } from './pages/AviationTrainingCenterPage/AviationTrainingCenter.const';
+import { pickDataAviationEng } from './pages/AviationTrainingCenterPage/AviationTrainingCenterEng.const';
 import { pickDataVacation } from './pages/VacationPage/VacationPage.const';
+import { pickDataVacationEng } from './pages/VacationPage/VacationPageEng.const';
 import { pickDataSituations } from './pages/DisruptiveSituationsPage/DisruptiveSituations.const';
+import { pickDataSituationsEng } from './pages/DisruptiveSituationsPage/DIsruptiveSituationsEng.const';
 import { pickDataGroundHandling } from './pages/GroundHandlingPage/GroundHandling.const';
+import { pickDataGroundHandlingEng } from './pages/GroundHandlingPage/GroundHandlingEng.const';
 import { pickDataParking } from './pages/ParkingPage/Parking.const';
+import { pickDataParkingEng } from './pages/ParkingPage/ParkingEng.const';
 
 import './App.scss';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
@@ -23,6 +28,13 @@ import { foodData } from './pages/FoodPage/FoodPage.const';
 const cnApp = cn('App');
 
 export const App = () => {
+  const getData = (ru: any, en: any) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
+
   return (
     <div className={cnApp()}>
       <ParallaxProvider>
@@ -32,23 +44,46 @@ export const App = () => {
             <Route path="/" element={<MainPage />} />
             <Route
               path="/aviationTrainingCenter"
-              element={<AviationTrainingCenterPage data={pickDataAviation} />}
+              element={
+                <AviationTrainingCenterPage
+                  data={getData(pickDataAviation, pickDataAviationEng)}
+                />
+              }
             />
             <Route
               path="/vacation"
-              element={<VacationPage data={pickDataVacation} />}
+              element={
+                <VacationPage
+                  data={getData(pickDataVacation, pickDataVacationEng)}
+                />
+              }
             />
             <Route
               path="/disruptiveSituations"
-              element={<DisruptiveSituationsPage data={pickDataSituations} />}
+              element={
+                <DisruptiveSituationsPage
+                  data={getData(pickDataSituations, pickDataSituationsEng)}
+                />
+              }
             />
             <Route
               path="/groundHandling"
-              element={<GroundHandlingPage data={pickDataGroundHandling} />}
+              element={
+                <GroundHandlingPage
+                  data={getData(
+                    pickDataGroundHandling,
+                    pickDataGroundHandlingEng
+                  )}
+                />
+              }
             />
             <Route
               path="/parking"
-              element={<ParkingPage data={pickDataParking} />}
+              element={
+                <ParkingPage
+                  data={getData(pickDataParking, pickDataParkingEng)}
+                />
+              }
             />
             <Route path="/food" element={<FoodPage data={foodData} />} />
           </Routes>

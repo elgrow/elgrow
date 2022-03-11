@@ -371,10 +371,10 @@
       min-width: 30px;
       background-image: url('../../assets/images/arrow_small_left.png');
 
-    &:hover {
-      cursor: pointer;
-      background-image: url('../../assets/images/arrow_left.png');
-    }
+      &:hover {
+        cursor: pointer;
+        background-image: url('../../assets/images/arrow_left.png');
+      }
     }
 
     &-button-right {

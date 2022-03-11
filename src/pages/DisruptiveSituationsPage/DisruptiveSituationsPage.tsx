@@ -1,5 +1,5 @@
 import { cn } from '@bem-react/classname';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 
 import { Menu } from '../../components/Menu/Menu';
@@ -14,9 +14,45 @@ import { DataProjectProps } from '../../components/type';
 
 import './DisruptiveSituationsPage.scss';
 
-const cnDisruptiveSituations = cn('DisruptiveSituations');
-
 export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
+  const cnDisruptiveSituations = cn('DisruptiveSituations');
+  const animOnScroll = (animItems: any) => {
+    for (let index = 0; index < animItems.length; index++) {
+      const animItem: any = animItems[index];
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+      if (
+        window.scrollY > animItemOffset - animItemPoint &&
+        window.scrollY < animItemOffset + animItemHeight
+      ) {
+        animItem.classList.add('_active');
+      } else {
+        if (!animItem.classList.contains('_anim_no_hide')) {
+          animItem.classList.remove('_active');
+        }
+      }
+    }
+    function offset(el: any) {
+      const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  };
+
+  useEffect(() => {
+    const animItems = document.querySelectorAll('._anim-items');
+    if (animItems.length > 0) {
+      window.addEventListener('scroll', () => animOnScroll(animItems));
+      animOnScroll(animItems);
+    }
+  }, []);
   return (
     <div className={cnDisruptiveSituations()}>
       <div className={cnDisruptiveSituations('menu-back')}>
@@ -26,12 +62,14 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
       <section className={cnDisruptiveSituations('section')}>
         <div className={cnDisruptiveSituations('white')}>
           <div
-            className={`${cnDisruptiveSituations('background-white')} ${cnDisruptiveSituations(
-              `background-white-${data[0].id}`
-            )}`}
+            className={`${cnDisruptiveSituations(
+              'background-white'
+            )} ${cnDisruptiveSituations(`background-white-${data[0].id}`)}`}
           >
             <Parallax speed={-10}>
-              <div className={cnDisruptiveSituations('background-white-passenger')}>
+              <div
+                className={cnDisruptiveSituations('background-white-passenger')}
+              >
                 <img src={data[0].imgMedium2} alt="passenger" />
               </div>
             </Parallax>
@@ -39,7 +77,9 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
               <img src={data[0].img} alt="voucher" />
             </div>
             <Parallax speed={10}>
-              <div className={cnDisruptiveSituations('background-white-scanner')}>
+              <div
+                className={cnDisruptiveSituations('background-white-scanner')}
+              >
                 <img src={data[0].imgMedium} alt="scanner" />
               </div>
             </Parallax>
@@ -47,9 +87,9 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnDisruptiveSituations('center')}>
           <div
-            className={`${cnDisruptiveSituations('section-flex')} ${cnDisruptiveSituations(
-              `section-flex-${data[0].id}`
-            )}`}
+            className={`${cnDisruptiveSituations(
+              'section-flex'
+            )} ${cnDisruptiveSituations(`section-flex-${data[0].id}`)}`}
           >
             <div className={cnDisruptiveSituations('section-block-left')}>
               <ProjectTextBig text={data[0].textBig} />
@@ -64,8 +104,14 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
       <section className={cnDisruptiveSituations('section')}>
         <div className={cnDisruptiveSituations('white')}>
           <div className={cnDisruptiveSituations('background-white')}>
-            <div className={cnDisruptiveSituations('background-white-transparent')}>
-              <div className={cnDisruptiveSituations('background-white-application')}>
+            <div
+              className={cnDisruptiveSituations('background-white-transparent')}
+            >
+              <div
+                className={cnDisruptiveSituations(
+                  'background-white-application'
+                )}
+              >
                 <img src={data[1].img} alt="application" />
               </div>
             </div>
@@ -75,12 +121,18 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
               </div>
             </Parallax>
             <Parallax speed={-6}>
-              <div className={cnDisruptiveSituations('background-white-registry')}>
+              <div
+                className={cnDisruptiveSituations('background-white-registry')}
+              >
                 <img src={data[1].imgMedium2} alt="registry" />
               </div>
             </Parallax>
             <Parallax speed={-6}>
-              <div className={cnDisruptiveSituations('background-white-listAction')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'background-white-listAction'
+                )}
+              >
                 <img src={data[1].imgMedium3} alt="listAction" />
               </div>
             </Parallax>
@@ -91,20 +143,26 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnDisruptiveSituations('center')}>
           <div
-            className={`${cnDisruptiveSituations('section-flex')} ${cnDisruptiveSituations(
-              `section-flex-${data[1].id}`
-            )}`}
+            className={`${cnDisruptiveSituations(
+              'section-flex'
+            )} ${cnDisruptiveSituations(`section-flex-${data[1].id}`)}`}
           >
             <div
-              className={`${cnDisruptiveSituations('section-block-left')} ${cnDisruptiveSituations(
-                `section-block-left-${data[1].id}`
-              )}`}
+              className={`${cnDisruptiveSituations(
+                'section-block-left'
+              )} ${cnDisruptiveSituations(`section-block-left-${data[1].id}`)}`}
             >
-              <div className={cnDisruptiveSituations('section-block-left-flight-number')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'section-block-left-flight-number'
+                )}
+              >
                 <img src={data[1].img2} alt="flight number" />
               </div>
               <Parallax speed={-15}>
-                <div className={cnDisruptiveSituations('section-block-left-print')}>
+                <div
+                  className={cnDisruptiveSituations('section-block-left-print')}
+                >
                   <img src={data[1].imgMedium4} alt="print" />
                 </div>
               </Parallax>
@@ -123,9 +181,15 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
                   <ProjectTextMedium text={data[1].li3} />
                 </li>
               </ul>
-              <div className={cnDisruptiveSituations('section-block-320flight-number')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'section-block-320flight-number'
+                )}
+              >
                 <img src={data[1].imgMedium5} alt="flight number" />
-                <div className={cnDisruptiveSituations('section-block-320print')}>
+                <div
+                  className={cnDisruptiveSituations('section-block-320print')}
+                >
                   <img src={data[1].imgMedium4} alt="print" />
                 </div>
               </div>
@@ -136,9 +200,9 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
               <ProjectTextMedium text={data[1].textMedium3} />
               <ProjectTextMedium text={data[1].textMedium4} />
               <div
-                className={`${cnDisruptiveSituations('border-icon')} ${cnDisruptiveSituations(
-                  `border-icon-${data[1].id}`
-                )}`}
+                className={`${cnDisruptiveSituations(
+                  'border-icon'
+                )} ${cnDisruptiveSituations(`border-icon-${data[1].id}`)}`}
               >
                 <img
                   className={cnDisruptiveSituations('icon')}
@@ -147,7 +211,9 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
                 />
                 <ProjectTextSmall text={data[1].textSmall} />
               </div>
-              <div className={cnDisruptiveSituations(`border-icon-${data[1].id}`)}>
+              <div
+                className={cnDisruptiveSituations(`border-icon-${data[1].id}`)}
+              >
                 <img
                   className={cnDisruptiveSituations('icon')}
                   src={data[1].icon2}
@@ -166,19 +232,33 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
               <div
                 className={`${cnDisruptiveSituations(
                   'phone-screens-authorization'
-                )} ${cnDisruptiveSituations(`phone-screens-authorization-${data[2].id}`)}`}
+                )} ${cnDisruptiveSituations(
+                  `phone-screens-authorization-${data[2].id}`
+                )}`}
               >
                 <img src={data[2].imgMedium} alt="authorization" />
               </div>
-              <div className={cnDisruptiveSituations('phone-screens-scanner-header')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'phone-screens-scanner-header'
+                )}
+              >
                 <img src={data[2].imgMedium2} alt="scanner" />
               </div>
             </div>
             <div className={cnDisruptiveSituations('phone-screens-block')}>
-              <div className={cnDisruptiveSituations('phone-screens-scanner-footer')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'phone-screens-scanner-footer'
+                )}
+              >
                 <img src={data[2].imgMedium3} alt="scanner" />
               </div>
-              <div className={cnDisruptiveSituations('phone-screens-passenger-amount')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'phone-screens-passenger-amount'
+                )}
+              >
                 <img src={data[2].imgMedium4} alt="passenger amount" />
               </div>
             </div>
@@ -186,19 +266,31 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
               <div
                 className={`${cnDisruptiveSituations(
                   'phone-screens-passenger-amount'
-                )} ${cnDisruptiveSituations(`phone-screens-passenger-amount-${data[2].id}`)}`}
+                )} ${cnDisruptiveSituations(
+                  `phone-screens-passenger-amount-${data[2].id}`
+                )}`}
               >
                 <img src={data[2].imgMedium4} alt="passenger amount" />
               </div>
-              <div className={cnDisruptiveSituations('phone-screens-voucher-used-header')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'phone-screens-voucher-used-header'
+                )}
+              >
                 <img src={data[2].imgMedium5} alt="voucher used header" />
               </div>
             </div>
             <div className={cnDisruptiveSituations('phone-screens-block')}>
-              <div className={cnDisruptiveSituations('phone-screens-voucher-used')}>
+              <div
+                className={cnDisruptiveSituations('phone-screens-voucher-used')}
+              >
                 <img src={data[2].imgMedium6} alt="voucher used" />
               </div>
-              <div className={cnDisruptiveSituations('phone-screens-authorization')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'phone-screens-authorization'
+                )}
+              >
                 <img src={data[2].imgMedium} alt="authorization" />
               </div>
             </div>
@@ -209,14 +301,14 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnDisruptiveSituations('center')}>
           <div
-            className={`${cnDisruptiveSituations('section-flex')} ${cnDisruptiveSituations(
-              `section-flex-${data[2].id}`
-            )}`}
+            className={`${cnDisruptiveSituations(
+              'section-flex'
+            )} ${cnDisruptiveSituations(`section-flex-${data[2].id}`)}`}
           >
             <div
-              className={`${cnDisruptiveSituations('section-block-left')} ${cnDisruptiveSituations(
-                `section-block-left-${data[2].id}`
-              )}`}
+              className={`${cnDisruptiveSituations(
+                'section-block-left'
+              )} ${cnDisruptiveSituations(`section-block-left-${data[2].id}`)}`}
             ></div>
 
             <div className={cnDisruptiveSituations('section-block')}>
@@ -229,24 +321,36 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
         </div>
       </section>
       <section
-        className={`${cnDisruptiveSituations('section')} ${cnDisruptiveSituations(
-          `section-${data[3].id}`
-        )}`}
+        className={`${cnDisruptiveSituations(
+          'section'
+        )} ${cnDisruptiveSituations(`section-${data[3].id}`)}`}
       >
         <div className={cnDisruptiveSituations('white')}>
           <div
-            className={`${cnDisruptiveSituations('phone-screens')} ${cnDisruptiveSituations(
-              `phone-screens-${data[3].id}`
-            )}`}
+            className={`${cnDisruptiveSituations(
+              'phone-screens'
+            )} ${cnDisruptiveSituations(`phone-screens-${data[3].id}`)}`}
           >
-            <div className={cnDisruptiveSituations('background-white-voucher-upload')}>
+            <div
+              className={cnDisruptiveSituations(
+                'background-white-voucher-upload'
+              )}
+            >
               <img src={data[3].img} alt="voucher upload" />
             </div>
             <Parallax speed={-8}>
-              <div className={cnDisruptiveSituations('background-white-delete-voucher')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'background-white-delete-voucher'
+                )}
+              >
                 <img src={data[3].imgMedium} alt="delete" />
               </div>
-              <div className={cnDisruptiveSituations('background-white-registry-filtering')}>
+              <div
+                className={cnDisruptiveSituations(
+                  'background-white-registry-filtering'
+                )}
+              >
                 <img src={data[3].imgMedium2} alt="registry" />
               </div>
             </Parallax>
@@ -254,9 +358,9 @@ export const DisruptiveSituationsPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnDisruptiveSituations('center')}>
           <div
-            className={`${cnDisruptiveSituations('section-flex')} ${cnDisruptiveSituations(
-              `section-flex-${data[3].id}`
-            )}`}
+            className={`${cnDisruptiveSituations(
+              'section-flex'
+            )} ${cnDisruptiveSituations(`section-flex-${data[3].id}`)}`}
           >
             <div className={cnDisruptiveSituations('section-block-left')}>
               <TitleH4 title={data[3].title} />

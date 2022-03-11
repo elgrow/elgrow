@@ -1,5 +1,5 @@
 import { cn } from '@bem-react/classname';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 
 import { Menu } from '../../components/Menu/Menu';
@@ -13,9 +13,45 @@ import { DataProjectProps } from '../../components/type';
 
 import './ParkingPage.scss';
 
-const cnParking = cn('Parking');
-
 export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
+  const cnParking = cn('Parking');
+  const animOnScroll = (animItems: any) => {
+    for (let index = 0; index < animItems.length; index++) {
+      const animItem: any = animItems[index];
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+      if (
+        window.scrollY > animItemOffset - animItemPoint &&
+        window.scrollY < animItemOffset + animItemHeight
+      ) {
+        animItem.classList.add('_active');
+      } else {
+        if (!animItem.classList.contains('_anim_no_hide')) {
+          animItem.classList.remove('_active');
+        }
+      }
+    }
+    function offset(el: any) {
+      const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  };
+
+  useEffect(() => {
+    const animItems = document.querySelectorAll('._anim-items');
+    if (animItems.length > 0) {
+      window.addEventListener('scroll', () => animOnScroll(animItems));
+      animOnScroll(animItems);
+    }
+  }, []);
   return (
     <div className={cnParking()}>
       <div className={cnParking('menu-back')}>
@@ -42,7 +78,9 @@ export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnParking('center')}>
           <div
-            className={`${cnParking('section-flex')} ${cnParking(`section-flex-${data[0].id}`)}`}
+            className={`${cnParking('section-flex')} ${cnParking(
+              `section-flex-${data[0].id}`
+            )}`}
           >
             <div className={cnParking('section-block-left')}>
               <ProjectTextBig text={data[0].textBig} />
@@ -50,7 +88,11 @@ export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className={`${cnParking('section')} ${cnParking(`section-${data[1].id}`)}`}>
+      <section
+        className={`${cnParking('section')} ${cnParking(
+          `section-${data[1].id}`
+        )}`}
+      >
         <div className={cnParking('320phone-screens')}>
           <div className={cnParking('320phone-screens-bigBookPlace')}>
             <img src={data[1].imgMedium} alt="bookPlace" />
@@ -67,7 +109,9 @@ export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnParking('center')}>
           <div
-            className={`${cnParking('section-flex')} ${cnParking(`section-flex-${data[1].id}`)}`}
+            className={`${cnParking('section-flex')} ${cnParking(
+              `section-flex-${data[1].id}`
+            )}`}
           >
             <div className={cnParking('section-block-left')}>
               <div className={cnParking('title-display')}>
@@ -135,7 +179,9 @@ export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnParking('center')}>
           <div
-            className={`${cnParking('section-flex')} ${cnParking(`section-flex-${data[2].id}`)}`}
+            className={`${cnParking('section-flex')} ${cnParking(
+              `section-flex-${data[2].id}`
+            )}`}
           >
             <div className={cnParking('section-block-left')}>
               <div className={cnParking('phone-screens')}>
@@ -153,16 +199,28 @@ export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
             <div className={cnParking('section-block')}>
               <div className={cnParking('phone-text')}>
                 <div className={cnParking('phone-text-block')}>
-                  <p className={cnParking('phone-text-hard')}>{data[2].textHard}</p>
-                  <p className={cnParking('phone-text-small')}>{data[2].textSmall}</p>
+                  <p className={cnParking('phone-text-hard')}>
+                    {data[2].textHard}
+                  </p>
+                  <p className={cnParking('phone-text-small')}>
+                    {data[2].textSmall}
+                  </p>
                 </div>
                 <div className={cnParking('phone-text-block')}>
-                  <p className={cnParking('phone-text-hard')}>{data[2].textHard2}</p>
-                  <p className={cnParking('phone-text-small')}>{data[2].textSmall2}</p>
+                  <p className={cnParking('phone-text-hard')}>
+                    {data[2].textHard2}
+                  </p>
+                  <p className={cnParking('phone-text-small')}>
+                    {data[2].textSmall2}
+                  </p>
                 </div>
                 <div className={cnParking('phone-text-block')}>
-                  <p className={cnParking('phone-text-hard')}>{data[2].textHard3}</p>
-                  <p className={cnParking('phone-text-small')}>{data[2].textSmall3}</p>
+                  <p className={cnParking('phone-text-hard')}>
+                    {data[2].textHard3}
+                  </p>
+                  <p className={cnParking('phone-text-small')}>
+                    {data[2].textSmall3}
+                  </p>
                 </div>
               </div>
             </div>
@@ -190,7 +248,9 @@ export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnParking('center')}>
           <div
-            className={`${cnParking('section-flex')} ${cnParking(`section-flex-${data[3].id}`)}`}
+            className={`${cnParking('section-flex')} ${cnParking(
+              `section-flex-${data[3].id}`
+            )}`}
           >
             <div className={cnParking('section-block-left')}>
               <div className={cnParking('title-display')}>
@@ -249,7 +309,9 @@ export const ParkingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnParking('center')}>
           <div
-            className={`${cnParking('section-flex')} ${cnParking(`section-flex-${data[4].id}`)}`}
+            className={`${cnParking('section-flex')} ${cnParking(
+              `section-flex-${data[4].id}`
+            )}`}
           >
             <div className={cnParking('section-block-left')}>
               <div className={cnParking('title-display')}>

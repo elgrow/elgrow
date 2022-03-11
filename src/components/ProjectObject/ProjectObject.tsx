@@ -71,22 +71,22 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
     image.style.opacity = 1;
   };
 
-  const dontHiddenImage = (e: any) => {
-    const rect = e.target.getBoundingClientRect();
-    const y = e.clientY - rect.top;
+  // const dontHiddenImage = (e: any) => {
+  //   const rect = e.target.getBoundingClientRect();
+  //   const y = e.clientY - rect.top;
 
-    const width = window.innerWidth;
-    let parent = e.currentTarget;
-    let image = parent.querySelector('img');
-    if (width < 768) {
-      return;
-    } else {
-      image.style.opacity = 1;
-      // if (y > 230) {
-      //   image.style.bot = '1px';
-      // } else image.style.top = '1px';
-    }
-  };
+  //   const width = window.innerWidth;
+  //   let parent = e.currentTarget;
+  //   let image = parent.querySelector('img');
+  //   if (width < 768) {
+  //     return;
+  //   } else {
+  //     image.style.opacity = 1;
+  //     // if (y > 230) {
+  //     //   image.style.bot = '1px';
+  //     // } else image.style.top = '1px';
+  //   }
+  // };
 
   const imageOut = (e: any) => {
     const rect = e.target.getBoundingClientRect();

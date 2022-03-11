@@ -12,16 +12,24 @@ export const ProjectFooter: FC<DataProject> = ({ url, title, id }) => {
   let newUrl: string;
   !url ? (newUrl = '') : (newUrl = url);
 
+  const getTranslateTitle = (ru: string, en: string) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
+
   return (
     <div className={`${cnProjectFooter()} ${cnProjectFooter(`${id}`)}`}>
       <div className={cnProjectFooter('wrapper')}>
-        <p className={cnProjectFooter('text')}>Смотреть другой проект</p>
-        <Link className={cnProjectFooter('link')}  to={newUrl}>
+        <p className={cnProjectFooter('text')}>
+          {getTranslateTitle('Смотреть другой проект', 'See another project')}
+        </p>
+        <Link className={cnProjectFooter('link')} to={newUrl}>
           <div className={cnProjectFooter('link-wrapper')}>
             <h3 className={cnProjectFooter('title')}>
               {title}
-              <span className={cnProjectFooter('link-arrow')}>
-              </span>
+              <span className={cnProjectFooter('link-arrow')}></span>
             </h3>
           </div>
         </Link>

@@ -118,6 +118,31 @@ export const Menu = () => {
     window.scrollTo({ top: yCoordinate + offset, behavior: 'smooth' });
   };
 
+  const changeURLLanguage = () => {
+    const select: any = document.getElementById('standard-select');
+    let lang = select.value;
+    localStorage.setItem('language', lang);
+    window.location.reload();
+  };
+
+  const changeLanguage = () => {
+    const select: any = document.getElementById('standard-select');
+    let lang = localStorage.getItem('language');
+    if (!lang) {
+      select.value = 'ru';
+    } else select.value = lang;
+  };
+  useEffect(() => {
+    changeLanguage();
+  }, [changeURLLanguage]);
+
+  const getTitle = (ru: string, en: string) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
+
   return (
     <menu className={cnMenu()}>
       <div className={`${cnMenu('logo _anim-items')} `}>
@@ -134,7 +159,7 @@ export const Menu = () => {
         <div className={`${cnMenu('menuContainer')}`}>
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
-              title="Главная"
+              title={getTitle('Главная', 'Main')}
               path={pathname}
               closeBurger={closeBurger}
               linkTo="main"
@@ -143,7 +168,7 @@ export const Menu = () => {
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
-              title="Клиенты"
+              title={getTitle('Клиенты', 'Clients')}
               path={pathname}
               closeBurger={closeBurger}
               linkTo="clients"
@@ -153,7 +178,7 @@ export const Menu = () => {
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
-              title="Продукты"
+              title={getTitle('Продукты', 'Projects')}
               path={pathname}
               closeBurger={closeBurger}
               linkTo="projects"
@@ -163,13 +188,24 @@ export const Menu = () => {
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
-              title="Контакты"
+              title={getTitle('Контакты', 'Contacts')}
               path={pathname}
               closeBurger={closeBurger}
               linkTo="contacts"
               offset={getOffsetAfterLink(170)}
               scrollWithOffsetAfterRedirect={scrollWithOffsetAfterRedirect}
             />
+          </li>
+          <li className={`${cnMenu('link _anim-items')}`}>
+            <div className={`${cnMenu('select')}`}>
+              <select onChange={changeURLLanguage} id="standard-select">
+                <option selected value="ru">
+                  Ru
+                </option>
+                <option value="en"> En </option>
+              </select>
+              <span className={`${cnMenu('focus')}`}></span>
+            </div>
           </li>
         </div>
 
@@ -195,7 +231,9 @@ export const Menu = () => {
           >
             <img className={cnMenu('link-img')} src={telegram} alt="telegram" />
             <button className={cnMenu('link-button')}>
-              <a href="https://t.me/@DC6200">Связаться в Telegram</a>
+              <a href="https://t.me/@DC6200">
+                {getTitle('Связаться в Telegram', 'Contact in Telegram')}
+              </a>
             </button>
           </div>{' '}
         </div>

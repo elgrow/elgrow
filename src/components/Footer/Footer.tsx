@@ -48,9 +48,18 @@ export const Footer = () => {
       }
     }
   }, [ref]);
+
+  const getTranslateTitle = (ru: string, en: string) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
   return (
     <footer id="contacts" className={cnFooter()}>
-      <h2 className={cnFooter('title _anim-items')}>Контакты</h2>
+      <h2 className={cnFooter('title _anim-items')}>
+        {getTranslateTitle('Контакты', 'Contacts')}
+      </h2>
       <div className={cnFooter('container')}>
         <ul className={cnFooter('list')}>
           <li className={cnFooter('list-mail _anim-items')}>
@@ -75,7 +84,12 @@ export const Footer = () => {
                 alt="telegram"
               />
               <span className={`${cnFooter('list-telegram-text')}`}>
-                <a href="https://t.me/@DC6200">Связаться в Telegram</a>
+                <a href="https://t.me/@DC6200">
+                  {getTranslateTitle(
+                    'Связаться в Telegram',
+                    'Contact in Telegram'
+                  )}
+                </a>
               </span>
             </button>
           </li>

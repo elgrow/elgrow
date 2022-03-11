@@ -1,7 +1,7 @@
 import { cn } from '@bem-react/classname';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Parallax } from 'react-scroll-parallax';
-import { Animated } from "react-animated-css"
+import { Animated } from 'react-animated-css';
 
 import { Menu } from '../../components/Menu/Menu';
 import { ProjectFooter } from '../../components/ProjectFooter/ProjectFooter';
@@ -15,9 +15,45 @@ import { DataProjectProps } from '../../components/type';
 
 import './VacationPage.scss';
 
-const cnVacationPage = cn('VacationPage');
-
 export const VacationPage: FC<DataProjectProps> = ({ data }) => {
+  const cnVacationPage = cn('VacationPage');
+  const animOnScroll = (animItems: any) => {
+    for (let index = 0; index < animItems.length; index++) {
+      const animItem: any = animItems[index];
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+      if (
+        window.scrollY > animItemOffset - animItemPoint &&
+        window.scrollY < animItemOffset + animItemHeight
+      ) {
+        animItem.classList.add('_active');
+      } else {
+        if (!animItem.classList.contains('_anim_no_hide')) {
+          animItem.classList.remove('_active');
+        }
+      }
+    }
+    function offset(el: any) {
+      const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  };
+
+  useEffect(() => {
+    const animItems = document.querySelectorAll('._anim-items');
+    if (animItems.length > 0) {
+      window.addEventListener('scroll', () => animOnScroll(animItems));
+      animOnScroll(animItems);
+    }
+  }, []);
   return (
     <div className={cnVacationPage()}>
       <div className={cnVacationPage('menu-back')}>
@@ -41,7 +77,9 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
         </div>
       </section>
       <section
-        className={`${cnVacationPage('section')} ${cnVacationPage(`section-${data[1].id}`)}`}
+        className={`${cnVacationPage('section')} ${cnVacationPage(
+          `section-${data[1].id}`
+        )}`}
       >
         <div className={cnVacationPage('black')}>
           <div className={cnVacationPage('background-black')}>
@@ -91,13 +129,25 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
           <div className={cnVacationPage('background-white-applications')}>
             <img src={data[2].img} alt="applications" />
           </div>
-          <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
-          <div className={`${cnVacationPage('background-black-print')} element-animation`}>
+          <Animated
+            animationIn="bounceInLeft"
+            animationOut="fadeOut"
+            isVisible={true}
+          >
+            <div
+              className={`${cnVacationPage(
+                'background-black-print'
+              )} element-animation`}
+            >
               <img src={data[2].imgMedium} />
-          </div>
+            </div>
           </Animated>
-          <div className={`${cnVacationPage('background-black-reminder')} element-animation`}>
-              <img src={data[2].imgMedium2} />
+          <div
+            className={`${cnVacationPage(
+              'background-black-reminder'
+            )} element-animation`}
+          >
+            <img src={data[2].imgMedium2} />
           </div>
         </div>
         <div className={cnVacationPage('center')}>
@@ -113,16 +163,26 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
               <ProjectTextMedium text={data[2].textMedium} id={data[2].id} />
               <ProjectTextMedium text={data[2].textMedium2} id={data[2].id} />
             </div>
-            <div className={`${cnVacationPage('section-block-left')} element-animation`}>
+            <div
+              className={`${cnVacationPage(
+                'section-block-left'
+              )} element-animation`}
+            >
               <ProjectTextHard text={data[2].textHard2} id={data[2].id} />
             </div>
-            <div className={`${cnVacationPage('section-block')} element-animation`}>
+            <div
+              className={`${cnVacationPage('section-block')} element-animation`}
+            >
               <ProjectTextMedium text={data[2].textMedium3} id={data[2].id} />
             </div>
             <div className={cnVacationPage('background-black-320reminder')}>
               <img src={data[2].imgMedium2} />
             </div>
-            <div className={`${cnVacationPage('section-block-left')} element-animation`}>
+            <div
+              className={`${cnVacationPage(
+                'section-block-left'
+              )} element-animation`}
+            >
               <ProjectTextHard text={data[2].textHard3} id={data[2].id} />
             </div>
           </div>
@@ -154,9 +214,9 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
             )}`}
           >
             <div
-              className={`${cnVacationPage('section-block-left')} ${cnVacationPage(
-                `section-block-left-${data[3].id}`
-              )}`}
+              className={`${cnVacationPage(
+                'section-block-left'
+              )} ${cnVacationPage(`section-block-left-${data[3].id}`)}`}
             >
               <ProjectTextHard text={data[3].textHard} id={data[3].id} />
             </div>
@@ -182,7 +242,11 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
         <div className={cnVacationPage('image-320wrapper')}>
           <ProjectImage img={data[3].imgMedium3} id={data[3].id} />
         </div>
-        <div className={`${cnVacationPage('center')} ${cnVacationPage(`center-${data[3].id}`)}`}>
+        <div
+          className={`${cnVacationPage('center')} ${cnVacationPage(
+            `center-${data[3].id}`
+          )}`}
+        >
           <div
             className={`${cnVacationPage('section-flex')} ${cnVacationPage(
               `section-flex-${data[3].id}`
@@ -199,7 +263,11 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
       <section className={cnVacationPage('section')}>
         <div className={cnVacationPage('black')}>
           <div className={cnVacationPage('background-black')}>
-            <div className={cnVacationPage('background-black-applications-blackout')}>
+            <div
+              className={cnVacationPage(
+                'background-black-applications-blackout'
+              )}
+            >
               <img src={data[4].img} />
             </div>
             <Parallax speed={-10}>
@@ -212,7 +280,11 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
         <div className={cnVacationPage('title-wrapper')}>
           <TitleH4 title={data[4].title} id={data[4].id} />
         </div>
-        <div className={`${cnVacationPage('center')} ${cnVacationPage(`center-${data[4].id}`)}`}>
+        <div
+          className={`${cnVacationPage('center')} ${cnVacationPage(
+            `center-${data[4].id}`
+          )}`}
+        >
           <div
             className={`${cnVacationPage('section-flex')} ${cnVacationPage(
               `section-flex-${data[4].id}`
@@ -229,7 +301,9 @@ export const VacationPage: FC<DataProjectProps> = ({ data }) => {
         </div>
       </section>
       <section
-        className={`${cnVacationPage('section')} ${cnVacationPage(`section-${data[5].id}`)}`}
+        className={`${cnVacationPage('section')} ${cnVacationPage(
+          `section-${data[5].id}`
+        )}`}
       >
         <div className={cnVacationPage('black')}>
           <div className={cnVacationPage('background-black')}>

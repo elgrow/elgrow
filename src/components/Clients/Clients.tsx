@@ -58,9 +58,18 @@ export const Clients = () => {
 
   const clientsLogoPath = [open, kfc, vtb, asos, megafon, telecom];
 
+  const getTranslateTitle = (ru: string, en: string) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
+
   return (
     <section id="clients" className={cnClients()}>
-      <h2 className={cnClients('title _anim-items')}>Клиенты</h2>
+      <h2 className={cnClients('title _anim-items')}>
+        {getTranslateTitle('Клиенты', 'Clients')}
+      </h2>
       <div className={cnClients('container')}>
         <ClientSlider />
       </div>

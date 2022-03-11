@@ -1,5 +1,5 @@
 import { cn } from '@bem-react/classname';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 
 import { Menu } from '../../components/Menu/Menu';
@@ -17,6 +17,44 @@ import './GroundHandlingPage.scss';
 const cnGroundHandling = cn('GroundHandling');
 
 export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
+  const cnGroundHandling = cn('GroundHandling');
+  const animOnScroll = (animItems: any) => {
+    for (let index = 0; index < animItems.length; index++) {
+      const animItem: any = animItems[index];
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+      if (
+        window.scrollY > animItemOffset - animItemPoint &&
+        window.scrollY < animItemOffset + animItemHeight
+      ) {
+        animItem.classList.add('_active');
+      } else {
+        if (!animItem.classList.contains('_anim_no_hide')) {
+          animItem.classList.remove('_active');
+        }
+      }
+    }
+    function offset(el: any) {
+      const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  };
+
+  useEffect(() => {
+    const animItems = document.querySelectorAll('._anim-items');
+    if (animItems.length > 0) {
+      window.addEventListener('scroll', () => animOnScroll(animItems));
+      animOnScroll(animItems);
+    }
+  }, []);
   return (
     <div className={cnGroundHandling()}>
       <div className={cnGroundHandling('menu-back')}>
@@ -51,17 +89,27 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
       <section className={cnGroundHandling('section')}>
         <div className={cnGroundHandling('black')}>
           <div className={cnGroundHandling('background-black')}>
-            <div className={cnGroundHandling('background-black-create-request')}>
+            <div
+              className={cnGroundHandling('background-black-create-request')}
+            >
               <img src={data[1].img} alt="create request" />
             </div>
             <Parallax translateX={['-400px', '50px']}>
               <div className={cnGroundHandling('background-black-subscribe')}>
                 <img src={data[1].imgMedium} alt="subscribe" />
               </div>
-              <div className={cnGroundHandling('background-black-dispatcher-changed')}>
+              <div
+                className={cnGroundHandling(
+                  'background-black-dispatcher-changed'
+                )}
+              >
                 <img src={data[1].imgMedium2} alt="dispatcher changed" />
               </div>
-              <div className={cnGroundHandling('background-black-dispatcher-canceled')}>
+              <div
+                className={cnGroundHandling(
+                  'background-black-dispatcher-canceled'
+                )}
+              >
                 <img src={data[1].imgMedium3} alt="dispatcher canceled" />
               </div>
             </Parallax>
@@ -82,7 +130,11 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
               <ProjectTextMedium text={data[1].textMedium2} />
               <ProjectTextMedium text={data[1].textMedium3} />
               <div className={cnGroundHandling(`border-icon`)}>
-                <img className={cnGroundHandling('icon')} src={data[1].icon} alt="menu" />
+                <img
+                  className={cnGroundHandling('icon')}
+                  src={data[1].icon}
+                  alt="menu"
+                />
                 <ProjectTextSmall text={data[1].textSmall} />
               </div>
             </div>
@@ -123,7 +175,9 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
       </section>
       <section
-        className={`${cnGroundHandling('section')} ${cnGroundHandling(`section-${data[3].id}`)}`}
+        className={`${cnGroundHandling('section')} ${cnGroundHandling(
+          `section-${data[3].id}`
+        )}`}
       >
         <div className={cnGroundHandling('320phone-screens')}>
           <div className={cnGroundHandling('320phone-screens-tasks')}>
@@ -143,9 +197,9 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
               <TitleH4 title={data[3].title} />
             </div>
             <div
-              className={`${cnGroundHandling('section-block')} ${cnGroundHandling(
-                `section-block-${data[3].id}`
-              )}`}
+              className={`${cnGroundHandling(
+                'section-block'
+              )} ${cnGroundHandling(`section-block-${data[3].id}`)}`}
             >
               <ProjectTextHard text={data[3].textHard} />
               <ProjectTextMedium text={data[3].textMedium} />
@@ -157,7 +211,9 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
       </section>
       <section
-        className={`${cnGroundHandling('section')} ${cnGroundHandling(`section-${data[3].id}`)}`}
+        className={`${cnGroundHandling('section')} ${cnGroundHandling(
+          `section-${data[3].id}`
+        )}`}
       >
         <div className={cnGroundHandling('phone-screens')}>
           <Parallax speed={-10}>
@@ -198,9 +254,9 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
           </div>
         </div>
         <div
-          className={`${cnGroundHandling('320phone-screens')} ${cnGroundHandling(
-            `320phone-screens-${data[4].id}`
-          )}`}
+          className={`${cnGroundHandling(
+            '320phone-screens'
+          )} ${cnGroundHandling(`320phone-screens-${data[4].id}`)}`}
         >
           <div className={cnGroundHandling('320phone-screens-processing')}>
             <img src={data[4].imgMedium3} alt="processing" />
@@ -216,9 +272,9 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
             )}`}
           >
             <div
-              className={`${cnGroundHandling('section-block-left')} ${cnGroundHandling(
-                `section-block-left-${data[4].id}`
-              )}`}
+              className={`${cnGroundHandling(
+                'section-block-left'
+              )} ${cnGroundHandling(`section-block-left-${data[4].id}`)}`}
             ></div>
             <div className={cnGroundHandling('section-block')}>
               <ProjectTextMedium text={data[4].textMedium} />
@@ -230,7 +286,9 @@ export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
         </div>
       </section>
       <section
-        className={`${cnGroundHandling('section')} ${cnGroundHandling(`section-${data[5].id}`)}`}
+        className={`${cnGroundHandling('section')} ${cnGroundHandling(
+          `section-${data[5].id}`
+        )}`}
       >
         <div className={cnGroundHandling('center')}>
           <div

@@ -1,5 +1,5 @@
 import { cn } from '@bem-react/classname';
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import { DataProjectProps } from '../../components/type';
 import { ProjectTextMedium } from '../../components/ProjectTextMedium/ProjectTextMedium';
@@ -17,9 +17,9 @@ import './AviationTrainingCenterPage.scss';
 const cnAviationTrainingCenterPage = cn('AviationTrainingCenterPage');
 
 export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
-
   const course = [data[2].img, data[2].img2];
   const candidate = [data[3].img, data[3].img2];
+  const ref = useRef(null);
 
   const [index, setIndex] = useState({
     courseNum: 0,
@@ -34,11 +34,21 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
     candidateRight: false,
   });
 
-  const courseWrapper = index.courseWrapper ? 'white-edit-course-reference' : 'white-edit-course';
-  const courseButtonLeft = buttonDisplay.courseLeft ? 'button-none' : 'button-left';
-  const courseButtonRight = buttonDisplay.courseRight ? 'button-none' : 'button-right';
-  const candidateButtonLeft = buttonDisplay.candidateLeft ? 'button-none' : 'button-left';
-  const candidateButtonRight = buttonDisplay.candidateRight ? 'button-none' : 'button-right';
+  const courseWrapper = index.courseWrapper
+    ? 'white-edit-course-reference'
+    : 'white-edit-course';
+  const courseButtonLeft = buttonDisplay.courseLeft
+    ? 'button-none'
+    : 'button-left';
+  const courseButtonRight = buttonDisplay.courseRight
+    ? 'button-none'
+    : 'button-right';
+  const candidateButtonLeft = buttonDisplay.candidateLeft
+    ? 'button-none'
+    : 'button-left';
+  const candidateButtonRight = buttonDisplay.candidateRight
+    ? 'button-none'
+    : 'button-right';
   const courseGreenLeft = buttonDisplay.courseLeft
     ? 'green-points-button-none'
     : 'green-points-button';
@@ -62,23 +72,23 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
 
   const getNextCourse = () => {
     if (index.courseNum == 1) {
-      setIndex((prev) => ({
+      setIndex(prev => ({
         ...prev,
         courseNum: 0,
         courseWrapper: false,
       }));
-      setButtonDisplay((prev) => ({
+      setButtonDisplay(prev => ({
         ...prev,
         courseLeft: !prev.courseLeft,
         courseRight: !prev.courseRight,
       }));
     } else {
-      setIndex((prev) => ({
+      setIndex(prev => ({
         ...prev,
         courseNum: 1,
         courseWrapper: !prev.courseWrapper,
       }));
-      setButtonDisplay((prev) => ({
+      setButtonDisplay(prev => ({
         ...prev,
         courseLeft: !prev.courseLeft,
         courseRight: !prev.courseRight,
@@ -88,27 +98,65 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
 
   const getNextCandidate = () => {
     if (index.candidateNum == 1) {
-      setIndex((prev) => ({
+      setIndex(prev => ({
         ...prev,
         candidateNum: 0,
       }));
-      setButtonDisplay((prev) => ({
+      setButtonDisplay(prev => ({
         ...prev,
         candidateLeft: !prev.candidateLeft,
         candidateRight: !prev.candidateRight,
       }));
     } else {
-      setIndex((prev) => ({
+      setIndex(prev => ({
         ...prev,
         candidateNum: 1,
       }));
-      setButtonDisplay((prev) => ({
+      setButtonDisplay(prev => ({
         ...prev,
         candidateLeft: !prev.candidateLeft,
         candidateRight: !prev.candidateRight,
       }));
     }
   };
+
+  const animOnScroll = (animItems: any) => {
+    for (let index = 0; index < animItems.length; index++) {
+      const animItem: any = animItems[index];
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+      if (
+        window.scrollY > animItemOffset - animItemPoint &&
+        window.scrollY < animItemOffset + animItemHeight
+      ) {
+        animItem.classList.add('_active');
+      } else {
+        if (!animItem.classList.contains('_anim_no_hide')) {
+          animItem.classList.remove('_active');
+        }
+      }
+    }
+    function offset(el: any) {
+      const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  };
+
+  useEffect(() => {
+    const animItems = document.querySelectorAll('._anim-items');
+    if (animItems.length > 0) {
+      window.addEventListener('scroll', () => animOnScroll(animItems));
+      animOnScroll(animItems);
+    }
+  }, []);
 
   return (
     <div className={cnAviationTrainingCenterPage()}>
@@ -167,26 +215,32 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
           <button
             className={cnAviationTrainingCenterPage(courseButtonLeft)}
             onClick={getNextCourse}
-          >
-          </button>
+          ></button>
           {getNewCourse().map((path, index) => (
             <img src={path} key={index} alt="course" />
           ))}
           <button
             className={cnAviationTrainingCenterPage(courseButtonRight)}
             onClick={getNextCourse}
-          >
-          </button>
+          ></button>
           <div className={cnAviationTrainingCenterPage('green-points')}>
-            <button className={cnAviationTrainingCenterPage(courseGreenLeft)}></button>
-            <button className={cnAviationTrainingCenterPage(courseGreenRight)}></button>
+            <button
+              className={cnAviationTrainingCenterPage(courseGreenLeft)}
+            ></button>
+            <button
+              className={cnAviationTrainingCenterPage(courseGreenRight)}
+            ></button>
           </div>
         </div>
         <div className={cnAviationTrainingCenterPage('white-320course')}>
           <div className={cnAviationTrainingCenterPage('white-320course-edit')}>
             <img src={data[2].img} alt="course" />
           </div>
-          <div className={cnAviationTrainingCenterPage('white-320course-reference')}>
+          <div
+            className={cnAviationTrainingCenterPage(
+              'white-320course-reference'
+            )}
+          >
             <img src={data[2].img2} alt="course" />
           </div>
         </div>
@@ -202,7 +256,9 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
             <div className={cnAviationTrainingCenterPage('section-block')}>
               <ProjectTextHard text={data[2].textHard} id={data[2].id} />
               <ProjectTextMedium text={data[2].textMedium} id={data[2].id} />
-              <div className={cnAviationTrainingCenterPage('section-block-icon')}>
+              <div
+                className={cnAviationTrainingCenterPage('section-block-icon')}
+              >
                 <img
                   className={cnAviationTrainingCenterPage('icon')}
                   src={data[2].icon}
@@ -219,26 +275,32 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
           <button
             className={cnAviationTrainingCenterPage(candidateButtonLeft)}
             onClick={getNextCandidate}
-          >
-          </button>
+          ></button>
           {getNewCandidate().map((path, index) => (
             <img src={path} key={index} alt="candidate" />
           ))}
           <button
             className={cnAviationTrainingCenterPage(candidateButtonRight)}
             onClick={getNextCandidate}
-          >
-          </button>
+          ></button>
           <div className={cnAviationTrainingCenterPage('green-points')}>
-            <button className={cnAviationTrainingCenterPage(candidateGreenLeft)}></button>
-            <button className={cnAviationTrainingCenterPage(candidateGreenRight)}></button>
+            <button
+              className={cnAviationTrainingCenterPage(candidateGreenLeft)}
+            ></button>
+            <button
+              className={cnAviationTrainingCenterPage(candidateGreenRight)}
+            ></button>
           </div>
         </div>
         <div className={cnAviationTrainingCenterPage('white-320candidate')}>
-          <div className={cnAviationTrainingCenterPage('white-320candidate-log')}>
+          <div
+            className={cnAviationTrainingCenterPage('white-320candidate-log')}
+          >
             <img src={data[3].img} alt="course" />
           </div>
-          <div className={cnAviationTrainingCenterPage('white-320candidate-log')}>
+          <div
+            className={cnAviationTrainingCenterPage('white-320candidate-log')}
+          >
             <img src={data[3].img2} alt="course" />
           </div>
         </div>
@@ -265,9 +327,13 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
                 'background-black'
               )} ${cnAviationTrainingCenterPage('background-black-font-size')}`}
             >
-              <div className={cnAviationTrainingCenterPage('section-block-left')}>
+              <div
+                className={cnAviationTrainingCenterPage('section-block-left')}
+              >
                 <img
-                  className={cnAviationTrainingCenterPage('background-black-image')}
+                  className={cnAviationTrainingCenterPage(
+                    'background-black-image'
+                  )}
                   src={data[3].imgMedium}
                   alt="black"
                 />
@@ -336,15 +402,21 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnAviationTrainingCenterPage('black')}>
           <div className={cnAviationTrainingCenterPage('center')}>
-            <div className={`${cnAviationTrainingCenterPage('background-black')}`}>
+            <div
+              className={`${cnAviationTrainingCenterPage('background-black')}`}
+            >
               <img
-                className={cnAviationTrainingCenterPage('background-black-image')}
+                className={cnAviationTrainingCenterPage(
+                  'background-black-image'
+                )}
                 src={data[5].imgMedium}
                 alt=""
               />
               <ProjectTextMedium text={data[5].textMedium3} id={data[5].id} />
               <img
-                className={cnAviationTrainingCenterPage('background-black-image')}
+                className={cnAviationTrainingCenterPage(
+                  'background-black-image'
+                )}
                 src={data[5].imgMedium2}
                 alt=""
               />
@@ -354,11 +426,13 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
         </div>
       </section>
       <section
-        className={`${cnAviationTrainingCenterPage('section')} ${cnAviationTrainingCenterPage(
-          `section-${data[6].id}`
-        )}`}
+        className={`${cnAviationTrainingCenterPage(
+          'section'
+        )} ${cnAviationTrainingCenterPage(`section-${data[6].id}`)}`}
       >
-        <div className={cnAviationTrainingCenterPage('title-wrapper-border')}></div>
+        <div
+          className={cnAviationTrainingCenterPage('title-wrapper-border')}
+        ></div>
         <div className={cnAviationTrainingCenterPage('white-history-list')}>
           <img src={data[6].img} alt="history" />
         </div>
@@ -388,7 +462,9 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
             <ProjectApplicationStage stage={data[6].stage} id={data[6].id} />
           </div>
         </div>
-        <div className={cnAviationTrainingCenterPage('white-applications-list')}>
+        <div
+          className={cnAviationTrainingCenterPage('white-applications-list')}
+        >
           <img src={data[6].imgMedium} alt="applications" />
         </div>
         <div className={cnAviationTrainingCenterPage('center')}>
@@ -397,9 +473,13 @@ export const AviationTrainingCenterPage: FC<DataProjectProps> = ({ data }) => {
               'section-flex'
             )} ${cnAviationTrainingCenterPage(`section-flex-${data[6].id}`)}`}
           >
-            <div className={cnAviationTrainingCenterPage('section-block-left')}></div>
+            <div
+              className={cnAviationTrainingCenterPage('section-block-left')}
+            ></div>
             <div className={cnAviationTrainingCenterPage('section-block')}>
-              <h5 className={cnAviationTrainingCenterPage('section-block-text')}>
+              <h5
+                className={cnAviationTrainingCenterPage('section-block-text')}
+              >
                 {data[6].textMedium2}
               </h5>
             </div>

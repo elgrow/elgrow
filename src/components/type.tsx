@@ -29,16 +29,22 @@ export type Stage = {
 };
 
 export type DataProject = {
+  prefix?: string;
   id?: number;
   img?: string;
   img2?: string;
+  img3?: string;
+  img4?: string;
+  img5?: string;
+  img6?: string;
   heading?: string;
   imgMedium?: string;
-  imgMedium2?: string,
-  imgMedium3?: string,
-  imgMedium4?: string,
-  imgMedium5?: string,
-  imgMedium6?: string,
+  imgMedium2?: string;
+  imgMedium3?: string;
+  imgMedium4?: string;
+  imgMedium5?: string;
+  imgMedium6?: string;
+  imgSmall?: string;
   title?: string;
   title2?: string;
   titlePart?: string;
@@ -50,12 +56,14 @@ export type DataProject = {
   textMedium?: string;
   textMedium2?: string;
   textMedium3?: string;
-  textMedium4?: string,
+  textMedium4?: string;
   textMedium5?: string;
-  textMedium6?: string,
+  textMedium6?: string;
+  textMedium7?: string;
   textSmall?: string;
   textSmall2?: string;
   textSmall3?: string;
+  textSmall4?: string;
   ul?: string;
   li1?: string;
   li2?: string;
@@ -72,4 +80,3 @@ export type DataProject = {
 export type DataProjectProps = {
   data: DataProject[];
 };
-

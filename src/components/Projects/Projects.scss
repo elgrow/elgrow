@@ -224,6 +224,7 @@
     }
 
     &-container {
+      pointer-events: auto;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -236,12 +237,14 @@
     }
 
     &-content {
+      pointer-events: auto;
       height: 22px;
       font-size: 14px;
       width: 95%;
     }
 
     &-development {
+      pointer-events: auto;
       font-size: 12px;
       width: 95%;
       height: 18px;

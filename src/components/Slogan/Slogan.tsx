@@ -1,12 +1,12 @@
 import { cn } from '@bem-react/classname';
-import { useRef } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import { useEffect } from 'react';
-
 import './Slogan.scss';
 
 export const Slogan = () => {
   const cnSlogan = cn('Slogan');
   const ref = useRef(null);
+  const width = window.innerWidth;
 
   const animOnScroll = (animItems: any) => {
     for (let index = 0; index < animItems.length; index++) {
@@ -43,19 +43,36 @@ export const Slogan = () => {
       const animItems = document.querySelectorAll('._anim-items');
       if (animItems.length > 0) {
         window.addEventListener('scroll', () => animOnScroll(animItems));
+        animOnScroll(animItems);
       }
     }
   }, [ref]);
 
+  const getTranslateTitle = (ru: string, en: string) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
+
   return (
     <section className={cnSlogan()} ref={ref}>
-      <p className={cnSlogan('line1 _anim-items')}>Ведем от UX до UI,</p>
-      <p className={cnSlogan('line2 _anim-items')}>
-        рубим front<span> не топором,</span>
+      <p className={cnSlogan('line1 _anim-items')}>
+        {getTranslateTitle('Ведем от UX до UI,', 'We lead from UX to UI,')}
       </p>
-      <p className={cnSlogan('line3 _anim-items')}>копаем back до золота</p>
-      <p className={cnSlogan('line4 _anim-items')}>и тестируем,</p>
-      <p className={cnSlogan('line5 _anim-items')}>как космонавтов</p>
+      <p className={cnSlogan('line2 _anim-items')}>
+        {getTranslateTitle('рубим фронт', 'chop Front')}
+        <span> {getTranslateTitle('не топором,', 'without ax')}</span>
+      </p>
+      <p className={cnSlogan('line3 _anim-items')}>
+        {getTranslateTitle('копаем back до золота', 'dig Back to gold')}
+      </p>
+      <p className={cnSlogan('line4 _anim-items')}>
+        {getTranslateTitle('и тестируем,', 'and test')}
+      </p>
+      <p className={cnSlogan('line5 _anim-items')}>
+        {getTranslateTitle('как космонавтов,', 'like astronauts')}
+      </p>
     </section>
   );
 };

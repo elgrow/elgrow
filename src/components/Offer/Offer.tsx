@@ -61,12 +61,19 @@ export const Offer = () => {
     } else setRange(30);
   }, [width]);
 
+  const getTitle = (ru: string, en: string) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
+
   return (
     <section className={cnOffer()} ref={ref}>
       <p className={cnOffer('text _anim-items')}>
         <Parallax speed={40} translateY={[range, -120]}>
-          Разработка и интеграция <br />
-          IT-решений
+          {getTitle('Разработка и интеграция', 'Design and integration')} <br />
+          {getTitle('IT-решений', 'of IT solutions')}
         </Parallax>
       </p>
 
@@ -79,7 +86,9 @@ export const Offer = () => {
               alt="telegram"
             />
             <span className={cnOffer('link-text')}>
-              <a href="https://t.me/@DC6200">Связаться в Telegram</a>
+              <a href="https://t.me/@DC6200">
+                {getTitle('Связаться в Telegram', 'Contact in Telegram')}
+              </a>
             </span>
           </a>
         </Parallax>

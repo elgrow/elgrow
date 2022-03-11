@@ -71,9 +71,18 @@ export const Projects: FC<ProjectsProps> = ({ data }) => {
     dispatch(getProjectsData(projectsData));
   }, [dispatch, projectsData]);
 
+  const getTranslateTitle = (ru: string, en: string) => {
+    let lang = localStorage.getItem('language');
+    if (lang === 'en') {
+      return en;
+    } else return ru;
+  };
+
   return (
     <section id="projects" className={cnProjects()} onClick={onAddressClick}>
-      <h2 className={cnProjects('title _anim-items')}>Продукты</h2>
+      <h2 className={cnProjects('title _anim-items')}>
+        {getTranslateTitle('Продукты', 'Projects')}
+      </h2>
       {data.map(card => (
         <ProjectObject card={card} />
       ))}
