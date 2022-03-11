@@ -14,7 +14,7 @@ export const ProjectFooter: FC<DataProject> = ({ url, title, id }) => {
 
   const getTranslateTitle = (ru: string, en: string) => {
     let lang = localStorage.getItem('language');
-    if (lang === 'en') {
+    if (lang === 'En') {
       return en;
     } else return ru;
   };

@@ -18,7 +18,17 @@ export const Menu = () => {
     displayBlock: false,
   });
 
+  const [langData, setLangData] = useState('');
+
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    let lang = localStorage.getItem('language');
+    if (!lang) {
+      localStorage.setItem('language', 'Ru');
+      setLangData('Ru');
+    } else setLangData(lang);
+  }, []);
 
   const getOffsetAfterLink = (offset: number) => {
     if (window.innerWidth < 480) {
@@ -119,26 +129,20 @@ export const Menu = () => {
   };
 
   const changeURLLanguage = () => {
-    const select: any = document.getElementById('standard-select');
-    let lang = select.value;
-    localStorage.setItem('language', lang);
-    window.location.reload();
+    if (langData === 'Ru') {
+      localStorage.setItem('language', 'En');
+      setLangData('En');
+      window.location.reload();
+    } else {
+      localStorage.setItem('language', 'Ru');
+      setLangData('Ru');
+      window.location.reload();
+    }
   };
-
-  const changeLanguage = () => {
-    const select: any = document.getElementById('standard-select');
-    let lang = localStorage.getItem('language');
-    if (!lang) {
-      select.value = 'ru';
-    } else select.value = lang;
-  };
-  useEffect(() => {
-    changeLanguage();
-  }, [changeURLLanguage]);
 
   const getTitle = (ru: string, en: string) => {
     let lang = localStorage.getItem('language');
-    if (lang === 'en') {
+    if (lang === 'En') {
       return en;
     } else return ru;
   };
@@ -178,7 +182,7 @@ export const Menu = () => {
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
-              title={getTitle('Продукты', 'Projects')}
+              title={getTitle('Продукты', 'Products')}
               path={pathname}
               closeBurger={closeBurger}
               linkTo="projects"
@@ -198,12 +202,9 @@ export const Menu = () => {
           </li>
           <li className={`${cnMenu('link _anim-items')}`}>
             <div className={`${cnMenu('select')}`}>
-              <select onChange={changeURLLanguage} id="standard-select">
-                <option selected value="ru">
-                  Ru
-                </option>
-                <option value="en"> En </option>
-              </select>
+              <li onClick={changeURLLanguage} id="standard-select">
+                {langData}
+              </li>
               <span className={`${cnMenu('focus')}`}></span>
             </div>
           </li>

@@ -51,7 +51,7 @@ export const Footer = () => {
 
   const getTranslateTitle = (ru: string, en: string) => {
     let lang = localStorage.getItem('language');
-    if (lang === 'en') {
+    if (lang === 'En') {
       return en;
     } else return ru;
   };

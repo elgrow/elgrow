@@ -18,7 +18,7 @@ export const MainPage = () => {
 
   const getTranslateProjects = () => {
     let lang = localStorage.getItem('language');
-    if (lang === 'en') {
+    if (lang === 'En') {
       return pickProjectsEng;
     } else return pickProjects;
   };

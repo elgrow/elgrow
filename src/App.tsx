@@ -30,7 +30,7 @@ const cnApp = cn('App');
 export const App = () => {
   const getData = (ru: any, en: any) => {
     let lang = localStorage.getItem('language');
-    if (lang === 'en') {
+    if (lang === 'En') {
       return en;
     } else return ru;
   };
