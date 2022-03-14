@@ -81,7 +81,7 @@ export const Projects: FC<ProjectsProps> = ({ data }) => {
   return (
     <section id="projects" className={cnProjects()} onClick={onAddressClick}>
       <h2 className={cnProjects('title _anim-items')}>
-        {getTranslateTitle('Продукты', 'Projects')}
+        {getTranslateTitle('Продукты', 'Products')}
       </h2>
       {data.map(card => (
         <ProjectObject card={card} />

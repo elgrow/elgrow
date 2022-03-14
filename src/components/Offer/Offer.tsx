@@ -72,7 +72,8 @@ export const Offer = () => {
     <section className={cnOffer()} ref={ref}>
       <p className={cnOffer('text _anim-items')}>
         <Parallax speed={40} translateY={[range, -120]}>
-          {getTitle('Разработка и интеграция', 'Design and integration')} <br />
+          {getTitle('Разработка и интеграция', 'Development and integration')}{' '}
+          <br />
           {getTitle('IT-решений', 'of IT solutions')}
         </Parallax>
       </p>
