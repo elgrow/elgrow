@@ -12,11 +12,13 @@
 
   &-select {
     position: absolute;
-    left: 170px;
+    left: 100%;
     list-style: none;
     cursor: pointer;
-
     font-size: 20px;
+    li {
+      margin-top: 1px;
+    }
   }
 
   label {
@@ -54,7 +56,7 @@
   &-wrapper {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 63%;
   }
   &-menuContainer {
     display: flex;
@@ -142,13 +144,29 @@
 
 @media screen and (max-width: 768px) {
   .Menu {
+    justify-content: space-between;
+    a {
+      font-size: 15px;
+    }
+    &-call {
+      &_phone {
+        a {
+          font-size: 10px;
+        }
+      }
+    }
+    li {
+      margin-top: 1px;
+      font-size: 15px;
+    }
+
     max-width: 672px;
     &-logo {
       visibility: visible;
     }
 
     &-wrapper {
-      width: 200px;
+      width: 400px;
     }
   }
 }
@@ -163,10 +181,13 @@
     height: max-content;
 
     &-select {
+      position: static;
+      list-style: none;
+      cursor: pointer;
+      font-size: 20px;
       li {
-        margin-left: 15px;
-        text-decoration: none;
-        color: #fff;
+        color: white;
+        margin-top: 1px;
       }
     }
 

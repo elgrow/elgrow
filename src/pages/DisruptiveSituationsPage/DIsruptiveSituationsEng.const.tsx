@@ -25,7 +25,7 @@ export const pickDataSituationsEng = [
     img: voucherCreate,
     imgMedium: scanner,
     imgMedium2: passengerAmount,
-    heading: 'Failure situations&shy;and flight delays',
+    heading: 'Failure situations and flight delays',
     textBig: 'A system that helps in case of failure situations',
     textMedium:
       'It simplifies the work of providing passengers with drinks and meals when the aircraft is delayed.',
