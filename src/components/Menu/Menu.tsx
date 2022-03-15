@@ -1,7 +1,7 @@
 import { cn } from '@bem-react/classname';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import telegram from '../../assets/images/telegram.png';
 import LinkRedirectScroll from '../LinkRedirectScroll/LinkRedirectScroll';
@@ -9,6 +9,7 @@ import LinkRedirectScroll from '../LinkRedirectScroll/LinkRedirectScroll';
 import './Menu.scss';
 
 export const Menu = () => {
+  const history = useNavigate();
   const ref = useRef(null);
   const cnMenu = cn('Menu');
   const [buttonState, setButtonState] = useState({
@@ -27,7 +28,7 @@ export const Menu = () => {
     if (!lang) {
       localStorage.setItem('language', 'Ru');
       setLangData('Ru');
-    } else setLangData(lang);
+    } else setLangData(lang[0].toUpperCase() + lang.slice(1));
   }, []);
 
   const getOffsetAfterLink = (offset: number) => {
@@ -129,30 +130,36 @@ export const Menu = () => {
   };
 
   const changeURLLanguage = () => {
+    let pathesArr = pathname.split('/');
+
     if (langData === 'Ru') {
-      localStorage.setItem('language', 'En');
+      localStorage.setItem('language', 'en');
       setLangData('En');
-      window.location.reload();
+      pathesArr.splice(1, 1, 'en');
+      pathesArr.join('/');
+      window.location.replace(pathesArr.join('/'));
     } else {
-      localStorage.setItem('language', 'Ru');
+      localStorage.setItem('language', 'ru');
       setLangData('Ru');
-      window.location.reload();
+      pathesArr.splice(1, 1, 'ru');
+      pathesArr.join('/');
+      window.location.replace(pathesArr.join('/'));
     }
   };
 
   const getTitle = (ru: string, en: string) => {
     let lang = localStorage.getItem('language');
-    if (lang === 'En') {
+    if (lang === 'en') {
       return en;
     } else return ru;
   };
 
   return (
     <menu className={cnMenu()}>
-      <div className={`${cnMenu('logo _anim-items')} `}>
-        <Link to="/#main">
-          e<span className={cnMenu('logo_color')}>l</span>grow.{' '}
-        </Link>
+      <div className={`${cnMenu('logo _anim2-items')} `}>
+        {/* <Link to="/#main">
+          e<span className={cnMenu('logo_color')}>l</span>grow.
+        </Link> */}
       </div>
       <ul className={`${cnMenu(`${menuWrapper}`)} ${cnMenu('list')}`}>
         <div className={`${cnMenu('burger-logo')} `}>
@@ -163,7 +170,11 @@ export const Menu = () => {
         <div className={`${cnMenu('menuContainer')}`}>
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
-              title={getTitle('Главная', 'Main')}
+              title={
+                <>
+                  e<span className={cnMenu('logo_color')}>l</span>grow.
+                </>
+              }
               path={pathname}
               closeBurger={closeBurger}
               linkTo="main"

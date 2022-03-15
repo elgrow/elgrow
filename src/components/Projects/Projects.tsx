@@ -73,7 +73,7 @@ export const Projects: FC<ProjectsProps> = ({ data }) => {
 
   const getTranslateTitle = (ru: string, en: string) => {
     let lang = localStorage.getItem('language');
-    if (lang === 'En') {
+    if (lang === 'en') {
       return en;
     } else return ru;
   };

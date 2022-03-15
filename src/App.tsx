@@ -1,7 +1,13 @@
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  BrowserRouter,
+  useLocation,
+  Navigate,
+} from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { cn } from '@bem-react/classname';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { MainPage } from './pages/MainPage/MainPage';
 import { AviationTrainingCenterPage } from './pages/AviationTrainingCenterPage/AviationTrainingCenterPage';
@@ -24,74 +30,91 @@ import { foodData } from './pages/FoodPage/FoodPage.const';
 import { foodDataEng } from './pages/FoodPage/FoodPageEng.const';
 import './App.scss';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
-const cnApp = cn('App');
+import Redirect from './components/Redirect/Redirect';
 
 export const App = () => {
-  const getData = (ru: any, en: any) => {
+  const [first, setfirst] = useState(false);
+  const pathName = window.location.pathname;
+  const cnApp = cn('App');
+  const getData = (ru?: any, en?: any) => {
     let lang = localStorage.getItem('language');
-    if (lang === 'En') {
+    if (lang === 'en') {
       return en;
     } else return ru;
   };
 
+  useEffect(() => {
+    const arrPathname = pathName.split('/');
+    localStorage.setItem('language', arrPathname[1]);
+    setfirst(true);
+  }, []);
+
   return (
-    <div className={cnApp()}>
-      <ParallaxProvider>
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route
-              path="/aviationTrainingCenter"
-              element={
-                <AviationTrainingCenterPage
-                  data={getData(pickDataAviation, pickDataAviationEng)}
+    <>
+      {first ? (
+        <div className={cnApp()}>
+          <ParallaxProvider>
+            <BrowserRouter>
+              <ScrollToTop />
+              <Routes>
+                <Route // @ts-ignore
+                  exact={true}
+                  path={'/' + getData('ru', 'en')}
+                  element={<MainPage />}
                 />
-              }
-            />
-            <Route
-              path="/vacation"
-              element={
-                <VacationPage
-                  data={getData(pickDataVacation, pickDataVacationEng)}
+                <Route
+                  path={`/${getData('ru', 'en')}/aviationTrainingCenter`}
+                  element={
+                    <AviationTrainingCenterPage
+                      data={getData(pickDataAviation, pickDataAviationEng)}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/disruptiveSituations"
-              element={
-                <DisruptiveSituationsPage
-                  data={getData(pickDataSituations, pickDataSituationsEng)}
+                <Route
+                  path={`/${getData('ru', 'en')}/vacation`}
+                  element={
+                    <VacationPage
+                      data={getData(pickDataVacation, pickDataVacationEng)}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/groundHandling"
-              element={
-                <GroundHandlingPage
-                  data={getData(
-                    pickDataGroundHandling,
-                    pickDataGroundHandlingEng
-                  )}
+                <Route
+                  path={`/${getData('ru', 'en')}/disruptiveSituations`}
+                  element={
+                    <DisruptiveSituationsPage
+                      data={getData(pickDataSituations, pickDataSituationsEng)}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/parking"
-              element={
-                <ParkingPage
-                  data={getData(pickDataParking, pickDataParkingEng)}
+                <Route
+                  path={`/${getData('ru', 'en')}/groundHandling`}
+                  element={
+                    <GroundHandlingPage
+                      data={getData(
+                        pickDataGroundHandling,
+                        pickDataGroundHandlingEng
+                      )}
+                    />
+                  }
                 />
-              }
-            />
-            <Route
-              path="/food"
-              element={<FoodPage data={getData(foodData, foodDataEng)} />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </ParallaxProvider>
-    </div>
+                <Route
+                  path={`/${getData('ru', 'en')}/parking`}
+                  element={
+                    <ParkingPage
+                      data={getData(pickDataParking, pickDataParkingEng)}
+                    />
+                  }
+                />
+                <Route
+                  path={`/${getData('ru', 'en')}/food`}
+                  element={<FoodPage data={getData(foodData, foodDataEng)} />}
+                />
+                <Route path="*" element={<Redirect />} />
+              </Routes>
+            </BrowserRouter>
+          </ParallaxProvider>
+        </div>
+      ) : null}
+    </>
   );
 };

@@ -100,7 +100,10 @@ const ProjectObject: React.FC<Project & any> = ({ card }) => {
   };
 
   return (
-    <Link to={card.url} style={{ textDecoration: 'none', color: '#424D5E' }}>
+    <Link
+      to={`/${localStorage.getItem('language')}${card.url}`}
+      style={{ textDecoration: 'none', color: '#424D5E' }}
+    >
       <div
         key={card._id}
         className={cnProjects(`container _anim-items`)}

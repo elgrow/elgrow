@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import { HashLink } from 'react-router-hash-link';
 
 interface LinkRedirectProps {
-  title: string;
+  title: any;
   path: string;
   closeBurger?: any;
   linkTo: string;
@@ -19,11 +19,15 @@ const LinkRedirectScroll: React.FC<LinkRedirectProps> = ({
   offset,
   scrollWithOffsetAfterRedirect,
 }) => {
-  const redirect = (str: string) => `/#${str}`;
+  const redirect = (str: string) =>
+    `/${localStorage.getItem('language')}/#${str}`;
 
   return (
     <>
-      {path !== '/' ? (
+      {path !== '/ru/' &&
+      path !== '/ru' &&
+      path !== '/en/' &&
+      path !== '/en' ? (
         <HashLink
           to={redirect(linkTo)}
           scroll={(linkTo: any) =>
