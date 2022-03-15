@@ -47,4 +47,12 @@ export const pickProjectsEng = [
     task: 'Automated vacation planning system',
     url: '/vacation',
   },
+  {
+    _id: 6,
+    img: food,
+    text: 'Service for ordering food at the workplace',
+    development: 'ux/ui design, frontend, backend',
+    task: 'Delivery of meals to employees',
+    url: '/food',
+  },
 ];

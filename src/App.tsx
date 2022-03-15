@@ -19,11 +19,11 @@ import { pickDataGroundHandling } from './pages/GroundHandlingPage/GroundHandlin
 import { pickDataGroundHandlingEng } from './pages/GroundHandlingPage/GroundHandlingEng.const';
 import { pickDataParking } from './pages/ParkingPage/Parking.const';
 import { pickDataParkingEng } from './pages/ParkingPage/ParkingEng.const';
-
-import './App.scss';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import { FoodPage } from './pages/FoodPage/FoodPage';
 import { foodData } from './pages/FoodPage/FoodPage.const';
+import { foodDataEng } from './pages/FoodPage/FoodPageEng.const';
+import './App.scss';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const cnApp = cn('App');
 
@@ -85,7 +85,10 @@ export const App = () => {
                 />
               }
             />
-            <Route path="/food" element={<FoodPage data={foodData} />} />
+            <Route
+              path="/food"
+              element={<FoodPage data={getData(foodData, foodDataEng)} />}
+            />
           </Routes>
         </BrowserRouter>
       </ParallaxProvider>

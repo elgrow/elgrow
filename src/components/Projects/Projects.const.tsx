@@ -47,14 +47,14 @@ export const pickProjects = [
     task: 'Отпуска',
     url: '/vacation',
   },
-  // {
-  //   _id: 6,
-  //   img: food,
-  //   text: 'Сервис для заказа еды на рабочее место',
-  //   development: 'ux/ui design, frontend, backend',
-  //   task: 'Доставка питания сотрудникам',
-  //   url: '/food',
-  // },
+  {
+    _id: 6,
+    img: food,
+    text: 'Сервис для заказа еды на рабочее место',
+    development: 'ux/ui design, frontend, backend',
+    task: 'Доставка питания сотрудникам',
+    url: '/food',
+  },
   // {
   //   _id: 7,
   //   img: MRO,

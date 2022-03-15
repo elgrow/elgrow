@@ -10,6 +10,18 @@
     margin-top: 30px;
     display: flex;
   }
+
+  &-wrapper-image-black {
+    display: flex;
+    justify-content: space-around;
+    img {
+      width: 1320;
+      height: 700;
+    }
+    margin-top: 30px;
+    display: flex;
+  }
+
   &-wrapper-image-docs {
     height: 55%;
     width: 1440px;
@@ -112,7 +124,6 @@
         margin-top: 150px;
         padding-bottom: 300px;
         max-width: 1320px;
-        border-bottom: 4px solid #424d5e;
         margin-bottom: 150px;
       }
     }
@@ -143,7 +154,7 @@
         &-documents {
           margin-top: 60px;
           line-height: 32px;
-          width: 35%;
+          width: 36%;
           margin-right: 10%;
         }
         &-orders2 {
@@ -251,8 +262,8 @@
     }
     &-foodSupplierFilter {
       position: absolute;
-      top: -170px;
-      left: 110px;
+      top: -400px;
+      left: 70px;
     }
     &-foodSupplierContext {
       position: absolute;
@@ -394,6 +405,13 @@
       margin-top: 30px;
       display: flex;
     }
+    &-wrapper-image-black {
+      img {
+        width: 672px;
+        height: 356px;
+      }
+    }
+
     &-wrapper-image-docs {
       height: 28%;
       width: 768px;
@@ -469,9 +487,9 @@
           border-bottom: none;
         }
         &-10 {
-          height: 2000px;
-          margin-top: 150px;
-          padding-bottom: 300px;
+          height: 1550px;
+          margin-top: 50px;
+          padding-bottom: 100px;
           max-width: 1320px;
           border-bottom: 4px solid #424d5e;
         }
@@ -484,10 +502,10 @@
           margin-bottom: 150px;
         }
         &-12 {
-          height: 3700px;
+          height: 3000px;
           margin-top: 150px;
           padding-bottom: 300px;
-          max-width: 1320px;
+          max-width: 768px;
           border-bottom: 4px solid #424d5e;
           margin-bottom: 150px;
         }
@@ -496,7 +514,6 @@
           margin-top: 150px;
           padding-bottom: 300px;
           max-width: 1320px;
-          border-bottom: 4px solid #424d5e;
           margin-bottom: 150px;
         }
       }
@@ -547,7 +564,7 @@
           &-admin {
             margin-left: 15%;
             line-height: 32px;
-            width: 50%;
+            width: 42%;
           }
           &-admin2 {
             margin-left: 56%;
@@ -631,36 +648,58 @@
         left: 550px;
       }
       &-courier {
+        img {
+          width: 204px;
+          height: 339px;
+        }
         position: absolute;
-        top: -400px;
-        left: -20px;
+        top: -500px;
+        left: 10px;
       }
       &-courier2 {
+        img {
+          width: 204px;
+          height: 339px;
+        }
         position: absolute;
-        top: -200px;
-        left: 220px;
+        top: -300px;
+        left: 70px;
       }
       &-table {
+        img {
+          width: 450px;
+          height: 165px;
+        }
         position: absolute;
         top: -190px;
-        left: -710px;
+        left: -450px;
       }
       &-createAppeal {
+        img {
+          width: 400px;
+          height: 200px;
+        }
         position: absolute;
         top: -190px;
-        left: -710px;
+        left: -410px;
       }
       &-addDocument {
+        img {
+          width: 335px;
+          height: 440px;
+        }
         position: absolute;
         top: 30px;
-        left: -100px;
+        left: -130px;
       }
       &-checkboxes {
+        display: none;
         position: absolute;
         top: 540px;
         left: -80px;
       }
       &-foodSupplierFilter {
+        display: none;
         position: absolute;
         top: -170px;
         left: 110px;
@@ -718,47 +757,71 @@
         left: 60px;
       }
       &-admin {
+        img {
+          width: 388px;
+          height: 242px;
+        }
         position: absolute;
-        top: 60px;
-        left: 50px;
+        top: 45px;
+        left: -60px;
       }
       &-login {
+        img {
+          width: 112px;
+          height: 135px;
+        }
         position: absolute;
-        top: 110px;
-        left: 290px;
+        top: 65px;
+        left: -120px;
       }
       &-orderTable {
+        img {
+          width: 437px;
+          height: 273px;
+        }
         position: absolute;
-        top: 210px;
-        left: 570px;
+        top: 100px;
+        left: -200px;
       }
       &-filterList {
+        img {
+          width: 157px;
+          height: 197px;
+        }
         position: absolute;
-        top: -120px;
-        left: 1060px;
+        top: -50px;
+        left: -130px;
       }
       &-foodSupplier {
+        img {
+          width: 482px;
+          height: 301px;
+        }
         position: absolute;
         top: 10px;
-        left: 300px;
+        left: -20px;
       }
       &-editDish {
+        img {
+          width: 294px;
+          height: 222px;
+        }
         position: absolute;
-        top: 240px;
-        left: 870px;
+        top: 120px;
+        left: -100px;
       }
     }
     &-background-orders-black {
       position: relative;
       margin: 0 auto;
       width: 768px;
-      height: 1342px;
+      height: 823px;
     }
     &-background-admin-black {
       position: relative;
       margin: 0 auto;
       width: 768px;
-      height: 640px;
+      height: 341px;
     }
 
     &-phone-screens {
@@ -796,198 +859,471 @@
 }
 
 @media screen and (max-width: 480px) {
-  .GroundHandling {
+  .Food {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    color: #424d5e;
+
+    &-wrapper-image {
+      overflow: auto;
+      display: flex;
+      justify-content: space-around;
+      img {
+        width: 204px;
+        height: 339px;
+      }
+      margin-top: 30px;
+      display: flex;
+    }
+    &-wrapper-image-black {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+
+    &-wrapper-image-docs {
+      height: max-content;
+      width: 480px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
     &-menu-back {
-      height: 54px;
+      position: fixed;
+      z-index: 10;
+      width: 100%;
+      height: 80px;
+      background-color: #fff;
+    }
+
+    &-white {
+      background-color: #eef0f2;
+      width: 100%;
+    }
+
+    &-black {
+      background-color: #1e2837;
+      width: 100%;
+    }
+
+    &-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     &-section {
+      width: 100%;
+
       &-flex {
-        grid-template-columns: 1fr;
-        margin: 32px 16px 48px;
-        padding-bottom: 48px;
+        display: flex;
+        flex-direction: column;
+        flex: wrap;
+        width: 95%;
+        padding-bottom: 150px;
+        margin: 5% 3% 0px;
+        border-bottom: 4px solid #424d5e;
 
         &-1 {
-          margin-top: 48px;
-          padding-bottom: 96px;
+          margin-top: 150px;
+          padding-bottom: 100px;
+        }
+
+        &-3 {
+          margin-bottom: 0;
         }
 
         &-4 {
-          padding-bottom: 0;
-          margin-bottom: 32px;
+          border-bottom: none;
+          margin-bottom: 0px;
+          padding-bottom: 60px;
         }
 
         &-5 {
-          padding-bottom: 0;
-          margin-bottom: 32px;
+          border-bottom: none;
+          margin-top: 160px;
+          margin-bottom: 0px;
+          padding-bottom: 0px;
         }
 
         &-6 {
-          margin-top: 0px;
-          margin-bottom: 0px;
-          padding-bottom: 0;
+          border-bottom: none;
+          margin-bottom: 0;
+          padding-bottom: 0px;
         }
 
         &-7 {
-          margin-top: 12px;
+          border-bottom: none;
+        }
+        &-10 {
+          width: 95%;
+          height: 1300px;
+          margin: 5% 3% 0px;
+          padding-bottom: 100px;
+          border-bottom: 4px solid #424d5e;
+        }
+        &-11 {
+          width: 95%;
+          height: 1390px;
+          margin-top: 50px;
+          padding-bottom: 300px;
+          border-bottom: 4px solid #424d5e;
+          margin-bottom: 150px;
+        }
+        &-12 {
+          width: 95%;
+          height: 3000px;
+          margin-top: 150px;
+          padding-bottom: 300px;
+          max-width: 768px;
+          border-bottom: 4px solid #424d5e;
+          margin-bottom: 150px;
+        }
+        &-13 {
+          width: 95%;
+          height: 1700px;
+          margin-top: 150px;
+          padding-bottom: 300px;
+          max-width: 1320px;
+          margin-bottom: 150px;
         }
       }
 
       &-block {
-        row-gap: 24px;
+        margin-top: 30px;
+        padding-left: 1%;
+        display: grid;
+        row-gap: 40px;
+        width: 100%;
 
         &-left {
-          margin-bottom: 24px;
+          padding: 3%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          position: relative;
+          width: 100%;
+        }
+        &-wrapper {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          height: 100px;
 
-          &-5 {
-            display: none;
+          &-orders {
+            padding: 0 3% 0 3%;
+            margin-top: 20px;
+            line-height: 32px;
+            width: 100%;
+          }
+          &-documents {
+            margin-top: 60px;
+            line-height: 32px;
+            width: 77%;
+            margin: 0 0 0 3%;
+          }
+          &-orders2 {
+            padding: 0 3% 0 3%;
+            color: white;
+            margin-top: 60px;
+            line-height: 32px;
+            width: 63%;
+          }
+          &-courier {
+            margin-top: 30px;
+            margin-left: 1px;
+            line-height: 32px;
+            width: 90%;
+          }
+          &-admin {
+            margin-top: 30px;
+            margin-left: 0;
+            line-height: 32px;
+            width: 100%;
+          }
+          &-admin2 {
+            margin-left: 0;
+            line-height: 32px;
+            width: 100%;
+          }
+          &-foodSupplier {
+            margin-left: 56%;
+            line-height: 32px;
+            width: 100%;
           }
         }
+      }
 
-        &-4,
-        &-6 {
-          width: 100%;
-          margin: 0;
+      &:nth-child(4) {
+        div {
+          border-bottom: none;
         }
       }
-
-      &-4 {
-        margin-bottom: 0;
-      }
-    }
-
-    &-border-icon {
-      margin-left: 62px;
-    }
-
-    &-icon {
-      width: 24px;
     }
 
     &-background-white {
-      width: 320px;
-      height: 212px;
-      padding: 21px 0 0 66px;
-
-      img {
-        width: 100%;
-      }
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      height: 480px;
+      padding: 70px 5% 0 5%;
 
       &-tasks {
-        top: -108px;
-        left: -46px;
-
+        display: none;
+        position: absolute;
+        top: -330px;
+        left: -10px;
         img {
-          width: 85px;
-          height: 141px;
+          width: 172px;
+          height: 286px;
+        }
+      }
+      &-tasks2 {
+        display: none;
+        position: absolute;
+        top: -240px;
+        left: -100px;
+        img {
+          width: 172px;
+          height: 286px;
+        }
+      }
+      &-vacation {
+        display: none;
+      }
+      &-agreement {
+        img {
+          width: 203px;
+          height: 339px;
+        }
+        position: static;
+      }
+      &-feedback {
+        margin-top: 40px;
+        img {
+          width: 203px;
+          height: 339px;
+        }
+        position: static;
+      }
+      &-feedbackLetter {
+        img {
+          width: 203px;
+          height: 339px;
+        }
+        position: absolute;
+        top: 30px;
+        left: 550px;
+      }
+      &-courier {
+        img {
+          width: 204px;
+          height: 339px;
+        }
+        position: static;
+        top: -500px;
+        left: 10px;
+      }
+      &-courier2 {
+        img {
+          width: 204px;
+          height: 339px;
+        }
+        position: static;
+        top: -300px;
+        left: 70px;
+      }
+      &-table {
+        img {
+          width: 450px;
+          height: 165px;
+        }
+        position: absolute;
+        top: -190px;
+        left: -450px;
+      }
+      &-createAppeal {
+        img {
+          width: 400px;
+          height: 200px;
+        }
+        position: absolute;
+        top: -190px;
+        left: -410px;
+      }
+      &-addDocument {
+        img {
+          width: 335px;
+          height: 440px;
+        }
+        position: static;
+        top: 30px;
+        left: -130px;
+      }
+      &-checkboxes {
+        display: none;
+        position: absolute;
+        top: 540px;
+        left: -80px;
+      }
+      &-foodSupplierFilter {
+        display: none;
+        position: absolute;
+        top: -170px;
+        left: 110px;
+      }
+      &-foodSupplierContext {
+        position: absolute;
+        top: 650px;
+        left: 900px;
+      }
+      &-heating {
+        width: 100%;
+        img {
+          width: 100%;
         }
       }
     }
 
     &-background-black {
-      width: 320px;
-      max-width: 320px;
-      height: 320px;
+      position: relative;
+      margin: 0 auto;
+      width: 480px;
+      height: 640px;
 
       &-create-request {
-        position: absolute;
-        right: 14px;
-        img {
-          width: 346px;
-          height: 278px;
-        }
-      }
-
-      &-history {
-        display: none;
-      }
-
-      &-history2 {
-        display: block;
         opacity: 0.8;
       }
 
+      &-history2 {
+        display: none;
+      }
+
       &-subscribe {
-        top: 152px;
-        left: 143px;
+        position: absolute;
+        top: -370px;
+        left: 913px;
       }
 
       &-dispatcher-canceled {
-        top: 250px;
-        left: 143px;
+        position: absolute;
+        top: -140px;
+        left: 935px;
       }
 
       &-dispatcher-changed {
-        top: 299px;
-        left: 44px;
+        position: absolute;
+        top: -40px;
+        left: 750px;
       }
 
       &-cancel {
-        top: -120px;
-        left: 83px;
-
-        img {
-          width: 206px;
-          height: 129px;
-        }
+        position: absolute;
+        top: -280px;
+        left: 60px;
       }
+      &-admin {
+        img {
+          width: 388px;
+          height: 242px;
+        }
+        position: absolute;
+        top: 1px;
+        left: -100px;
+      }
+      &-login {
+        img {
+          width: 112px;
+          height: 135px;
+        }
+        position: absolute;
+        top: 20px;
+        left: 30px;
+      }
+      &-orderTable {
+        img {
+          width: 437px;
+          height: 273px;
+        }
+        position: absolute;
+        top: 140px;
+        left: -60px;
+      }
+      &-filterList {
+        img {
+          width: 157px;
+          height: 197px;
+        }
+        position: absolute;
+        top: -50px;
+        left: 200px;
+      }
+      &-foodSupplier {
+        img {
+          width: 482px;
+          height: 301px;
+        }
+        position: absolute;
+        top: 10px;
+        left: 50px;
+      }
+      &-editDish {
+        img {
+          width: 294px;
+          height: 222px;
+        }
+        position: absolute;
+        top: 120px;
+        left: 30px;
+      }
+    }
+    &-background-orders-black {
+      position: relative;
+      margin: 0 auto;
+      width: 480px;
+      height: 950px;
+    }
+    &-background-admin-black {
+      position: relative;
+      margin: 0 auto;
+      width: 480px;
+      height: 341px;
     }
 
     &-phone-screens {
-      display: none;
-    }
-
-    &-320phone-screens {
-      display: block;
       position: relative;
-      height: 400px;
+      margin: 0 auto;
+      display: flex;
+      column-gap: 50px;
+      width: 480px;
+      height: 1568px;
 
-      &-5 {
-        height: 310px;
+      &-block-1,
+      &-block-2,
+      &-block-3,
+      &-block-4 {
+        position: relative;
+        left: -290px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
       }
 
-      &-tasks {
-        position: absolute;
-        z-index: 2;
-        top: 76px;
-        img {
-          width: 210px;
-        }
+      &-block-1 {
+        top: -533px;
       }
 
-      &-create {
-        position: absolute;
-        left: 138px;
-        img {
-          width: 210px;
-        }
+      &-block-2 {
+        top: -200px;
       }
 
-      &-processing {
-        position: absolute;
-        left: 118px;
-        top: 25px;
-        z-index: 2;
-        img {
-          width: 163px;
-        }
-      }
-
-      &-atWork {
-        position: absolute;
-        z-index: 2;
-        img {
-          width: 163px;
-        }
-      }
-    }
-
-    &-phone-wrapper {
-      left: 0px;
-      column-gap: 20px;
-
-      img {
-        width: 133px;
+      &-block-3 {
+        top: 160px;
       }
     }
   }

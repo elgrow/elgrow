@@ -188,4 +188,9 @@ export const foodData = [
     img2: foodSupplierFilter,
     img3: foodSupplierContext,
   },
+  {
+    id: 12,
+    title: 'Сбойные ситуации и задержки рейсов',
+    url: '/disruptiveSituations',
+  },
 ];

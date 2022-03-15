@@ -14,8 +14,6 @@ import { DataProjectProps } from '../../components/type';
 
 import './GroundHandlingPage.scss';
 
-const cnGroundHandling = cn('GroundHandling');
-
 export const GroundHandlingPage: FC<DataProjectProps> = ({ data }) => {
   const cnGroundHandling = cn('GroundHandling');
   const animOnScroll = (animItems: any) => {

@@ -1,5 +1,5 @@
 import { cn } from '@bem-react/classname';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 
 import { Menu } from '../../components/Menu/Menu';
@@ -17,6 +17,45 @@ import { TitleH4White } from './../../components/TitleH4White/TitleH4White';
 
 export const FoodPage: FC<DataProjectProps> = ({ data }) => {
   const cnFood = cn('Food');
+
+  const animOnScroll = (animItems: any) => {
+    for (let index = 0; index < animItems.length; index++) {
+      const animItem: any = animItems[index];
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+      if (
+        window.scrollY > animItemOffset - animItemPoint &&
+        window.scrollY < animItemOffset + animItemHeight
+      ) {
+        animItem.classList.add('_active');
+      } else {
+        if (!animItem.classList.contains('_anim_no_hide')) {
+          animItem.classList.remove('_active');
+        }
+      }
+    }
+    function offset(el: any) {
+      const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+  };
+
+  useEffect(() => {
+    const animItems = document.querySelectorAll('._anim-items');
+    if (animItems.length > 0) {
+      window.addEventListener('scroll', () => animOnScroll(animItems));
+      animOnScroll(animItems);
+    }
+  }, []);
+
   return (
     <div className={cnFood()}>
       <div className={cnFood('menu-back')}>
@@ -130,7 +169,7 @@ export const FoodPage: FC<DataProjectProps> = ({ data }) => {
                   <img src={data[4].img} alt="tasks" />
                 </div>
               </Parallax>
-              <Parallax speed={-6}>
+              <Parallax speed={-1}>
                 <div className={cnFood('background-white-feedback')}>
                   <img src={data[4].img2} alt="tasks" />
                 </div>
@@ -145,7 +184,10 @@ export const FoodPage: FC<DataProjectProps> = ({ data }) => {
               <div className={cnFood('section-block-wrapper-documents')}>
                 <TitleH4 title={data[5].title} />
               </div>
-              <div className={cnFood('section-block-wrapper-documents')}>
+              <div
+                style={{ marginTop: '30px' }}
+                className={cnFood('section-block-wrapper-documents')}
+              >
                 <ProjectTextMedium text={data[5].textMedium} />
                 <br />
                 <ProjectTextMedium text={data[5].textMedium2} />
@@ -181,28 +223,26 @@ export const FoodPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnFood('black')}>
           <div className={cnFood('background-admin-black')}>
-            <div className={cnFood('wrapper-image')}>
-              <Parallax speed={-6}>
-                <div className={cnFood('background-black-admin')}>
-                  <img src={data[7].img} alt="order" />
-                </div>
-              </Parallax>
-              <Parallax speed={-6}>
-                <div className={cnFood('background-black-login')}>
-                  <img src={data[7].img2} alt="order" />
-                </div>
-              </Parallax>
-              <Parallax speed={-6}>
-                <div className={cnFood('background-black-orderTable')}>
-                  <img src={data[7].img3} alt="order" />
-                </div>
-              </Parallax>
-              <Parallax speed={-6}>
-                <div className={cnFood('background-black-filterList')}>
-                  <img src={data[7].img4} alt="order" />
-                </div>
-              </Parallax>
-            </div>
+            <Parallax speed={-1}>
+              <div className={cnFood('background-black-admin')}>
+                <img src={data[7].img} alt="order" />
+              </div>
+            </Parallax>
+            <Parallax speed={-6}>
+              <div className={cnFood('background-black-login')}>
+                <img src={data[7].img2} alt="order" />
+              </div>
+            </Parallax>
+            <Parallax speed={-6}>
+              <div className={cnFood('background-black-orderTable')}>
+                <img src={data[7].img3} alt="order" />
+              </div>
+            </Parallax>
+            <Parallax speed={-6}>
+              <div className={cnFood('background-black-filterList')}>
+                <img src={data[7].img4} alt="order" />
+              </div>
+            </Parallax>
           </div>
         </div>
         <div className={cnFood('center')}>
@@ -231,7 +271,7 @@ export const FoodPage: FC<DataProjectProps> = ({ data }) => {
             </div>
             <div
               style={{ marginTop: '80px' }}
-              className={cnFood('wrapper-image')}
+              className={cnFood('wrapper-image-black')}
             >
               <img src={data[7].img6} alt="order" />
             </div>
@@ -273,18 +313,16 @@ export const FoodPage: FC<DataProjectProps> = ({ data }) => {
         </div>
         <div className={cnFood('black')}>
           <div className={cnFood('background-admin-black')}>
-            <div className={cnFood('wrapper-image')}>
-              <Parallax speed={-6}>
-                <div className={cnFood('background-black-foodSupplier')}>
-                  <img src={data[9].img} alt="order" />
-                </div>
-              </Parallax>
-              <Parallax speed={-6}>
-                <div className={cnFood('background-black-editDish')}>
-                  <img src={data[9].img2} alt="order" />
-                </div>
-              </Parallax>
-            </div>
+            <Parallax speed={-1}>
+              <div className={cnFood('background-black-foodSupplier')}>
+                <img src={data[9].img} alt="order" />
+              </div>
+            </Parallax>
+            <Parallax speed={-6}>
+              <div className={cnFood('background-black-editDish')}>
+                <img src={data[9].img2} alt="order" />
+              </div>
+            </Parallax>
           </div>
         </div>
         <div className={cnFood('center')}>
@@ -316,7 +354,7 @@ export const FoodPage: FC<DataProjectProps> = ({ data }) => {
             </Parallax>
             <div
               style={{ marginTop: '80px' }}
-              className={cnFood('wrapper-image')}
+              className={cnFood('wrapper-image-black')}
             >
               <img src={data[10].img} alt="order" />
             </div>
@@ -335,7 +373,11 @@ export const FoodPage: FC<DataProjectProps> = ({ data }) => {
           </div>
         </div>
       </section>
-      <ProjectFooter title={data[6].title} id={data[6].id} url={data[6].url} />
+      <ProjectFooter
+        title={data[11].title}
+        id={data[11].id}
+        url={data[11].url}
+      />
     </div>
   );
 };
