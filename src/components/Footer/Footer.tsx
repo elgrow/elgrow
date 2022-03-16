@@ -95,7 +95,9 @@ export const Footer = () => {
           </li>
         </ul>
       </div>
-      <p className={cnFooter('copyright')}>© 2022 elgrow.</p>
+      <div className={cnFooter('wrapperCopyright')}>
+        <div className={cnFooter('copyright')}>© 2022 elgrow.</div>
+      </div>
     </footer>
   );
 };

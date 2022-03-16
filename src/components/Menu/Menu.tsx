@@ -19,6 +19,8 @@ export const Menu = () => {
   });
 
   const [langData, setLangData] = useState('');
+  const mainScreen = document.getElementById('owlFront');
+  const positionFirstScreen: any = mainScreen?.getBoundingClientRect().y;
 
   const { pathname, hash } = useLocation();
 
@@ -152,20 +154,19 @@ export const Menu = () => {
       return en;
     } else return ru;
   };
+  const hiddenLogo = () => {
+    const elgrow = document.getElementById('elgrow');
+    const width = window.innerWidth;
 
-  const getMenuLogo = () => {
-    if (hash) {
-      return false;
-    } else if (pathname.includes('en') && pathname.length === 3) {
-      return false;
-    } else if (pathname.includes('ru') && pathname.length === 3) {
-      return false;
-    } else {
-      const elgrow = document.getElementById('elgrow');
+    if (positionFirstScreen > -580) {
       elgrow?.classList.add('_hidden');
-      return true;
-    }
+    } else if (width < 481) {
+      elgrow?.classList.add('_hidden');
+    } else elgrow?.classList.remove('_hidden');
   };
+  useEffect(() => {
+    hiddenLogo();
+  }, [positionFirstScreen]);
 
   return (
     <menu className={cnMenu()}>
@@ -177,7 +178,7 @@ export const Menu = () => {
           </a>
         </div>
         <div className={`${cnMenu('menuContainer')}`}>
-          {getMenuLogo() ? (
+          <div className={`${cnMenu('elgrowLogo')}`}>
             <li id="elgrow" className={`${cnMenu('link _anim-items')}`}>
               <LinkRedirectScroll
                 title={
@@ -191,8 +192,20 @@ export const Menu = () => {
                 offset={0}
               />
             </li>
-          ) : null}
+          </div>
 
+          <div className={`${cnMenu('mainRedirect')}`}>
+            <li className={`${cnMenu('link _anim-items')}`}>
+              <LinkRedirectScroll
+                title={getTitle('Главная', 'Main')}
+                path={pathname}
+                closeBurger={closeBurger}
+                linkTo="main"
+                offset={getOffsetAfterLink(170)}
+                scrollWithOffsetAfterRedirect={scrollWithOffsetAfterRedirect}
+              />
+            </li>
+          </div>
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
               title={getTitle('Клиенты', 'Clients')}
@@ -223,14 +236,9 @@ export const Menu = () => {
               scrollWithOffsetAfterRedirect={scrollWithOffsetAfterRedirect}
             />
           </li>
-          <li className={`${cnMenu('link _anim-items')}`}>
-            <div className={`${cnMenu('select')}`}>
-              <li onClick={changeURLLanguage} id="standard-select">
-                {langData}
-              </li>
-              <span className={`${cnMenu('focus')}`}></span>
-            </div>
-          </li>
+          {/* <li className={`${cnMenu('link _anim-items')}`}> */}
+
+          {/* </li> */}
         </div>
 
         <div className={`${cnMenu('contactsContainer')}`}>
@@ -259,12 +267,18 @@ export const Menu = () => {
                 {getTitle('Связаться в Telegram', 'Contact in Telegram')}
               </a>
             </button>
-          </div>{' '}
+          </div>
         </div>
       </ul>
       <div className={`${cnMenu('call')} ${cnMenu(`${displayBlock}`)}`}>
         <div className={cnMenu('call_phone')}>
           <a href="tel:+79221521563">+ 7 343 938 99 49</a>
+        </div>
+        <div className={`${cnMenu('select')}`}>
+          <li onClick={changeURLLanguage} id="standard-select">
+            {langData}
+          </li>
+          <span className={`${cnMenu('focus')}`}></span>
         </div>
       </div>
       <button

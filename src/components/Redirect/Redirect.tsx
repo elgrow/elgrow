@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 
-
 const Redirect = () => {
   useEffect(() => {
-    localStorage.setItem('language', 'en');
-    window.location.replace('/en');
+    localStorage.setItem('language', 'ru');
+    window.location.replace('/ru');
   }, []);
 
   return null;

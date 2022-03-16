@@ -142,14 +142,19 @@
     // }
   }
 
+  &-wrapperCopyright {
+    display: flex;
+    justify-content: flex-start;
+  }
+
   &-copyright {
     max-width: 1440px;
     text-align: center;
-    margin: 0 auto;
     margin-top: 282px;
     padding-bottom: 60px;
     font-size: 16px;
     line-height: 19px;
+    margin-left: 20%;
   }
 }
 
@@ -262,20 +267,12 @@
         margin-top: 9px;
       }
 
-      // &-whatsApp {
-      //   margin: 11px 0 0 46px;
-      // }
-
-      // &-viber {
-      //   margin: 8px 0 0 46px;
-      // }
-    }
-
-    &-copyright {
-      margin-top: 59px;
-      padding-bottom: 13px;
-      font-size: 12px;
-      line-height: 18px;
+      &-copyright {
+        margin-top: 59px;
+        padding-bottom: 13px;
+        font-size: 16px;
+        line-height: 18px;
+      }
     }
   }
 }

@@ -7,18 +7,30 @@
   max-width: 1320px;
   // overflow: hidden;
   margin: 0 auto;
+  margin-left: 11%;
   padding: 29px 0 0;
   color: #424d5e;
 
+  &-mainRedirect {
+    display: none;
+  }
+
   &-select {
     position: absolute;
-    left: 100%;
+    left: 85%;
+    bottom: 10%;
     list-style: none;
     cursor: pointer;
     font-size: 20px;
     li {
+      font-size: 16px;
       margin-top: 1px;
     }
+  }
+
+  &-elgrowLogo {
+    right: 140%;
+    position: absolute;
   }
 
   label {
@@ -59,12 +71,14 @@
     width: 63%;
   }
   &-menuContainer {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 342px;
   }
 
   &-list {
+    width: max-content;
     margin: 0;
     padding: 0;
   }
@@ -77,7 +91,7 @@
     cursor: pointer;
 
     a {
-      font-size: 20px;
+      font-size: 16px;
       line-height: 26px;
       color: #424d5e;
       text-decoration: none;
@@ -103,14 +117,16 @@
     transform: translateY(0);
     opacity: 1;
   }
+
+  &-link._anim-items._hidden {
+    display: none;
+  }
   &-call {
-    flex-direction: column;
     align-items: flex-end;
-    width: 132px;
+    width: 250px;
 
     &_phone,
     &_time {
-      max-width: 150px;
       max-height: 20px;
       overflow: hidden;
 
@@ -144,6 +160,21 @@
 
 @media screen and (max-width: 768px) {
   .Menu {
+    &-select {
+      position: absolute;
+      left: 65%;
+      top: 42%;
+      list-style: none;
+      cursor: pointer;
+      font-size: 20px;
+      li {
+        font-size: 16px;
+        margin-top: 1px;
+      }
+    }
+    &-menuContainer {
+      width: 270px;
+    }
     justify-content: space-between;
     a {
       font-size: 15px;
@@ -159,36 +190,46 @@
       margin-top: 1px;
       font-size: 15px;
     }
-
+    &-list {
+      width: max-content;
+    }
     max-width: 672px;
     &-logo {
       visibility: visible;
     }
 
     &-wrapper {
-      width: 400px;
+      width: 270px;
     }
   }
 }
 
 @media screen and (max-width: 480px) {
   .Menu {
+    &-mainRedirect {
+      display: block;
+    }
+
+    a {
+      font-size: 20px;
+    }
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 0px;
     height: max-content;
+    margin: 0;
 
     &-select {
-      z-index: 10;
-      list-style: none;
+      position: absolute;
       cursor: pointer;
       font-size: 20px;
-      top: 100px;
-      left: 48%;
+      top: 10px;
+      left: 70%;
       li {
-        color: white;
+        font-size: 20px;
+        color: #1e2837;
         margin-top: 1px;
       }
     }
@@ -208,8 +249,9 @@
     }
 
     &-call {
-      width: 150px;
-      padding: 16px 0 0 16px;
+      width: 300px;
+      justify-content: space-around;
+      padding: 13px 0 0 0px;
 
       &_phone {
         font-weight: 700;
@@ -220,6 +262,7 @@
     }
     &-menuContainer {
       display: flex;
+      width: 100%;
       flex-direction: column;
       justify-content: space-around;
       margin-bottom: 30%;
@@ -228,15 +271,14 @@
         text-align: center;
       }
     }
-    &-link._anim-items._hidden {
-      display: none;
-    }
+    // &-link._anim-items._hidden {
+    //   display: none;
+    // }
     &-contactsContainer {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       height: 150px;
-      margin-left: 20px;
       margin-bottom: 10%;
     }
 
@@ -293,10 +335,10 @@
       justify-content: flex-end;
       flex-direction: column;
       align-items: center;
-      width: 110%;
-      height: 844px;
+      width: 120vw;
+      height: 100vh;
       flex-grow: 3;
-      max-width: 480px;
+      max-width: 500px;
       left: -16px;
       // padding: 244px 0 147px 0;
       background-color: #1e2837;

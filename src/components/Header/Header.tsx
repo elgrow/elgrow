@@ -67,7 +67,7 @@ export const Header = () => {
 
   return (
     <header id="main" className={cnHeader()}>
-      <div className={cnHeader('owl-front')}></div>
+      <div id='owlFront' className={cnHeader('owl-front')}></div>
       <div className={cnHeader(menuColor)}></div>
       <div className={`${cnHeader('fixed')} `}>
         <Menu />

@@ -33,6 +33,7 @@ export const ProjectFooter: FC<DataProject> = ({ url, title, id }) => {
             </h3>
           </div>
         </Link>
+
         <p className={cnProjectFooter('copyright')}>© 2022 elgrow.</p>
       </div>
     </div>
