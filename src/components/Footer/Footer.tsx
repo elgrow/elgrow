@@ -64,8 +64,8 @@ export const Footer = () => {
         <ul className={cnFooter('list')}>
           <li className={cnFooter('list-mail _anim-items')}>
             <button className={`${cnFooter('list-mail-button')}`}>
-              <a href="mailto:dmitry@elgrow.ru">
-                <span>dmitry@elgrow.ru</span>
+              <a href="mailto:info@elgrow.ru">
+                <span>info@elgrow.ru</span>
               </a>
             </button>
           </li>

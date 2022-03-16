@@ -9,7 +9,6 @@ import LinkRedirectScroll from '../LinkRedirectScroll/LinkRedirectScroll';
 import './Menu.scss';
 
 export const Menu = () => {
-  const history = useNavigate();
   const ref = useRef(null);
   const cnMenu = cn('Menu');
   const [buttonState, setButtonState] = useState({
@@ -21,7 +20,7 @@ export const Menu = () => {
 
   const [langData, setLangData] = useState('');
 
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     let lang = localStorage.getItem('language');
@@ -154,13 +153,23 @@ export const Menu = () => {
     } else return ru;
   };
 
+  const getMenuLogo = () => {
+    if (hash) {
+      return false;
+    } else if (pathname.includes('en') && pathname.length === 3) {
+      return false;
+    } else if (pathname.includes('ru') && pathname.length === 3) {
+      return false;
+    } else {
+      const elgrow = document.getElementById('elgrow');
+      elgrow?.classList.add('_hidden');
+      return true;
+    }
+  };
+
   return (
     <menu className={cnMenu()}>
-      <div className={`${cnMenu('logo _anim2-items')} `}>
-        {/* <Link to="/#main">
-          e<span className={cnMenu('logo_color')}>l</span>grow.
-        </Link> */}
-      </div>
+      <div className={`${cnMenu('logo _anim2-items')} `}></div>
       <ul className={`${cnMenu(`${menuWrapper}`)} ${cnMenu('list')}`}>
         <div className={`${cnMenu('burger-logo')} `}>
           <a href="/#main">
@@ -168,19 +177,22 @@ export const Menu = () => {
           </a>
         </div>
         <div className={`${cnMenu('menuContainer')}`}>
-          <li className={`${cnMenu('link _anim-items')}`}>
-            <LinkRedirectScroll
-              title={
-                <>
-                  e<span className={cnMenu('logo_color')}>l</span>grow.
-                </>
-              }
-              path={pathname}
-              closeBurger={closeBurger}
-              linkTo="main"
-              offset={0}
-            />
-          </li>
+          {getMenuLogo() ? (
+            <li id="elgrow" className={`${cnMenu('link _anim-items')}`}>
+              <LinkRedirectScroll
+                title={
+                  <>
+                    e<span className={cnMenu('logo_color')}>l</span>grow.
+                  </>
+                }
+                path={pathname}
+                closeBurger={closeBurger}
+                linkTo="main"
+                offset={0}
+              />
+            </li>
+          ) : null}
+
           <li className={`${cnMenu('link _anim-items')}`}>
             <LinkRedirectScroll
               title={getTitle('Клиенты', 'Clients')}
@@ -234,7 +246,7 @@ export const Menu = () => {
               'burger-connect'
             )}`}
           >
-            <a href="mailto:dmitry@elgrow.ru">dmitry@elgrow.ru</a>
+            <a href="mailto:info@elgrow.ru">info@elgrow.ru</a>
           </div>
           <div
             className={`${cnMenu(`${displayNone}`)} ${cnMenu(
