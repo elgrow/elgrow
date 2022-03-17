@@ -29,6 +29,7 @@ export const Menu = () => {
     if (!lang) {
       localStorage.setItem('language', 'ru');
       setLangData('Ru');
+      window.location.reload();
     } else setLangData(lang[0].toUpperCase() + lang.slice(1));
   }, []);
 
