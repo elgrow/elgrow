@@ -18,7 +18,7 @@
   &-select {
     position: absolute;
     left: 85%;
-    bottom: 10%;
+    top: 28px;
     list-style: none;
     cursor: pointer;
     font-size: 20px;
@@ -162,8 +162,8 @@
   .Menu {
     &-select {
       position: absolute;
-      left: 65%;
-      top: 42%;
+      left: 75%;
+      top: 30px;
       list-style: none;
       cursor: pointer;
       font-size: 20px;
@@ -172,6 +172,12 @@
         margin-top: 1px;
       }
     }
+
+    &-elgrowLogo {
+      right: 130%;
+      position: absolute;
+    }
+
     &-menuContainer {
       width: 270px;
     }
@@ -180,6 +186,7 @@
       font-size: 15px;
     }
     &-call {
+      width: 150px;
       &_phone {
         a {
           font-size: 10px;
@@ -193,7 +200,7 @@
     &-list {
       width: max-content;
     }
-    max-width: 672px;
+    max-width: 631px;
     &-logo {
       visibility: visible;
     }
@@ -251,7 +258,7 @@
     &-call {
       width: 300px;
       justify-content: space-around;
-      padding: 13px 0 0 0px;
+      padding: 13px 0 0 20px;
 
       &_phone {
         font-weight: 700;
@@ -338,7 +345,7 @@
       width: 120vw;
       height: 100vh;
       flex-grow: 3;
-      max-width: 500px;
+      max-width: 414px;
       left: -16px;
       // padding: 244px 0 147px 0;
       background-color: #1e2837;
