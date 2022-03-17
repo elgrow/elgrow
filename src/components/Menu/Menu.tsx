@@ -27,7 +27,7 @@ export const Menu = () => {
   useEffect(() => {
     let lang = localStorage.getItem('language');
     if (!lang) {
-      localStorage.setItem('language', 'Ru');
+      localStorage.setItem('language', 'ru');
       setLangData('Ru');
     } else setLangData(lang[0].toUpperCase() + lang.slice(1));
   }, []);
