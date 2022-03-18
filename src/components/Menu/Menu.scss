@@ -2,12 +2,11 @@
   z-index: 3;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 1300px;
   height: 57px;
-  max-width: 1320px;
   // overflow: hidden;
   margin: 0 auto;
-  margin-left: 11%;
+  margin-left: 21%;
   padding: 29px 0 0;
   color: #424d5e;
 
@@ -17,8 +16,8 @@
 
   &-select {
     position: absolute;
-    left: 85%;
-    top: 28px;
+    left: 74%;
+    top: 32px;
     list-style: none;
     cursor: pointer;
     font-size: 20px;
@@ -127,7 +126,6 @@
 
     &_phone,
     &_time {
-      max-height: 20px;
       overflow: hidden;
 
       a {
@@ -137,9 +135,23 @@
     }
 
     &_phone {
+      width: max-content;
       margin-bottom: 8px;
       font-size: 14px;
       line-height: 22px;
+      height: 30px;
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 6px;
+        border-bottom: 1px solid black;
+        transition: width 0.3s ease-out;
+      }
+
+      &:hover:after {
+        width: 50%;
+      }
     }
 
     &_time {
@@ -157,13 +169,187 @@
     display: none;
   }
 }
+@media screen and (max-width: 1440px) {
+  .Menu {
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 57px;
+    max-width: 1320px;
+    // overflow: hidden;
+    margin: 0 auto;
+    margin-left: 11%;
+    padding: 29px 0 0;
+    color: #424d5e;
+
+    &-mainRedirect {
+      display: none;
+    }
+
+    &-select {
+      position: absolute;
+      left: 85%;
+      top: 32px;
+      list-style: none;
+      cursor: pointer;
+      font-size: 20px;
+      li {
+        font-size: 16px;
+        margin-top: 1px;
+      }
+    }
+
+    &-elgrowLogo {
+      right: 140%;
+      position: absolute;
+    }
+
+    label {
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+
+    &-logo {
+      transform: translateY(-200%);
+      transition: all 0.5s ease 0s;
+      position: relative;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 20px;
+
+      a {
+        color: #424d5e;
+        text-decoration: none;
+      }
+
+      &_color {
+        color: #3ece5d;
+      }
+    }
+
+    &-logo._active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    &-burger-logo {
+      display: none;
+    }
+
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 63%;
+    }
+    &-menuContainer {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: 342px;
+    }
+
+    &-list {
+      width: max-content;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-link {
+      transform: translateY(-200%);
+      transition: all 0.5s ease 0s;
+      position: relative;
+      list-style: none;
+      cursor: pointer;
+
+      a {
+        font-size: 16px;
+        line-height: 26px;
+        color: #424d5e;
+        text-decoration: none;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 0%;
+          border-bottom: 1px solid #424d5e;
+          transition: width 0.3s ease-out;
+        }
+
+        &:hover:after {
+          width: 50%;
+        }
+
+        &:focus:after {
+          width: 100%;
+        }
+      }
+    }
+    &-link._active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &-link._anim-items._hidden {
+      display: none;
+    }
+    &-call {
+      align-items: flex-end;
+      width: 250px;
+
+      &_phone,
+      &_time {
+        overflow: hidden;
+
+        a {
+          color: #424d5e;
+          text-decoration: none;
+        }
+      }
+
+      &_phone {
+        width: max-content;
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 22px;
+        height: 30px;
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          padding-bottom: 6px;
+          border-bottom: 1px solid black;
+          transition: width 0.3s ease-out;
+        }
+
+        &:hover:after {
+          width: 50%;
+        }
+      }
+
+      &_time {
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      &_time_none {
+        display: none;
+      }
+    }
+
+    &-display-none,
+    &-burger-button {
+      display: none;
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .Menu {
     &-select {
       position: absolute;
-      left: 75%;
-      top: 30px;
+      left: 73%;
+      top: 32px;
       list-style: none;
       cursor: pointer;
       font-size: 20px;
@@ -264,6 +450,18 @@
         font-weight: 700;
         a {
           color: #1e2837;
+        }
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          padding-bottom: 1px;
+          border-bottom: 1px solid black;
+          transition: width 0.3s ease-out;
+        }
+
+        &:hover:after {
+          width: 50%;
         }
       }
     }

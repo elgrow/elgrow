@@ -26,6 +26,7 @@
   }
 
   &-container {
+    padding-left: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: baseline;
@@ -154,7 +155,170 @@
     padding-bottom: 60px;
     font-size: 16px;
     line-height: 19px;
-    margin-left: 20%;
+    margin-left: 12%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .Footer {
+    margin-top: 300px;
+    padding: 0 60px;
+    background-image: linear-gradient(
+        to top,
+        rgba(30, 40, 55, 0.9),
+        rgba(30, 40, 55, 0.9)
+      ),
+      url(../../assets/images/map.png);
+
+    color: #fff;
+
+    &-title {
+      transform: translate(-120%, 0px);
+      transition: all 0.5s ease 0s;
+      margin: 0 auto;
+      max-width: 1440px;
+      margin-bottom: 140px;
+      padding-top: 100px;
+      font-size: 160px;
+      line-height: 160px;
+      font-weight: 400;
+    }
+    &-title._active {
+      transform: translate(0, 0px);
+    }
+
+    &-container {
+      padding-left: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: baseline;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    &-list {
+      margin: 0 80px 0 0;
+      padding: 0;
+      list-style: none;
+
+      &-mail {
+        transform: translate(-500%, 0px);
+        transition: all 0.5s ease 0s;
+      }
+      &-mail._active {
+        transform: translate(0, 0px);
+      }
+      &-phone {
+        transform: translate(-500%, 0px);
+        transition: all 0.8s ease 0s;
+      }
+      &-phone._active {
+        transform: translate(0, 0px);
+      }
+
+      &-telegram {
+        transform: translate(500%, 0px);
+        transition: all 0.5s ease 0s;
+      }
+      &-telegram._active {
+        transform: translate(0, 0px);
+      }
+
+      &-mail,
+      &-telegram {
+        &-button {
+          padding: 0;
+          font-size: 30px;
+          line-height: 36px;
+
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+
+          span {
+            display: inline-block;
+
+            &::after {
+              content: '';
+              display: block;
+              width: 100%;
+              padding-bottom: 6px;
+              border-bottom: 1px solid #bdc6d5;
+              transition: width 0.3s ease-out;
+            }
+
+            &:hover:after {
+              width: 50%;
+            }
+          }
+
+          img {
+            width: 36px;
+            height: 36px;
+            margin-right: 20px;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      &-phone button {
+        padding: 0;
+        font-size: 20px;
+        line-height: 32px;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+
+      &-mail,
+      &-phone,
+      &-telegram {
+        & button {
+          background-color: Transparent;
+          background-repeat: no-repeat;
+          border: none;
+          cursor: pointer;
+          overflow: hidden;
+          color: #fff;
+        }
+      }
+
+      &-time {
+        margin-top: 15px;
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      &-phone {
+        margin-top: 27px;
+      }
+
+      // &-whatsApp {
+      //   margin: 19px 0 0 56px;
+      // }
+
+      // &-viber {
+      //   margin: 8px 0 0 56px;
+      // }
+    }
+
+    &-wrapperCopyright {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &-copyright {
+      max-width: 1440px;
+      text-align: center;
+      margin-top: 282px;
+      padding-bottom: 60px;
+      font-size: 16px;
+      line-height: 19px;
+      margin-left: 2%;
+    }
   }
 }
 
@@ -213,6 +377,7 @@
       padding-bottom: 29px;
       font-size: 12px;
       line-height: 18px;
+      margin-left: 4%;
     }
   }
 }
@@ -229,9 +394,9 @@
 
     &-container {
       flex-direction: column;
-      align-items: center;
       width: 100%;
-      padding-right: 35%;
+      padding: 0;
+      margin-left: 1%;
     }
 
     &-list {
