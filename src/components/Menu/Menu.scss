@@ -321,14 +321,14 @@
 
       &_phone {
         width: max-content;
-        margin-bottom: 8px;
+        margin-top: 3px;
         font-size: 14px;
         line-height: 22px;
         height: 30px;
         &::after {
           content: '';
           display: block;
-          width: 100%;
+          width: 0%;
           padding-bottom: 6px;
           border-bottom: 1px solid black;
           transition: width 0.3s ease-out;
