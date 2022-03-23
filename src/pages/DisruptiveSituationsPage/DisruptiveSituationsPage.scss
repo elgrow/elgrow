@@ -11,6 +11,7 @@
     width: 100%;
     height: 80px;
     background-color: #fff;
+    padding-left: 60px;
   }
 
   &-white {
@@ -448,7 +449,7 @@
     &-menu-back {
       height: 54px;
     }
-    
+
     &-title-wrapper {
       max-width: 499px;
       margin-top: 40px;
@@ -627,7 +628,7 @@
 
       &-delete-voucher {
         position: absolute;
-        top:113px;
+        top: 113px;
         left: -323px;
 
         img {

@@ -28,7 +28,7 @@
     &::after {
       content: '';
       display: block;
-      width: 100%;
+      width: 0%;
       padding-bottom: 6px;
       border-bottom: 1px solid black;
       transition: width 0.3s ease-out;
@@ -40,7 +40,7 @@
   }
 
   &-elgrowLogo {
-    right: 140%;
+    left: -142%;
     position: absolute;
   }
 
@@ -155,7 +155,7 @@
       &::after {
         content: '';
         display: block;
-        width: 100%;
+        width: 0%;
         padding-bottom: 6px;
         border-bottom: 1px solid black;
         transition: width 0.3s ease-out;
@@ -213,7 +213,7 @@
     }
 
     &-elgrowLogo {
-      right: 140%;
+      left: -145%;
       position: absolute;
     }
 
@@ -372,7 +372,7 @@
     }
 
     &-elgrowLogo {
-      right: 130%;
+      left: -66%;
       position: absolute;
     }
 
@@ -456,7 +456,7 @@
     &-call {
       width: 300px;
       justify-content: space-around;
-      padding: 13px 0 0 20px;
+      padding: 10px 0 0 2px;
 
       &_phone {
         font-weight: 700;

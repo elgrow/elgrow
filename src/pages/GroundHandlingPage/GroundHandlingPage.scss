@@ -12,6 +12,7 @@
     width: 100%;
     height: 80px;
     background-color: #fff;
+    padding-left: 60px;
   }
 
   &-white {
@@ -394,7 +395,7 @@
     &-menu-back {
       height: 54px;
     }
-    
+
     &-section {
       &-flex {
         grid-template-columns: 1fr;
