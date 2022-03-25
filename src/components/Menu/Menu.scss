@@ -147,8 +147,9 @@
     }
 
     &_phone {
+      margin-top: 2px;
       width: max-content;
-      margin-bottom: 8px;
+      margin-bottom: 3px;
       font-size: 14px;
       line-height: 22px;
       height: 30px;
@@ -386,6 +387,7 @@
     &-call {
       width: 150px;
       &_phone {
+        margin-top: 2px;
         a {
           font-size: 10px;
         }
@@ -565,6 +567,7 @@
     }
 
     &-burger-button {
+      margin-top: -3px;
       position: absolute;
       z-index: 2;
       top: 0;
