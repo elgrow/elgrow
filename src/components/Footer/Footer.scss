@@ -1,21 +1,44 @@
 .Footer {
-  margin-top: 300px;
-  padding: 0 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: inherit;
+
+  padding: 0 231px;
   background-image: linear-gradient(
-      to top,
-      rgba(30, 40, 55, 0.9),
-      rgba(30, 40, 55, 0.9)
-    ),
-    url(../../assets/images/map.png);
+    to top,
+    rgba(30, 40, 55, 0.9),
+    rgba(30, 40, 55, 0.9)
+  );
 
   color: #fff;
+
+  &-mapContainer {
+    height: 800px;
+    margin-top: 300px;
+  }
+
+  &-cities {
+    margin-top: 28%;
+    width: 50%;
+    :nth-child(3) {
+      &::after {
+        width: 0%;
+      }
+    }
+  }
 
   &-title {
     transform: translate(-120%, 0px);
     transition: all 0.5s ease 0s;
     margin: 0 auto;
     max-width: 1440px;
-    margin-bottom: 140px;
+    margin-bottom: 30px;
     padding-top: 100px;
     font-size: 160px;
     line-height: 160px;
@@ -26,12 +49,13 @@
   }
 
   &-container {
-    padding-left: 20px;
+    padding-left: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: baseline;
-    max-width: 1440px;
-    margin: 0 auto;
+    // align-items: baseline;
+    width: 43%;
+    margin-left: 4.5%;
   }
 
   &-list {
@@ -40,10 +64,18 @@
     list-style: none;
 
     &-mail {
+      font-size: 30px;
       transform: translate(-500%, 0px);
       transition: all 0.5s ease 0s;
     }
     &-mail._active {
+      transform: translate(0, 0px);
+    }
+    &-cityName {
+      transform: translate(-500%, 0px);
+      transition: all 0.8s ease 0s;
+    }
+    &-cityName._active {
       transform: translate(0, 0px);
     }
     &-phone {
@@ -55,6 +87,7 @@
     }
 
     &-telegram {
+      font-size: 30px;
       transform: translate(500%, 0px);
       transition: all 0.5s ease 0s;
     }
@@ -62,11 +95,19 @@
       transform: translate(0, 0px);
     }
 
+    &-contactsWrapper {
+      height: max-content;
+      margin-top: 60px;
+      li {
+        padding: 10px 0 10px 0;
+      }
+    }
+
     &-mail,
     &-telegram {
       &-button {
         padding: 0;
-        font-size: 30px;
+
         line-height: 36px;
 
         a {
@@ -102,9 +143,7 @@
 
     &-phone button {
       padding: 0;
-      font-size: 20px;
-      line-height: 32px;
-
+      font-size: 50px;
       a {
         text-decoration: none;
         color: #fff;
@@ -124,13 +163,67 @@
       }
     }
 
+    &-cityName {
+      cursor: pointer;
+      opacity: 30%;
+      &::after {
+        margin-top: 40px;
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 6px;
+        opacity: 30%;
+        border-bottom: 2px solid white;
+        transition: width 0.3s ease-out;
+      }
+
+      &-location {
+        display: none;
+        left: -50px;
+        position: absolute;
+      }
+      &-location._picked {
+        display: block;
+        left: -50px;
+        position: absolute;
+      }
+
+      &-button {
+        font-size: 30px;
+      }
+
+      &-street {
+        display: none;
+        font-size: 20px;
+      }
+      &-street._picked {
+        display: block;
+        font-size: 20px;
+      }
+    }
+    &-cityName._picked {
+      color: white;
+      opacity: 1;
+      &::after {
+        margin-top: 40px;
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 6px;
+        opacity: 30%;
+        border-bottom: 2px solid white;
+        transition: width 0.3s ease-out;
+      }
+    }
+
     &-time {
       margin-top: 15px;
       font-size: 14px;
       line-height: 22px;
     }
 
-    &-phone {
+    &-phone,
+    &-cityName {
       margin-top: 27px;
     }
 
@@ -151,33 +244,41 @@
   &-copyright {
     max-width: 1440px;
     text-align: center;
-    margin-top: 282px;
+    margin-top: 200px;
     padding-bottom: 60px;
     font-size: 16px;
     line-height: 19px;
-    margin-left: 12%;
   }
 }
 
 @media screen and (max-width: 1440px) {
   .Footer {
-    margin-top: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    bottom: 0;
     padding: 0 60px;
     background-image: linear-gradient(
-        to top,
-        rgba(30, 40, 55, 0.9),
-        rgba(30, 40, 55, 0.9)
-      ),
-      url(../../assets/images/map.png);
+      to top,
+      rgba(30, 40, 55, 0.9),
+      rgba(30, 40, 55, 0.9)
+    );
 
     color: #fff;
+
+    &-cities {
+      margin-top: 29%;
+      width: 43%;
+    }
 
     &-title {
       transform: translate(-120%, 0px);
       transition: all 0.5s ease 0s;
       margin: 0 auto;
       max-width: 1440px;
-      margin-bottom: 140px;
+      margin-bottom: 30px;
       padding-top: 100px;
       font-size: 160px;
       line-height: 160px;
@@ -193,7 +294,7 @@
       justify-content: flex-start;
       align-items: baseline;
       max-width: 1440px;
-      margin: 0 auto;
+      margin: -30px;
     }
 
     &-list {
@@ -264,8 +365,6 @@
 
       &-phone button {
         padding: 0;
-        font-size: 20px;
-        line-height: 32px;
 
         a {
           text-decoration: none;
@@ -313,25 +412,36 @@
     &-copyright {
       max-width: 1440px;
       text-align: center;
-      margin-top: 282px;
+      margin-top: 200px;
       padding-bottom: 60px;
       font-size: 16px;
       line-height: 19px;
-      margin-left: 2%;
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .Footer {
-    margin-top: 150px;
     padding: 0 39px;
 
+    &-mapContainer {
+      height: 550px;
+      margin-top: 150px;
+    }
+
     &-title {
-      margin-bottom: 65px;
+      margin-bottom: 30px;
       padding-top: 65px;
       font-size: 80px;
       line-height: 80px;
+    }
+
+    &-cities {
+      margin-top: 35%;
+    }
+
+    &-container {
+      width: 63%;
     }
 
     &-list {
@@ -351,9 +461,15 @@
         }
       }
 
+      &-cityName {
+        margin-top: 17px;
+        &-button {
+          font-size: 16px;
+        }
+      }
+
       &-phone button {
-        font-size: 16px;
-        line-height: 25px;
+        font-size: 30px;
       }
 
       &-time {
@@ -365,36 +481,50 @@
       &-phone {
         margin-top: 12px;
       }
-
-      // &-whatsApp,
-      // &-viber {
-      //   margin: 8px 0 0 48px;
-      // }
+    }
+    &-wrapperCopyright {
+      margin-top: 30px;
+      width: max-content;
+      height: 10px;
+      padding-bottom: 5%;
     }
 
     &-copyright {
-      margin-top: 125px;
+      height: 10px;
+      margin-top: inherit;
       padding-bottom: 29px;
       font-size: 12px;
       line-height: 18px;
-      margin-left: 4%;
     }
   }
 }
 
 @media screen and (max-width: 480px) {
   .Footer {
-    padding: 0 16px;
+    padding: 0 6px;
+    justify-content: space-between;
+
+    &-mapContainer {
+      height: 467px;
+      margin-top: 150px;
+    }
+
+    &-cities {
+      margin-top: 55%;
+      margin-left: 10%;
+      width: 39%;
+    }
 
     &-title {
-      margin-bottom: 56px;
+      margin: 0;
+      margin-bottom: 29px;
       font-size: 50px;
       line-height: 50px;
     }
 
     &-container {
       flex-direction: column;
-      width: 100%;
+      width: 51%;
       padding: 0;
       margin-left: 1%;
     }
@@ -402,9 +532,64 @@
     &-list {
       margin: 0 0 16px 0;
 
+      &-cityName {
+        opacity: 30%;
+        &::after {
+          margin-top: 20px;
+          content: '';
+          display: block;
+          width: 100%;
+          padding-bottom: 6px;
+          opacity: 30%;
+          border-bottom: 2px solid white;
+          transition: width 0.3s ease-out;
+        }
+
+        &-location {
+          display: none;
+          left: -50px;
+          position: absolute;
+        }
+        &-location._picked {
+          display: block;
+          left: -50px;
+          position: absolute;
+
+          width: 24px;
+          height: 24px;
+        }
+
+        &-button {
+          font-size: 18px;
+        }
+
+        &-street {
+          display: none;
+          font-size: 14px;
+        }
+        &-street._picked {
+          display: block;
+          font-size: 14px;
+        }
+      }
+      &-cityName._picked {
+        color: white;
+        opacity: 1;
+        &::after {
+          margin-top: 10px;
+          content: '';
+          display: block;
+          width: 0%;
+          padding-bottom: 6px;
+          opacity: 30%;
+          border-bottom: 2px solid white;
+          transition: width 0.3s ease-out;
+        }
+      }
+
       &-mail button,
       &-telegram button {
-        font-size: 18px;
+        font-size: 1rem;
 
         & span {
           padding-bottom: 4px;
@@ -418,7 +603,7 @@
       }
 
       &-phone button {
-        font-size: 14px;
+        font-size: 1.2rem;
         line-height: 22px;
       }
 
@@ -431,13 +616,17 @@
       &-phone {
         margin-top: 9px;
       }
-
-      &-copyright {
-        margin-top: 59px;
-        padding-bottom: 13px;
-        font-size: 16px;
-        line-height: 18px;
-      }
+    }
+    &-copyright {
+      margin-top: 47px;
+      padding-bottom: 13px;
+      font-size: 16px;
+      line-height: 18px;
     }
   }
+}
+
+.ymaps-2-1-79-map-copyrights-promo,
+.ymaps-2-1-79-copyright__link {
+  display: none;
 }
