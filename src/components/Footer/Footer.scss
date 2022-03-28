@@ -19,12 +19,12 @@
   color: #fff;
 
   &-mapContainer {
-    height: 800px;
+    height: 900px;
     margin-top: 300px;
   }
 
   &-cities {
-    margin-top: 28%;
+    margin-top: 450px;
     width: 50%;
     :nth-child(3) {
       &::after {
@@ -59,7 +59,7 @@
   }
 
   &-list {
-    margin: 0 80px 0 0;
+    margin: 46px 80px 0 0;
     padding: 0;
     list-style: none;
 
@@ -121,7 +121,7 @@
           &::after {
             content: '';
             display: block;
-            width: 100%;
+            width: 0%;
             padding-bottom: 6px;
             border-bottom: 1px solid #bdc6d5;
             transition: width 0.3s ease-out;
@@ -166,6 +166,7 @@
     &-cityName {
       cursor: pointer;
       opacity: 30%;
+
       &::after {
         margin-top: 40px;
         content: '';
@@ -177,6 +178,9 @@
         transition: width 0.3s ease-out;
       }
 
+      &:hover {
+        opacity: 1;
+      }
       &-location {
         display: none;
         left: -50px;
@@ -189,6 +193,7 @@
       }
 
       &-button {
+        margin-top: 40px;
         font-size: 30px;
       }
 
@@ -244,7 +249,7 @@
   &-copyright {
     max-width: 1440px;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 260px;
     padding-bottom: 60px;
     font-size: 16px;
     line-height: 19px;
@@ -343,7 +348,7 @@
             &::after {
               content: '';
               display: block;
-              width: 100%;
+              width: 0%;
               padding-bottom: 6px;
               border-bottom: 1px solid #bdc6d5;
               transition: width 0.3s ease-out;
@@ -412,7 +417,7 @@
     &-copyright {
       max-width: 1440px;
       text-align: center;
-      margin-top: 200px;
+      margin-top: 300px;
       padding-bottom: 60px;
       font-size: 16px;
       line-height: 19px;
@@ -430,14 +435,15 @@
     }
 
     &-title {
+      margin-left: 0;
       margin-bottom: 30px;
-      padding-top: 65px;
+      padding-top: 85px;
       font-size: 80px;
       line-height: 80px;
     }
 
     &-cities {
-      margin-top: 35%;
+      margin-top: 30%;
     }
 
     &-container {
@@ -449,8 +455,8 @@
 
       &-mail button,
       &-telegram button {
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 16px;
+        line-height: 20px;
 
         & span {
           padding-bottom: 11px;
@@ -462,9 +468,46 @@
       }
 
       &-cityName {
+        color: white;
+        opacity: 1;
+
+        &::after {
+          margin-top: 24px;
+          content: '';
+          display: block;
+          width: 100%;
+          padding-bottom: 6px;
+          opacity: 30%;
+          border-bottom: 2px solid white;
+          transition: width 0.3s ease-out;
+        }
+      }
+      &-cityName._picked {
+        color: white;
+        opacity: 1;
+        &::after {
+          margin-top: 24px;
+          content: '';
+          display: block;
+          width: 100%;
+          padding-bottom: 6px;
+          opacity: 30%;
+          border-bottom: 2px solid white;
+          transition: width 0.3s ease-out;
+        }
+      }
+
+      &-cityName {
         margin-top: 17px;
         &-button {
+          margin-top: 24px;
+          margin-bottom: 24px;
           font-size: 16px;
+        }
+        &-street._picked {
+          display: block;
+          font-size: 13px;
+          line-height: 22px;
         }
       }
 
@@ -478,15 +521,67 @@
         line-height: 18px;
       }
 
+      &-contactsWrapper {
+        height: max-content;
+        margin-top: 24px;
+        li {
+          padding: 0 0 2px 0;
+        }
+      }
+
       &-phone {
         margin-top: 12px;
       }
     }
     &-wrapperCopyright {
-      margin-top: 30px;
+      margin-top: 60px;
       width: max-content;
       height: 10px;
       padding-bottom: 5%;
+    }
+
+    &-cityName {
+      cursor: pointer;
+      opacity: 30%;
+
+      &::after {
+        margin-top: 40px;
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 6px;
+        opacity: 30%;
+        border-bottom: 2px solid white;
+        transition: width 0.3s ease-out;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+      &-location {
+        display: none;
+        left: -50px;
+        position: absolute;
+      }
+      &-location._picked {
+        display: block;
+        left: -50px;
+        position: absolute;
+      }
+
+      &-button {
+        margin-top: 40px;
+        font-size: 30px;
+      }
+
+      &-street {
+        display: none;
+        font-size: 20px;
+      }
+      &-street._picked {
+        display: block;
+        font-size: 20px;
+      }
     }
 
     &-copyright {
@@ -505,12 +600,12 @@
     justify-content: space-between;
 
     &-mapContainer {
-      height: 467px;
+      height: 480px;
       margin-top: 150px;
     }
 
     &-cities {
-      margin-top: 55%;
+      margin-top: 53%;
       margin-left: 10%;
       width: 39%;
     }
@@ -560,7 +655,8 @@
         }
 
         &-button {
-          font-size: 18px;
+          margin-top: 23px;
+          font-size: 14px;
         }
 
         &-street {
@@ -618,7 +714,7 @@
       }
     }
     &-copyright {
-      margin-top: 47px;
+      margin-top: 90px;
       padding-bottom: 13px;
       font-size: 16px;
       line-height: 18px;
