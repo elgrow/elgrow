@@ -3,10 +3,11 @@
   display: flex;
   justify-content: space-between;
   width: 1300px;
+  max-width: 1440px;
   height: 57px;
   // overflow: hidden;
   margin: 0 auto;
-  margin-left: 21%;
+  padding-right: 21%;
   padding: 29px 0 0;
   color: #424d5e;
 
@@ -15,9 +16,6 @@
   }
 
   &-select {
-    position: absolute;
-    left: 74%;
-    top: 32px;
     list-style: none;
     cursor: pointer;
     font-size: 20px;
@@ -133,8 +131,10 @@
     display: none;
   }
   &-call {
+    display: flex;
     align-items: flex-end;
-    width: 250px;
+    justify-content: space-between;
+    width: 14%;
 
     &_phone,
     &_time {
@@ -147,12 +147,10 @@
     }
 
     &_phone {
-      margin-top: 2px;
       width: max-content;
-      margin-bottom: 3px;
-      font-size: 14px;
-      line-height: 22px;
-      height: 30px;
+      font-size: 16px;
+      line-height: 20px;
+
       &::after {
         content: '';
         display: block;
@@ -192,8 +190,9 @@
     max-width: 1320px;
     // overflow: hidden;
     margin: 0 auto;
-    margin-left: 11%;
+
     padding: 29px 0 0;
+    padding-left: 11%;
     color: #424d5e;
 
     &-mainRedirect {
@@ -201,9 +200,6 @@
     }
 
     &-select {
-      position: absolute;
-      left: 85%;
-      top: 32px;
       list-style: none;
       cursor: pointer;
       font-size: 20px;
@@ -309,7 +305,6 @@
     }
     &-call {
       align-items: flex-end;
-      width: 250px;
 
       &_phone,
       &_time {
@@ -323,10 +318,10 @@
 
       &_phone {
         width: max-content;
-        margin-top: 3px;
+
         font-size: 14px;
-        line-height: 22px;
-        height: 30px;
+        line-height: 20px;
+
         &::after {
           content: '';
           display: block;
@@ -361,9 +356,6 @@
 @media screen and (max-width: 768px) {
   .Menu {
     &-select {
-      position: absolute;
-      left: 73%;
-      top: 32px;
       list-style: none;
       cursor: pointer;
       font-size: 20px;
@@ -458,7 +450,7 @@
 
     &-call {
       width: 300px;
-      justify-content: space-around;
+      justify-content: flex-start;
       padding: 10px 0 0 2px;
 
       &_phone {

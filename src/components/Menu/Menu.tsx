@@ -272,14 +272,14 @@ export const Menu = () => {
         </div>
       </ul>
       <div className={`${cnMenu('call')} ${cnMenu(`${displayBlock}`)}`}>
-        <div className={cnMenu('call_phone')}>
-          <a href="tel:+79221521563">+ 7 343 938 99 49</a>
-        </div>
         <div className={`${cnMenu('select')}`}>
           <li onClick={changeURLLanguage} id="standard-select">
             {langData}
           </li>
           <span className={`${cnMenu('focus')}`}></span>
+        </div>
+        <div className={cnMenu('call_phone')}>
+          <a href="tel:+79221521563">+ 7 343 938 99 49</a>
         </div>
       </div>
       <button
