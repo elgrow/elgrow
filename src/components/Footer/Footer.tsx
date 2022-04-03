@@ -174,14 +174,17 @@ export const Footer = () => {
                     className={`${cnFooter('list-cityName-location')}`}
                     src={locationIcon}
                   />
-                  <span>Москва</span>
+                  <span>{getTranslateTitle('Москва', 'Moscow')}</span>
                 </div>
 
                 <p
                   id="MSKStreet"
                   className={`${cnFooter('list-cityName-street')}`}
                 >
-                  ул.Складочная, д.3, стр.4, офис 103
+                  {getTranslateTitle(
+                    'ул.Складочная, д.3, стр.4, офис 103',
+                    'Skladochnaya street, 3/4, office 103'
+                  )}
                 </p>
               </div>
             </div>
@@ -196,14 +199,19 @@ export const Footer = () => {
                     className={`${cnFooter('list-cityName-location')}`}
                     src={locationIcon}
                   />
-                  <span>Санкт-Петербург</span>
+                  <span>
+                    {getTranslateTitle('Санкт-Петербург', 'St. Petersburg')}
+                  </span>
                 </div>
 
                 <p
                   id="SPBStreet"
                   className={`${cnFooter('list-cityName-street')}`}
                 >
-                  ул.Зеленогорская, д.4а, помещ.47-н, офис 6
+                  {getTranslateTitle(
+                    'ул.Зеленогорская, д.4а, помещ.47-н, офис 6',
+                    'Zelenogorskaya street, 4a, room 47-n, office 6'
+                  )}
                 </p>
               </div>
             </div>
@@ -219,13 +227,18 @@ export const Footer = () => {
                     className={`${cnFooter('list-cityName-location')}`}
                     src={locationIcon}
                   />
-                  <span>Екатеринбург</span>
+                  <span>
+                    {getTranslateTitle('Екатеринбург', 'Yekaterinburg')}
+                  </span>
                 </div>
                 <p
                   id="EKBStreet"
                   className={`${cnFooter('list-cityName-street')}`}
                 >
-                  ул.Мамина-Сибиряка, стр.145, офис 2112
+                  {getTranslateTitle(
+                    'ул.Мамина-Сибиряка, стр.145, офис 2112',
+                    'Mamin-Sibiryaka street, building 145, office 2112'
+                  )}
                 </p>
               </div>
             </div>
