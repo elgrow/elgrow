@@ -183,7 +183,7 @@ export const Footer = () => {
                 >
                   {getTranslateTitle(
                     'ул.Складочная, д.3, стр.4, офис 103',
-                    'Skladochnaya street, 3/4, office 103'
+                    '3/4 Skladochnaya street, office 103'
                   )}
                 </p>
               </div>
@@ -210,7 +210,7 @@ export const Footer = () => {
                 >
                   {getTranslateTitle(
                     'ул.Зеленогорская, д.4а, помещ.47-н, офис 6',
-                    'Zelenogorskaya street, 4a, room 47-n, office 6'
+                    '4a Zelenogorskaya street, room 47-n, office 6'
                   )}
                 </p>
               </div>
