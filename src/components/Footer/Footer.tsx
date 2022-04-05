@@ -11,6 +11,8 @@ import './Footer.scss';
 export const Footer = () => {
   const cnFooter = cn('Footer');
 
+  const [phoneNumber, setphoneNumber] = useState('+7 343 302 90 49');
+
   const citiesArr: any = document.getElementsByClassName(
     'Footer-list-cityName _anim-items _active'
   );
@@ -97,10 +99,13 @@ export const Footer = () => {
 
     if (city === 'EKB') {
       myPanTo([56.838011, 60.597474]);
+      setphoneNumber('+7 343 302 90 49');
     } else if (city === 'MSK') {
       myPanTo([55.751574, 37.573856]);
+      setphoneNumber('+7 495 109 90 49');
     } else if (city === 'SPB') {
       myPanTo([59.939099, 30.315877]);
+      setphoneNumber('+7 812 209 90 49');
     }
   };
 
@@ -126,7 +131,7 @@ export const Footer = () => {
             <ul className={cnFooter('list')}>
               <li className={cnFooter('list-phone _anim-items')}>
                 <button className={`${cnFooter('list-phone-button')}`}>
-                  <a href="tel:+79221521563">+ 7 343 938 99 49</a>
+                  <a href="tel:+79221521563">{phoneNumber}</a>
                 </button>
               </li>
               <div className={cnFooter('list-contactsWrapper')}>
@@ -139,7 +144,7 @@ export const Footer = () => {
                     />
                     <span className={`${cnFooter('list-telegram-text')}`}>
                       <a href="https://t.me/@DC6200">
-                        {getTranslateTitle('Telegram', 'Telegram')}
+                        {getTranslateTitle('Elgrow_dev', 'Elgrow_dev')}
                       </a>
                     </span>
                   </button>
@@ -165,7 +170,9 @@ export const Footer = () => {
           <div className={cnFooter('cities _anim-items')}>
             <div id="MSK" className={cnFooter('list-cityName _anim-items')}>
               <div
-                onClick={() => pickCity('MSK', 'MSKStreet', 'icon1')}
+                onClick={() => {
+                  pickCity('MSK', 'MSKStreet', 'icon1');
+                }}
                 className={`${cnFooter('list-cityName-button')}`}
               >
                 <div>
