@@ -101,7 +101,6 @@ export const Footer = () => {
 
     if (city === 'EKB') {
       myPanTo([56.838011, 60.597474]);
-
       setphoneNumber('+7 343 302 90 49');
       setTimeout(() => {
         phone?.classList.add('_active');
