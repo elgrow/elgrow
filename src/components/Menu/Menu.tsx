@@ -248,7 +248,7 @@ export const Menu = () => {
               phone: true,
             })}`}
           >
-            <a href="tel:+79221521563">+ 7 343 938 99 49</a>
+            <a href="tel:+79221521563">+7 495 109 90 49</a>
           </div>
           <div
             className={`${cnMenu(`${displayNone}`)} ${cnMenu(
@@ -279,7 +279,7 @@ export const Menu = () => {
           <span className={`${cnMenu('focus')}`}></span>
         </div>
         <div className={cnMenu('call_phone')}>
-          <a href="tel:+79221521563">+ 7 343 938 99 49</a>
+          <a href="tel:+79221521563">+7 495 109 90 49</a>
         </div>
       </div>
       <button

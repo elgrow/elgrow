@@ -11,7 +11,7 @@ import './Footer.scss';
 export const Footer = () => {
   const cnFooter = cn('Footer');
 
-  const [phoneNumber, setphoneNumber] = useState('+7 343 302 90 49');
+  const [phoneNumber, setphoneNumber] = useState('+7 495 109 90 49');
 
   const citiesArr: any = document.getElementsByClassName(
     'Footer-list-cityName _anim-items _active'
@@ -79,6 +79,7 @@ export const Footer = () => {
   const pickCity = (city: string, address: string, icon: string) => {
     const footer: any = document.getElementById('contacts');
     const buttonCity = document.getElementById(city);
+    const phone = document.getElementById('phoneNum');
     const oficeAddress = document.getElementById(address);
     const iconPicked = document.getElementById(icon);
     for (const icon of iconsLocations) {
@@ -96,16 +97,27 @@ export const Footer = () => {
     footer?.classList.remove('ekb');
     footer?.classList.remove('spb');
     footer?.classList.remove('msk');
+    phone?.classList.remove('_active');
 
     if (city === 'EKB') {
       myPanTo([56.838011, 60.597474]);
+
       setphoneNumber('+7 343 302 90 49');
+      setTimeout(() => {
+        phone?.classList.add('_active');
+      }, 500);
     } else if (city === 'MSK') {
       myPanTo([55.751574, 37.573856]);
       setphoneNumber('+7 495 109 90 49');
+      setTimeout(() => {
+        phone?.classList.add('_active');
+      }, 500);
     } else if (city === 'SPB') {
       myPanTo([59.939099, 30.315877]);
       setphoneNumber('+7 812 209 90 49');
+      setTimeout(() => {
+        phone?.classList.add('_active');
+      }, 500);
     }
   };
 
@@ -115,6 +127,12 @@ export const Footer = () => {
       return en;
     } else return ru;
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      pickCity('MSK', 'MSKStreet', 'icon1');
+    }, 0);
+  }, []);
   return (
     <YMaps>
       <div style={{ position: 'relative' }}>
@@ -129,7 +147,7 @@ export const Footer = () => {
               {getTranslateTitle('Контакты', 'Contacts')}
             </h2>
             <ul className={cnFooter('list')}>
-              <li className={cnFooter('list-phone _anim-items')}>
+              <li id="phoneNum" className={cnFooter('list-phone _anim-items')}>
                 <button className={`${cnFooter('list-phone-button')}`}>
                   <a href="tel:+79221521563">{phoneNumber}</a>
                 </button>
