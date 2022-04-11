@@ -148,7 +148,7 @@ export const Footer = () => {
             <ul className={cnFooter('list')}>
               <li id="phoneNum" className={cnFooter('list-phone _anim-items')}>
                 <button className={`${cnFooter('list-phone-button')}`}>
-                  <a href="tel:+79221521563">{phoneNumber}</a>
+                  <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
                 </button>
               </li>
               <div className={cnFooter('list-contactsWrapper')}>
