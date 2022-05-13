@@ -10,7 +10,10 @@ const cnProjectFooter = cn('ProjectFooter');
 
 export const ProjectFooter: FC<DataProject> = ({ url, title, id }) => {
   let newUrl: string;
-  !url ? (newUrl = '') : (newUrl = url);
+
+  let lang = localStorage.getItem('language');
+
+  !url ? (newUrl = '') : (newUrl = `/${lang}${url}`);
 
   const getTranslateTitle = (ru: string, en: string) => {
     let lang = localStorage.getItem('language');
